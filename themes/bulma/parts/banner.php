@@ -1,5 +1,5 @@
 <?
-    var_dump($args);
+    // var_dump($args);
     if (in_array('size', $args)){
         $customSize = esc_html($args['size']);
     }else{
