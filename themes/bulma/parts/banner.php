@@ -1,10 +1,11 @@
-<?
-    var_dump($args);
+<?php
     if (in_array('size', $args)){
         $customSize = esc_html($args['size']);
     }else{
         $customSize = 'size3';
     }
+$current_lang = pll_current_language();
+
 ?>
 <!-- Banner row -->
 <div class="blog-header py-4 mb-2">
