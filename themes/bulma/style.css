@@ -1,0 +1,60 @@
+/*
+Theme Name: bulma
+Theme URI:
+Author: Dimrak
+Author URI: github.com/dimrak
+Description:
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bulma-theme
+Tags:
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+@import url('assets/styles/nav.css');
+@import url('assets/styles/banner-words.css');
+@import url('assets/styles/banner.css');
+@import url('assets/styles/footer.css');
+@import url('assets/styles/single.css');
+@import url('assets/styles/video.css');
+@import url('assets/styles/animations.css');
+@import url('assets/styles/buttons.css');
+@import url('assets/styles/fonts.css');
+@import url('assets/styles/home.css');
+@import url('assets/styles/responsive-borders.css');
+
+
+html{
+
+}
+
+body {
+    background-color: white;
+    font-family: 'GT-walsheim', 'sans-serif';
+    font-size: 1rem;
+}
+h1,h2,h3,h4,h5,strong{
+    font-family: 'GT-walsheim-bold', 'sans-serif';
+}
+a, a:hover{
+    text-decoration: none;
+}
+
+.w-90 {
+    max-width: 82%;
+}
+
+.custom-li{
+    list-style: none;
+}
+.li-label{
+    font-size: 1.2em;
+}
+.custom-a{
+    text-decoration: none;
+    color: inherit;
+}
+#contact-widget p{
+    margin-bottom: 2px!important;
+}

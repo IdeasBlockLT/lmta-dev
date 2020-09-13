@@ -1,0 +1,7 @@
+.columncontent {
+    column-count: 2;
+    column-gap: 80px;
+    column-rule-style: solid;
+    column-rule-width: 1px;
+    column-rule-color: #dee2e6!important;
+}
