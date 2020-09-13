@@ -23,7 +23,6 @@ $args = array(
                 <small><?php the_field('date'); ?></small>
                 <h3><?= the_title(); ?></h3>
                 <p><?= the_excerpt(); ?></p>
-                <button type="button" class="btn btn-primary">Primary</button>
             </div>
             <?php endif; ?>
             <div class="col-md-4 col-4 themed-grid-col border-left">
