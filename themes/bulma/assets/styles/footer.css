@@ -3,3 +3,21 @@
     align-items: center;
     list-style: none;
 }
+.horizontal-line{
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+@media (max-width: 576px) {
+    #menus-footer{
+        display: inline-block;
+    }
+    .custom-display-footer {
+        display: initial;
+    }
+    .custom-footer{
+        display: block;
+    }
+}

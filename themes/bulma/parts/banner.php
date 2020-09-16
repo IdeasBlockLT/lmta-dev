@@ -1,9 +1,4 @@
 <?php
-    if (in_array('size', $args)){
-        $customSize = esc_html($args['size']);
-    }else{
-        $customSize = 'size3';
-    }
 $current_lang = pll_current_language();
 
 ?>
@@ -16,10 +11,10 @@ $current_lang = pll_current_language();
         <div class="col-10 text-center">
             <p class="d-inline-block align-center custom-banner <?= esc_html($args['size']) ?>">
                 <a href="<?php echo home_url(); ?>">
-                    <img style="width: 10%" class="mx-auto d-inline-block align-self-center mr-3 img-thumbnail border-0"
+                    <img id="banner-logo" style="width: 10%" class="mx-auto d-inline-block align-self-center mr-3 img-thumbnail border-0 w-50"
                          src="<?php bloginfo('stylesheet_directory') ?>/assets/images/logo.jpg" alt="">
                 </a>
-                <strong><?php bloginfo('name') ?> <small id="tv" class="text-uppercase"><?php bloginfo('description') ?></small></strong>
+                <strong class="custom-size-banner"><?php bloginfo('name') ?> <small id="tv" class="text-uppercase"><?php bloginfo('description') ?></small></strong>
             </p>
         </div>
         <div class="col d-flex justify-content-end align-items-center">

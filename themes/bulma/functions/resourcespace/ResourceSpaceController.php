@@ -5,7 +5,6 @@ include 'config.php';
 
 class ResourceSpaceController
 {
-
     private $config;
     private $resourcespace;
     private $resourcespaceUrl;

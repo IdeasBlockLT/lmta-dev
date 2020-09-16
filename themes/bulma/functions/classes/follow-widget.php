@@ -37,9 +37,11 @@ class follow_widget extends WP_Widget
         ?>
         <h3><?= $instance['title'] ?></h3>
         <div>
-            <a class="custom-a" href="<?= $instance['facebook'] ?>">Facebook | </a>
-            <a class="custom-a" href="<?= $instance['linkedin'] ?>">Linkedin | </a>
-            <a class="custom-a" href="<?= $instance['youtube'] ?>">Youtube | </a>
+            <a class="custom-a pr-2 hover-blue" href="<?= $instance['facebook'] ?>">Facebook</a>
+            <span> | </span>
+            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['linkedin'] ?>">Linkedin</a>
+            <span> | </span>
+            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['youtube'] ?>">Youtube  </a>
         </div>
 
         <?php
@@ -93,32 +95,6 @@ class follow_widget extends WP_Widget
         <?php
     }
 
-    // Creating widget Backend
-    public function form2($instance)
-    {
-
-        $text = !empty($instance['text']) ? $instance['text'] : esc_html__('', 'text_domain');
-        ?>
-        <div class="form-group">
-            <p>
-                <label style="display: block" for="facebook">Facebook</label>
-                <input type="email" class="form-control" name="facebook"">
-            </p>
-            <p>
-                <label style="display: block" for="linkedin">Linkedin</label>
-                <input type="email" class="form-control" name="linkedin"">
-            </p>
-        </div>
-        <p>
-            <label for="<?php echo esc_attr($this->get_field_id('Text')); ?>"><?php echo esc_html__('Text:', 'text_domain'); ?></label>
-            <textarea class="widefat" id="<?php echo esc_attr($this->get_field_id('text')); ?>"
-                      name="<?php echo esc_attr($this->get_field_name('text')); ?>" type="text" cols="30"
-                      rows="10"><?php echo esc_attr($text); ?></textarea>
-        </p>
-        <?php
-
-    }
-
     public function update($new_instance, $old_instance)
     {
 
@@ -139,8 +115,4 @@ function load_follow_widget()
 }
 
 add_action('widgets_init', 'load_follow_widget');
-
-//$my_widget = new follow_widget();
-
-//dump($my_widget);
 ?>

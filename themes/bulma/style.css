@@ -12,6 +12,13 @@ Tags:
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+/*Extends*/
+@import url('assets/styles/extends/responsive-borders.css');
+@import url('assets/styles/extends/responsive-sizing.css');
+/*Templates*/
+@import url('assets/styles/templates/mediateka.css');
+@import url('assets/styles/templates/calendar.css');
+/*Parts*/
 @import url('assets/styles/nav.css');
 @import url('assets/styles/banner-words.css');
 @import url('assets/styles/banner.css');
@@ -22,7 +29,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import url('assets/styles/buttons.css');
 @import url('assets/styles/fonts.css');
 @import url('assets/styles/home.css');
-@import url('assets/styles/responsive-borders.css');
+@import url('assets/styles/search.css');
+
+
 
 
 html{
@@ -39,6 +48,9 @@ h1,h2,h3,h4,h5,strong{
 }
 a, a:hover{
     text-decoration: none;
+}
+.active a{
+    color: #5797fb!important;
 }
 
 .w-90 {

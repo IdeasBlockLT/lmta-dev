@@ -32,7 +32,7 @@ $args = array(
     <div class="container w-90 mx-auto">
         <?php $query = new WP_Query($args); ?>
         <?php if ($query->have_posts()) :$query->the_post(); ?>
-        <div class="row mb-5">
+        <div class="row mb-0 mb-md-5">
             <div class="col-12 col-md-7 themed-grid-col mr-5">
                 <?php get_template_part('parts/video') ?>
                 <small class="d-block mt-4"><?php the_field('date'); ?></small>

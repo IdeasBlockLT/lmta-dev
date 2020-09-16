@@ -1,3 +1,4 @@
+
 .custom-banner{
     word-spacing: 2px;
 }
@@ -10,7 +11,23 @@
 .size3{
     font-size: 1.4em;
 }
-#tv{
-    display: table-caption;
-    font-size: 70%;
+#tv {
+    display: inline-block;
+    font-size: 50%;
 }
+
+@media only screen and (min-width: 600px) {
+    #banner-logo {
+        display: block;
+        width: 13% !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .custom-size-banner{
+        display: block;
+        font-size: 30px;
+    }
+}
+
+

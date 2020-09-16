@@ -1,18 +1,23 @@
 <?php
     $resource = new ResourceSpaceController();
-
-
+    $resource->doSearch('hola');
+//    if ($resource->hasVideo())
+//    {
+//        $cover = $resource->takeVideo();
+//    }else{
+//        $cover = $resource->takePreviewImage();
+//    }
 ?>
 
 <?php get_template_part('parts/head') ?>
 <?php get_template_part('parts/header') ?>
 <?php get_template_part('parts/banner') ?>
 <div class="container w-90 mx-auto">
-    <div class="row mb-5 pb-5 border-bottom">
+    <div class="row mb-0 mb-md-5 pb-5 border-bottom">
         <div class="col-md-7 col-7 themed-grid-col mr-3">
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item"
-                        src="https://resourcespace.lmta.lt/filestore/1/6/2_85e8885fe9b2ec5/162_afefd9e4c5116d0.mp4"
+                        src=""
                         allowfullscreen></iframe>
             </div>
         </div>
@@ -21,6 +26,11 @@
                 <small><?php the_field('date'); ?></small>
                 <h4>
                     <strong><?= the_title(); ?></strong>
+<!--                    --><?php //if ($cover == 'mp4'): ?>
+<!--                        <!-- poner information de que hay que conectarse para comprarlo -->-->
+<!--                    --><?php //else: ?>
+<!--                        <p>No video for this resource, get in contact if you want more.</p>-->
+<!--                    --><?php //endif; ?>
                 </h4>
             </div>
         </div>

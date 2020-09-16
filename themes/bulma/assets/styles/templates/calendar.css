@@ -1,0 +1,12 @@
+input[value='1']:checked ~ #one{
+    display: block;
+}
+input[value='2']:checked ~ #two{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+}
+section{display: none;}
