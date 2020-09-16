@@ -1,8 +1,8 @@
 <?php /* Template Name: Mediateka */
 
 $resource = new ResourceSpaceController();
-$sizes = $resource->getResourceAllImageSizes(1001, true);
-
+//$sizes = $resource->getResourceAllImageSizes(1001, true);
+//$resource->createResource();
 ?>
 <?php get_template_part('parts/head') ?>
 <?php get_template_part('parts/header', 'background-color', [
@@ -14,4 +14,3 @@ $sizes = $resource->getResourceAllImageSizes(1001, true);
         <div class="row mb-5">
         </div>
     </div>
-<?php get_footer(); ?>

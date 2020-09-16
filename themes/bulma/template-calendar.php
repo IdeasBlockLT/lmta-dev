@@ -31,7 +31,7 @@ $resource = new ResourceSpaceController();
                     <div class="card-body">
                         <small><?php the_field('date'); ?></small>
                         <h4>
-                            <strong><?= the_title(); ?></strong>
+                            <strong><a href="<?= get_the_permalink() ?>"><?= the_title(); ?></a></strong>
                         </h4>
                         <p class="card-text"><?= the_excerpt(); ?></p>
                     </div>
@@ -70,6 +70,4 @@ $resource = new ResourceSpaceController();
         <?php endif; ?>
         </section>
     </div>
-    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/toggle-calendar.js'; ?>"
-            type="module"></script>
     <?php get_footer(); ?>

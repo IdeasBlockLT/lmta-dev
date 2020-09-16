@@ -14,10 +14,7 @@ $hola = $resource->doSearch('mozart');
 //dd($hola);
 $sizes = $resource->getResourceAllImageSizes(1001, true);
 
-//$a = new ResourceSpaceController();
-//$a->takeFirstFour();
-//dump('asd');
-//dd($a);
+//Query taking the first 4, ordered by newest created
 $args = array(
     'orderby' => 'title',
     'order' => 'DESC',
@@ -32,6 +29,7 @@ $args = array(
     <div class="container w-90 mx-auto">
         <?php $query = new WP_Query($args); ?>
         <?php if ($query->have_posts()) :$query->the_post(); ?>
+        <!--Will show the first from the query.-->
         <div class="row mb-0 mb-md-5">
             <div class="col-12 col-md-7 themed-grid-col mr-5">
                 <?php get_template_part('parts/video') ?>
@@ -41,7 +39,7 @@ $args = array(
             </div>
             <?php endif; ?>
 
-            <!-- -->
+            <!--The rest of the videos-->
             <div class="col-12 col-md-4 pl-4 themed-grid-col border-xl-left">
                 <div class="pb-4">
                     <h4>
@@ -52,7 +50,7 @@ $args = array(
                     <div class="themed-grid-col w-100 <?php echo (!get_next_post_link()) ? '' : 'border-bottom' ?>">
                         <small><?php the_field('date'); ?></small>
                         <h5 class="hover-blue"><?php echo ucfirst(get_the_title()) ?></h5>
-                        <p><?= the_excerpt(); ?></p>
+                        <p><?= the_excerpt('hello'); ?></p>
                     </div>
                 <?php endwhile; ?>
             </div>

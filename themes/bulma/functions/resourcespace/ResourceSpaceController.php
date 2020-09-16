@@ -15,7 +15,6 @@ class ResourceSpaceController
     public function __construct()
     {
         $this->config = include('config.php');
-//        $this->resourcespace = $this->config['resourcespace']; What for?
         $this->resourcespaceUrl = $this->config['resourcespace_url'];
         $this->apiKey = $this->config['api_key'];
         $this->apiUser = $this->config['api_user'];
@@ -30,15 +29,6 @@ class ResourceSpaceController
         $this->query = "user=" . $this->apiUser . '&function=get_resource_path&param1=' . $id . '&param2=true&param3=true&param4=true&param7=true';
         return $this->runBaby();
     }
-    //https://resourcespace.lmta.lt/filestore/1/6/2_85e8885fe9b2ec5/162_afefd9e4c5116d0.mp4
-//    filestore/6/1_a5000a29be87175/61_32180e619a58f58.jpg
-
-    public function takeFirstFour()
-    {
-        return 'as';
-    }
-
-
 
     /**
      * Get previews
@@ -94,12 +84,21 @@ class ResourceSpaceController
         return $response[0]['url'];
     }
 
+    public function createResource()
+    {
+//        $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&param7=" . urlencode(json_encode(array(1=>"Foo",8=>"Bar"))); # <--- The function to execute, and parameters
+        $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0";
+        $response = $this->runBaby();
+        return $response;
+    }
+
     /**
      * Taking the video for the index cover
      * @param $id
      * @return mixed
      */
-    public function coverVideo($id, $link = false)
+    public
+    function coverVideo($id, $link = false)
     {
         if (!$link) {
             $this->query = "user=" . $this->apiUser . "&function=get_resource_all_image_sizes&resource=" . $id . "";
@@ -114,7 +113,6 @@ class ResourceSpaceController
      */
     public function doSearch($keyword)
     {
-//        dd('123');
         #check if this if for mediateka
 
         $this->query = $query = "user=" . $this->apiUser . "&function=do_search&param1='" . $keyword . "'";
@@ -124,18 +122,14 @@ class ResourceSpaceController
 
     public function runBaby()
     {
-
         # Sign the query using the private key
         $sign = hash("sha256", $this->apiKey . $this->query);
 
         # Make the request.
         $list = [];
         $data = file_get_contents($this->resourcespaceUrl . $this->query . "&sign=" . $sign);
-//        return $data;
         $response = json_decode($data, true);
         return $response;
-//        dump($response);
-//        dump($response[0]['url_scr']);
     }
 
     public function power()
@@ -182,35 +176,6 @@ class ResourceSpaceController
 //        echo "<pre>";
 //        echo json_encode(json_decode($results, true));
 //        echo htmlspecialchars($results);
-
-
-//        echo "<pre>";
-//        return $results;
-//        echo htmlspecialchars($results);
-        // Formulate the API query data.
-//        $data = array(
-//            'user'  => $this->apiUser,
-//            'function'  => 'create_collection',
-//            'param1'    => 'berta',
-//        );
-//        $query = http_build_query($data);
-//        $data['sign'] = $sign;
-//        $postdata = array();
-//        $postdata['query'] = http_build_query($data);;
-//        $postdata['sign'] = $sign;
-//        $postdata['user'] = $this->apiUser;
-//
-//        $curl = curl_init($url);
-//        curl_setopt( $curl, CURLOPT_HEADER, "Content-Type:application/x-www-form-urlencoded" );
-//        curl_setopt( $curl, CURLOPT_POST, 1);
-//        curl_setopt( $curl, CURLOPT_POSTFIELDS, $postdata);
-//        curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
-//
-//        $curl_response = curl_exec($curl);
-//
-//        # Output the JSON
-//        echo "<pre>";
-//        echo htmlspecialchars($curl_response);
     }
 
     /**
@@ -271,18 +236,11 @@ class ResourceSpaceController
         curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $head = curl_exec($curl);
-////        dd(curl_exec($curl));
-//////        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-//////        curl_close($curl);
-/////
-//        if ($head = 1){
-//
-//        }
-//        return ;
-//        dd($head);
+
     }
 
-    public function getAll()
+    public
+    function getAll()
     {
 
     }
