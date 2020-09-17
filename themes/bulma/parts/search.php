@@ -9,7 +9,4 @@
             <input type="submit" id="search-button">
         </div>
     </form>
-<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">-->
-<!--        <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
 </div>

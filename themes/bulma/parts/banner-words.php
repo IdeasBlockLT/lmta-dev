@@ -1,5 +1,5 @@
 <!-- Banner row -->
-<div class="border-top border-bottom mt-3 py-5">
+<div class="col border-top border-bottom mt-3 py-5">
     <h4 class="text-center mt-4 mb-0 font-weight-bold">Raktazodziai</h4>
     <div class="row mx-auto mb-3 pt-0">
         <div class="col-0 col-md-2"></div>
