@@ -26,7 +26,7 @@ $args = array(
 <?php get_template_part('parts/header') ?>
 <?php get_template_part('parts/banner', null, ['size' => 'size1']); ?>
 
-    <div class="container w-90 mx-auto">
+    <div class="container w-90 mx-auto text-justify__home">
         <?php $query = new WP_Query($args); ?>
         <?php if ($query->have_posts()) :$query->the_post(); ?>
         <!--Will show the first from the query.-->
