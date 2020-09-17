@@ -25,10 +25,10 @@ $resource = new ResourceSpaceController();
         <?php if ($posts): ?>
         <?php while ($posts->have_posts()): $posts->the_post(); ?>
             <section id="one" class="col-md-4 border-right border-bottom">
-                <div class="card mb-4 p-5 border-0">
+                <div class="card mb-4 border-0">
                     <img class="bd-placeholder-img card-img-top"
                          src="<?php bloginfo('stylesheet_directory') ?>/images/jpeg.jpg" alt="">
-                    <div class="card-body">
+                    <div class="mt-3 mt-md-4 pt-md-2">
                         <small><?php the_field('date'); ?></small>
                         <h4>
                             <strong><a href="<?= get_the_permalink() ?>"><?= the_title(); ?></a></strong>
