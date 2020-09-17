@@ -11,6 +11,5 @@
     .columncontent__single {
         all: revert;
         text-align: justify;
-        padding: 5px;
     }
 }

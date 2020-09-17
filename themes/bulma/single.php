@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="row mb-5 pb-5 mt-5 pt-3 border-bottom">
-        <div class="columncontent__single">
+        <div class="columncontent__single p-2">
             <?php the_content(); ?>
         </div>
     </div>
