@@ -1,0 +1,7 @@
+@media only screen and (max-width: 600px) {
+    .text-justify__home {
+        text-align: justify;
+        padding: 5px;
+    }
+}
+/*ref*/

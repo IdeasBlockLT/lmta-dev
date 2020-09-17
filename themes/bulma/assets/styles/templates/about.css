@@ -1,0 +1,16 @@
+.columncontent__about {
+    column-count: 2;
+    column-gap: 80px;
+    column-rule-style: solid;
+    column-rule-width: 1px;
+    column-rule-color: #dee2e6 !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .columncontent__about {
+        all: revert;
+        text-align: justify;
+        padding: 5px;
+    }
+/*c*/
+}
