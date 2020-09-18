@@ -13,11 +13,7 @@ class  LmtaRequest
     {
         #for the variables for the api
         $this->title = "TITULO";
-
-
     }
-
-
 }
 
 
@@ -32,17 +28,23 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 		    {
 		    	// create resource in resourcespace
 		    	// dd("P U B L I S H");
-
 		    	$resource = new ResourceSpaceController();
-
 			    // Get Id of this post and find out in RS if there is an image 
 			    // $ID = get_the_ID();
 			    $ID   = $post->ID;
-			    $meta = get_post_meta($ID)["mediateka_title"][0];
-			    $data = $resource->doSearch($meta);
-			    dd($data[0]["file_extension"]);
+			    // $meta = get_post_meta($ID)["mediateka_title"][0];
+			    // $data = $resource->doSearch($meta);
+			    // dd($data[0]["file_extension"]);
 			    // $request = new LmtaRequest();
 			    // dd($request->title);
+
+
+			    $image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+			    $new_id    = $resource->createResource($image_url);
+
+			    dd($new_id." : ".$image_url);
+
+
 		    }
 		  }
 		  if ( $new_status != 'publish' ) {
