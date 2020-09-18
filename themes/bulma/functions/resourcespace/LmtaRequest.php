@@ -20,7 +20,8 @@ class  LmtaRequest
 		   if ( $new_status != $old_status ) {
 		    // A function to perform actions any time any post changes status.
 		    // dd("O L D   S T A T U S");
-		    if ($new_status === 'publish'){}
+		   	
+		    if ($new_status === 'publish')
 		    {
 		    	// create resource in resourcespace
 		    	dd("P U B L I S H");
