@@ -2,8 +2,8 @@
     $resource = new ResourceSpaceController();
     $resource->doSearch('hola');
     $ID = get_the_ID();
-    $meta = get_post_meta($ID)["mediateka_title"];
-    dd($meta);
+    $meta = get_post_meta($ID)["mediateka_title"][0];
+    // dd($meta);
     $data = $resource->doSearch($meta);
     dd($data);
 
