@@ -14,7 +14,14 @@ class  LmtaRequest
         #for the variables for the api
         $this->title = "TITULO";
 
-        function on_all_status_transitions( $new_status, $old_status, $post )       
+
+    }
+
+
+}
+
+
+function on_all_status_transitions( $new_status, $old_status, $post )       
 		{
 		   // dd($old_status."_".$new_status);
 		   if ( $new_status != $old_status ) {
@@ -33,8 +40,4 @@ class  LmtaRequest
 		  }
 		}
 
-		add_action(  'transition_post_status',  'on_all_status_transitions', 10, 3 );	
-    }
-
-
-}
+add_action(  'transition_post_status',  'on_all_status_transitions', 10, 3 );	
