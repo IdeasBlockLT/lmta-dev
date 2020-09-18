@@ -39,7 +39,7 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 			    // dd($request->title);
 
 
-			    $image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+			    $image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
 			    $new_id    = $resource->createResource($image_url);
 
 			    dd($new_id." : ".$image_url);
