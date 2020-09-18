@@ -2,8 +2,9 @@
     $resource = new ResourceSpaceController();
     $resource->doSearch('hola');
     $ID = get_the_ID();
-    $meta = get_post_meta($ID);
-    dd($meta);
+    $meta = get_post_meta($ID)["mediateka_title"];
+    $data = $resource->doSearch($meta);
+    dd($data);
 
 
 //    if ($resource->hasVideo())
