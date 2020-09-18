@@ -88,7 +88,7 @@ class ResourceSpaceController
     {
 //        $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&param7=" . urlencode(json_encode(array(1=>"Foo",8=>"Bar"))); # <--- The function to execute, and parameters
         $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=".$image_url;
-        dd($query);
+        // dd($query);
         $response = $this->runBaby();
         return $response;
     }
