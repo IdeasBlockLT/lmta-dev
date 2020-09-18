@@ -91,8 +91,8 @@ class ResourceSpaceController
         // $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0";
         // dd($query);
         $response = $this->runBaby();
-        // return $query;
-        return $response;   
+        return $this->query;
+        // return $response;   
     }
 
     /**
