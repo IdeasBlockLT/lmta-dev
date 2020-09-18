@@ -31,7 +31,18 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 		    if ($new_status === 'publish')
 		    {
 		    	// create resource in resourcespace
-		    	dd("P U B L I S H");
+		    	// dd("P U B L I S H");
+
+		    	$resource = new ResourceSpaceController();
+
+			    // Get Id of this post and find out in RS if there is an image 
+			    // $ID = get_the_ID();
+			    $ID   = $post->ID;
+			    $meta = get_post_meta($ID)["mediateka_title"][0];
+			    $data = $resource->doSearch($meta);
+			    dd($data[0]["file_extension"]);
+			    // $request = new LmtaRequest();
+			    // dd($request->title);
 		    }
 		  }
 		  if ( $new_status != 'publish' ) {
