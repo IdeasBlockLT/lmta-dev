@@ -43,7 +43,7 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 			    $image_url = "https%3A%2F%2Fstage.tv.ideas-block.com%2Fwp-content%2Fuploads%2F2020%2F09%2FFFTcircle_Offset_2-01.png";
 			    $new_id    = $resource->createResource($image_url);
 
-			    dd($new_id." : ".$image_url);
+			    // dd($new_id." : ".$image_url);
 
 
 		    }
