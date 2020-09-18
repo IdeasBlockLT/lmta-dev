@@ -3,6 +3,7 @@
     $resource->doSearch('hola');
     $ID = get_the_ID();
     $meta = get_post_meta($ID)["mediateka_title"];
+    dd($meta);
     $data = $resource->doSearch($meta);
     dd($data);
 
