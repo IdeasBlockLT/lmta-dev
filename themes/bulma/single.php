@@ -2,7 +2,10 @@
     $resource = new ResourceSpaceController();
     $resource->doSearch('hola');
     $ID = get_the_ID();
-    dd($ID);
+    $meta = get_post_meta($ID);
+    dd($meta);
+
+
 //    if ($resource->hasVideo())
 //    {
 //        $cover = $resource->takeVideo();
