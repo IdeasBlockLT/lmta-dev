@@ -1,6 +1,8 @@
 <?php
     $resource = new ResourceSpaceController();
     $resource->doSearch('hola');
+    $ID = get_the_ID();
+    dd($ID);
 //    if ($resource->hasVideo())
 //    {
 //        $cover = $resource->takeVideo();
