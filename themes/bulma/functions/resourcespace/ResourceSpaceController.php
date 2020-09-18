@@ -87,12 +87,12 @@ class ResourceSpaceController
     public function createResource($image_url)
     {
 //        $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&param7=" . urlencode(json_encode(array(1=>"Foo",8=>"Bar"))); # <--- The function to execute, and parameters
-        $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=".$image_url;
+        $this->$query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=".$image_url;
         // $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0";
         // dd($query);
         $response = $this->runBaby();
         // return $query;
-        return $response;
+        return $response;   
     }
 
     /**
@@ -130,10 +130,10 @@ class ResourceSpaceController
 
         # Make the request.
         $list = [];
-        // $data = file_get_contents($this->resourcespaceUrl . $this->query . "&sign=" . $sign);
-        // $response = json_decode($data, true);
-        return $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
-        // return $response;
+        $data = file_get_contents($this->resourcespaceUrl . $this->query . "&sign=" . $sign);
+        $response = json_decode($data, true);
+        // return $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
+        return $response;
     }
 
     public function power()
