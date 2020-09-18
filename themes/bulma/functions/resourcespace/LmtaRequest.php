@@ -39,9 +39,10 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 			    // dd($request->title);
 
 
-			    $image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
-			    $image_url = "https%3A%2F%2Fstage.tv.ideas-block.com%2Fwp-content%2Fuploads%2F2020%2F09%2FFFTcircle_Offset_2-01.png";
-			    $new_id    = $resource->createResource($image_url);
+			    $url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
+			    $url = "https%3A%2F%2Fstage.tv.ideas-block.com%2Fwp-content%2Fuploads%2F2020%2F09%2FFFTcircle_Offset_2-01.png";
+				$url = 'https://stage.tv.ideas-block.com/wp-content/uploads/2020/09/FFTcircle_Offset_2-01.png';// with diagonals
+			    $new_id    = $resource->createResource($url);
 
 			    dd($new_id." : ".$image_url);
 

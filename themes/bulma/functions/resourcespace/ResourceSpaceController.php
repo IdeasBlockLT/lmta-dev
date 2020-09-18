@@ -130,9 +130,10 @@ class ResourceSpaceController
 
         # Make the request.
         $list = [];
-        $data = file_get_contents($this->resourcespaceUrl . $this->query . "&sign=" . $sign);
-        $response = json_decode($data, true);
-        return $response;
+        // $data = file_get_contents($this->resourcespaceUrl . $this->query . "&sign=" . $sign);
+        // $response = json_decode($data, true);
+        return $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
+        // return $response;
     }
 
     public function power()
