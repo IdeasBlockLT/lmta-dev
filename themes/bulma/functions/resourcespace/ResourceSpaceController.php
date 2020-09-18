@@ -90,8 +90,9 @@ class ResourceSpaceController
         $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=".$image_url;
         // $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0";
         // dd($query);
-        $response = $this->runBaby();
-        return $response;
+        // $response = $this->runBaby();
+        return $query;
+        // return $response;
     }
 
     /**
