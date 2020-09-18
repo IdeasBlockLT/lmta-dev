@@ -5,7 +5,7 @@
     $meta = get_post_meta($ID)["mediateka_title"][0];
     // dd($meta);
     $data = $resource->doSearch($meta);
-    dd($data);
+    dd($data[0]["file_extension"]);
 
 
 //    if ($resource->hasVideo())
