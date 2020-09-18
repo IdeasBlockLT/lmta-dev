@@ -16,8 +16,8 @@ class ResourceSpaceController
     {
         $this->config = include('config.php');
         $this->resourcespaceUrl = $this->config['resourcespace_url'];
-        $this->apiKey = $this->config['api_key'];
-        $this->apiUser = $this->config['api_user'];
+        $this->apiKey           = $this->config['api_key'];
+        $this->apiUser          = $this->config['api_user'];
     }
 
     /**
