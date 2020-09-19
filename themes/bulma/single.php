@@ -7,7 +7,8 @@
     // $data = $resource_controller->doSearch($meta);
 
     $data = $resource_controller->doSearch("rast");
-    dd($data[0]["file_extension"]);
+    // dd($data[0]["file_extension"]);
+    dd($data);
 
 
 //    if ($resource->hasVideo())
