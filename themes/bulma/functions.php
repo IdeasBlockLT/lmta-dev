@@ -14,7 +14,7 @@ include('functions/classes/follow-widget.php');
 include('functions/resourcespace/ResourceSpaceController.php');
 
 // LMTA request
-include('functions/resourcespace/LmtaRequest.php');
+// include('functions/resourcespace/LmtaRequest.php');
 //lang
 include('lang/lt.php');
 
