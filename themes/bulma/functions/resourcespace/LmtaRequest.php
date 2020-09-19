@@ -19,6 +19,7 @@ class  LmtaRequest
 
 function on_all_status_transitions( $new_status, $old_status, $post )       
 		{
+			dd("hola");
 		   // dd($old_status."_".$new_status);
 		   if ( $new_status != $old_status ) {
 		    // A function to perform actions any time any post changes status.
