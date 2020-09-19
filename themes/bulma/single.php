@@ -8,7 +8,7 @@
 
     $data = $resource_controller->doSearch("rast");
     // dd($data[0]["file_extension"]);
-    dd($data);
+    dd("a ver : ".$data);
 
 
 //    if ($resource->hasVideo())
