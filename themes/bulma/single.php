@@ -7,6 +7,7 @@
     // $data = $resource_controller->doSearch($meta);
 
     $data = $resource_controller->doSearch("trevio");
+    $data = $resource_controller->createResource("url");;
     // dd($data[0]["file_extension"]);
     dd("a ver : ".$data);
 
