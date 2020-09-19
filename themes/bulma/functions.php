@@ -14,7 +14,7 @@ include('functions/classes/follow-widget.php');
 include('functions/resourcespace/ResourceSpaceController.php');
 
 // LMTA request
-// include('functions/resourcespace/LmtaRequest.php');
+include('functions/resourcespace/LmtaRequest.php');
 //lang
 include('lang/lt.php');
 
@@ -71,15 +71,15 @@ add_filter('excerpt_more', 'custom_excerpt_more');
 
 add_action('save_post', 'create_resource');
 
-function create_resource($post_id)
-{
-    global $wpdb;
-    $post_type = get_post_type($post_id);
-    $title = '';
-    $newResource = new ResourceSpaceController();
-    $newResource->createResource();
+// function create_resource($post_id)
+// {
+//     global $wpdb;
+//     $post_type = get_post_type($post_id);
+//     $title = '';
+//     $newResource = new ResourceSpaceController();
+//     $newResource->createResource();
 
-}
+// }
 
 
 //add_action( 'widgets_init', 'arphabet_widgets_init' );

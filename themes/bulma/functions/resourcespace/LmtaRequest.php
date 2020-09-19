@@ -52,5 +52,5 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 		  }
 		}
 
-// add_action(  'transition_post_status',  'on_all_status_transitions', 10, 3 );	
+add_action(  'transition_post_status',  'on_all_status_transitions', 10, 3 );	
 // remove_action( 'transition_post_status',  'on_all_status_transitions', int $priority = 10 )
