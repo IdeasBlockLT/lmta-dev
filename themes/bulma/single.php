@@ -4,8 +4,10 @@
     // Get Id of this post and find out in RS if there is an image 
     $ID = get_the_ID();
     $meta = get_post_meta($ID)["mediateka_title"][0];
-    $data = $resource_controller->doSearch($meta);
-    // dd($data[0]["file_extension"]);
+    // $data = $resource_controller->doSearch($meta);
+
+    $data = $resource_controller->doSearch($"rast");
+    dd($data[0]["file_extension"]);
 
 
 //    if ($resource->hasVideo())
