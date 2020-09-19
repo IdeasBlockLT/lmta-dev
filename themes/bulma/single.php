@@ -6,7 +6,7 @@
     $meta = get_post_meta($ID)["mediateka_title"][0];
     // $data = $resource_controller->doSearch($meta);
 
-    $data = $resource_controller->doSearch("rast");
+    $data = $resource_controller->doSearch("trevio");
     // dd($data[0]["file_extension"]);
     dd("a ver : ".$data);
 
