@@ -29,6 +29,7 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 		    {
 		    	// create resource in resourcespace
 			    // Get Id of this post
+			    $resource = new ResourceSpaceController();
 			    $ID   = $post->ID;
 			    $title_field = get_post_meta($ID)["mediateka_title"][0]; // TODO: USE THIS TITLE TO GIVE METADATA TO THE NEW CREATED RESOURCE
 			    // $data = $resource->doSearch($meta);
