@@ -6,8 +6,10 @@
     $meta = get_post_meta($ID)["mediateka_title"][0];
     // $data = $resource_controller->doSearch($meta);
 
+
+    $url = 'https://stage.tv.ideas-block.com/wp-content/uploads/2020/09/FFTcircle_Offset_2-01.png';// with diagonals
     $data = $resource_controller->doSearch("trevio");
-    $data = $resource_controller->createResource("url");;
+    $data = $resource_controller->createResource($url);;
     // dd($data[0]["file_extension"]);
     dd("a ver : ".$data);
 
