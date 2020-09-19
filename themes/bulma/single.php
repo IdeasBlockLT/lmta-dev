@@ -3,15 +3,11 @@
 
     // Get Id of this post and find out in RS if there is an image 
     $ID = get_the_ID();
-    $meta = get_post_meta($ID)["mediateka_title"][0];
-    // $data = $resource_controller->doSearch($meta);
-
-
-    $url = 'https://stage.tv.ideas-block.com/wp-content/uploads/2020/09/FFTcircle_Offset_2-01.png';// with diagonals
-    $data = $resource_controller->doSearch("trevio");
-    $data = $resource_controller->createResource($url);;
+    // $meta = get_post_meta($ID)["mediateka_title"][0];
+    // $url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
+    // $data = $resource_controller->createResource($url);;
     // dd($data[0]["file_extension"]);
-    dd("a ver : ".$data);
+    // dd("a ver : ".$data);
 
 
 //    if ($resource->hasVideo())
