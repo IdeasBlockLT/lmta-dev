@@ -1,12 +1,13 @@
-<div class="mx-auto order-3 order-md-1 w-100 text-center">
-    <form class="form-inline custom-grid" id="search" method="post">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <i class="fas fa-glasses"></i>
-            </div>
-            <input type="text" class="form-control" placeholder="Search in mediateka" aria-label="Username"
-                   aria-describedby="basic-addon1">
-            <input type="submit" id="search-button">
-        </div>
-    </form>
+<div class="mx-auto order-3 order-md-1 text-center wrap">
+    <div class="search custom-grid">
+        <input type="text"
+               class="searchTerm backgroundColor-<?= !empty($args['input-color']) ? 'blue' : ' ' . 'color-black__holder' ?>"
+               placeholder="<?= ($args['placeholder']) ?>"
+            >
+        <button type="submit"
+                class="searchButton backgroundColor-<?= !empty($args['input-color'])  ? 'blue' : 'white' . ' color-black' ?>"
+            >
+            <i class="fa fa-search fa-flip-horizontal"></i>
+        </button>
+    </div>
 </div>
