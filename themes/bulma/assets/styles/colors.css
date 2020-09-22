@@ -1,15 +1,27 @@
-.backgroundColor-white{
-    background-color: white;
+.backgroundColor-white {
+    background-color: white !important;
 }
-.backgroundColor-blue{
-    background-color: #5797fb;
+
+.backgroundColor-blue {
+    background-color: #5797fb !important;
 }
-.color-blue{
-    background-color: #5797fb;
+
+.color-blue {
+    background-color: #5797fb !important;
 }
-.color-black{
-    color: black;
+
+.color-black {
+    color: black !important;
 }
-.color-black__holder::placeholder{
-    color: black;
+
+.color-black__holder::placeholder {
+    color: black !important;
+}
+
+.color-white {
+    color: white !important;
+}
+
+.text-muted-custom {
+    color: #cdcdcd !important;
 }

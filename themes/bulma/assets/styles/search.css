@@ -1,4 +1,4 @@
-.custom-grid{
+.custom-grid {
     display: inline-grid;
 }
 
@@ -15,13 +15,14 @@
     padding: 5px;
 }
 
-.searchTerm::placeholder{
+.searchTerm::placeholder {
     font-size: 14px;
     color: #cbcbcb;
 }
 
-.searchTerm:focus{
+.searchTerm:focus {
     color: #00B4CC;
+    outline: none;
 }
 
 .searchButton {
@@ -44,7 +45,7 @@
 /*}*/
 
 /*Resize the wrap to see the search bar change!*/
-.wrap{
+.wrap {
     width: 30%;
     position: absolute;
     top: 50%;

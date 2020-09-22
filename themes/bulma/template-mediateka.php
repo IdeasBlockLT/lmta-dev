@@ -14,6 +14,5 @@ $resource = new ResourceSpaceController();
 ]) ?>
 
     <div class="container w-90 mx-auto">
-        <div class="row mb-5">
-        </div>
+        <?php get_template_part('parts/mediateka-keywords') ?>
     </div>

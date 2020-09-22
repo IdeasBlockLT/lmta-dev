@@ -1,7 +1,7 @@
 <div class="mx-auto order-3 order-md-1 text-center wrap">
     <div class="search custom-grid">
         <input type="text"
-               class="searchTerm backgroundColor-<?= !empty($args['input-color']) ? 'blue' : ' ' . 'color-black__holder' ?>"
+               class="searchTerm backgroundColor-<?= !empty($args['input-color']) ? 'blue color-white' : ' ' . 'color-black__holder' ?>"
                placeholder="<?= ($args['placeholder']) ?>"
             >
         <button type="submit"
