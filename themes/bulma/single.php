@@ -24,23 +24,15 @@
 <div class="container w-90 mx-auto">
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
         <div class="col-md-7 col-7 themed-grid-col mr-3">
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item"
-                        src=""
-                        allowfullscreen></iframe>
-            </div>
+            <?php get_template_part('parts/video') ?>
         </div>
         <div class="col-md-4 col-4 themed-grid-col border-left">
             <div class="pb-4">
                 <small><?php the_field('date'); ?></small>
                 <h4>
                     <strong><?= the_title(); ?></strong>
-<!--                    --><?php //if ($cover == 'mp4'): ?>
-<!--                        <!-- poner information de que hay que conectarse para comprarlo -->-->
-<!--                    --><?php //else: ?>
-<!--                        <p>No video for this resource, get in contact if you want more.</p>-->
-<!--                    --><?php //endif; ?>
                 </h4>
+                <button type="button" class="btn btn-buy">Mokėti</button>
             </div>
         </div>
     </div>

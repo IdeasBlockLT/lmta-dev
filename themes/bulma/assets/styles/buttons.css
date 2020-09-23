@@ -5,3 +5,9 @@
     background-color: #ececec;
     border-radius: unset;
 }
+.btn-buy{
+   padding: 10px 40px;
+    border-radius: unset;
+    color: white;
+    background-color: #5e40e3;
+}

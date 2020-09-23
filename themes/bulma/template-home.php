@@ -1,18 +1,15 @@
 <?php /* Template Name: Home */
-//$argsCover = array(
-//    'orderby' => 'title',
-//    'order' => 'DESC',
-//    'posts_per_page' => '1'
-//);
+
 
 $resource = new ResourceSpaceController();
+//dd($resource->doSearch());
 //dd($resource->getResourcePath(2));
 //dd($resource->getPreviews(61));
 //$resource->doSearch('trevio');
 //$video = $resource->coverVideo(415);
-$hola = $resource->doSearch('mozart');
+//$hola = $resource->doSearch('mozart');
 //dd($hola);
-$sizes = $resource->getResourceAllImageSizes(1001, true);
+//$sizes = $resource->getResourceAllImageSizes(1001, true);
 
 //Query taking the first 4, ordered by newest created
 $args = array(
@@ -40,6 +37,7 @@ $args = array(
             <?php endif; ?>
 
             <!--The rest of the videos-->
+            <!--Need custom size of columns for wider columns-->
             <div class="col-12 col-md-4 pl-4 themed-grid-col border-xl-left">
                 <div class="pb-4">
                     <h4>

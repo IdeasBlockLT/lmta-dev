@@ -4,3 +4,6 @@
 .active .white{
     color: black!important;
 }
+.calendar-input{
+    margin-left: 80%;
+}

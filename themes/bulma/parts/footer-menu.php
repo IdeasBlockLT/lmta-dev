@@ -3,7 +3,7 @@ $footer_menu = get_menu_items('footer');
 
 ?>
 <!--<div class="container w-90 mx-auto">-->
-    <div class="row mx-auto pb-3" id="menus-footer">
+    <div class="row mx-auto pb-3 pt-4" id="menus-footer">
         <div id="first" class="col border-md-right mr-3 border-bottom border-md-bottom-0 pb-4 pb-md-0">
             <ul class="custom-display-footer pl-0">
                 <li class="custom-li li-label"><h3>Menu</h3></li>

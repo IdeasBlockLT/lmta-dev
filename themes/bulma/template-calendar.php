@@ -15,8 +15,13 @@ $resource = new ResourceSpaceController();
 
 <div class="container w-90 mx-auto">
     <div class="row">
-        <input type="radio" name="switch" value="1" checked="checked">
-        <input type="radio" name="switch" value="2">
+        <label class="calendar-input mr-4" for="Vaizdavimas" style="display: inline">Vaizdavimas</label>
+        <input type="radio" name="switch" value="1" checked="checked" class="">
+        <input type="radio" name="switch" value="2" class="ml-3">
+
+        <div class="d-inline">
+            <h4 class="d-inline"><strong>Būsimi renginiai</strong><span class="text-muted">/ Įvykę renginiai</span></h4>
+        </div>
         <div class="col-12">
             <br>
         </div>
@@ -69,5 +74,7 @@ $resource = new ResourceSpaceController();
             <?php echo paginate_links(); ?>
         <?php endif; ?>
         </section>
+        <?php get_template_part('parts/banner-words') ?>
     </div>
+</div>
     <?php get_footer(); ?>
