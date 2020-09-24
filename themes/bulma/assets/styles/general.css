@@ -9,4 +9,14 @@
     }
 }
 
+.hover-blue{
+    cursor: pointer;
+}
+
+.no-outline:active{
+    outline: none!important;
+}
+
+
+
 
