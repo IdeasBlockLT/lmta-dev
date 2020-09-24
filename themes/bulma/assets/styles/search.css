@@ -8,6 +8,8 @@
     display: flex;
 }
 
+
+
 .searchTerm {
     width: 100%;
     border: none;
@@ -52,3 +54,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+/*@media only screen and (min-width: 600px) {*/
+    .search{
+        display: inline-flex;
+        width: auto;
+    }
+    .searchTerm{
+        width: auto;
+    }
+/*}*/

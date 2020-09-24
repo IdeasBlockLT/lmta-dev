@@ -56,7 +56,7 @@ h1,h2,h3,h4,h5,strong{
 a, a:hover{
     text-decoration: none;
 }
-.active a{
+.active a:not(main-nav ul li){
     color: #5797fb!important;
 }
 

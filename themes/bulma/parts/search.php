@@ -2,7 +2,8 @@
     <div class="search custom-grid">
         <input type="text"
                class="searchTerm backgroundColor-<?= !empty($args['input-color']) ? 'blue color-white' : ' ' . 'color-black__holder' ?>"
-               placeholder="<?= ($args['placeholder']) ?>"
+               placeholder="<?= ($args['placeholder']) ?> "
+               size="4"
             >
         <button type="submit"
                 class="searchButton backgroundColor-<?= !empty($args['input-color'])  ? 'blue' : 'white' . ' color-black' ?>"
