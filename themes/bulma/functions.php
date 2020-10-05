@@ -71,7 +71,7 @@ function custom_excerpt_more()
 
 add_filter('excerpt_more', 'custom_excerpt_more');
 
-add_action('save_post', 'create_resource');
+// add_action('save_post', 'create_resource');
 
  function create_resource($post_id)
  {
