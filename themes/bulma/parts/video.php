@@ -6,8 +6,9 @@
     <!--                    <span class="video-thumbnail"></span>-->
 </div>
 
+
 <script src="https://www.youtube.com/player_api"></script>
 
-
+<!-- Detect a dead link and give another video instead -->
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/youtube_functions.js'; ?>" type="module"></script>
 
