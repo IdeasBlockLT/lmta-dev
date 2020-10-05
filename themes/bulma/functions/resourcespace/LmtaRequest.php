@@ -40,7 +40,7 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 				// $url = 'https://stage.tv.ideas-block.com/wp-content/uploads/2020/09/FFTcircle_Offset_2-01.png';// with diagonals
 			    $new_id    = $resource->createResource($url);
 
-			    // dd($new_id." : ".$url);
+			    dd($new_id." : ".$url);
 
 
 		    }
