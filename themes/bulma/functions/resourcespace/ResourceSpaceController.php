@@ -93,9 +93,9 @@ class ResourceSpaceController
         // $this->query="user=" . $this->apiUser . "&function=create_resource&param1=5&param2=0";
         // $this->query = $query = "user=" . $this->apiUser . "&function=do_search&param1='rast'";
         // dd($query);
-        $response = $this->runBaby();
+        $response = $this->runBaby()."***".$this->query;
         // return $this->query;
-        return $response;   
+        // return $response;   
     }
 
     /**
