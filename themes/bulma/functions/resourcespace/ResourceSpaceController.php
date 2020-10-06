@@ -88,7 +88,7 @@ class ResourceSpaceController
     {
 //        $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&param7=" . urlencode(json_encode(array(1=>"Foo",8=>"Bar"))); # <--- The function to execute, and parameters
         // $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=".$image_url;
-        $this->query="user=" .  $this->apiUser . "&function=create_resource&param1=1&param2=&param3=" . urlencode($image_url) . "&param4=&param5=&param6=&param7=" . urlencode(json_encode(array(18=>"My captions",8=>"Česnakinis"))); # <--- The function to execute, and parameters
+        $this->query="user=" .  $this->apiUser . "&function=create_resource&param1=5&param2=&param3=" . urlencode($image_url) . "&param4=&param5=&param6=&param7=" . urlencode(json_encode(array(18=>"My captions",8=>"Česnakinis"))); # <--- The function to execute, and parameters
         // $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0";
         // $this->query="user=" . $this->apiUser . "&function=create_resource&param1=5&param2=0";
         // $this->query = $query = "user=" . $this->apiUser . "&function=do_search&param1='rast'";
