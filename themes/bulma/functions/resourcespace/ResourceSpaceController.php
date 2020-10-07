@@ -93,7 +93,7 @@ class ResourceSpaceController
         // $this->query="user=" . $this->apiUser . "&function=create_resource&param1=5&param2=0";
         // $this->query = $query = "user=" . $this->apiUser . "&function=do_search&param1='rast'";
         // dd($query);
-        $response = $this->runBaby()."***".$this->query;
+        $response = $this->runBaby();
         // return $this->query;
         return $response;   
     }
@@ -132,11 +132,12 @@ class ResourceSpaceController
         $sign = hash("sha256", $this->apiKey . $this->query);
 
         # Make the request.
-        $list = [];
-        $data = file_get_contents($this->resourcespaceUrl . $this->query . "&sign=" . $sign);
+        $list     = [];
+        $request  = $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
+        $data     = file_get_contents($request);
         $response = json_decode($data, true);
         // return $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
-        return $response;
+        return $request;
     }
 
     public function power()
