@@ -95,7 +95,7 @@ class ResourceSpaceController
         // dd($query);
         $response = $this->runBaby()."***".$this->query;
         // return $this->query;
-        // return $response;   
+        return $response;   
     }
 
     /**
