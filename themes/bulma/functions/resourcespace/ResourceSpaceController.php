@@ -133,7 +133,7 @@ class ResourceSpaceController
 
         # Make the request.
         $list = [];
-        $data = file_get_contents($this->resourcespace_url . $this->query . "&sign=" . $sign);
+        $data = file_get_contents($this->resourcespaceUrl . $this->query . "&sign=" . $sign);
         $response = json_decode($data, true);
         // return $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
         return $response;
