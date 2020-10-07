@@ -14,7 +14,7 @@ class ResourceSpaceController
 
     public function __construct()
     {
-        $this->config = include('config.php');
+        $this->config = include('config.roberto.php');
         $this->resourcespaceUrl = $this->config['resourcespace_url'];
         $this->apiKey           = $this->config['api_key'];
         $this->apiUser          = $this->config['api_user'];
@@ -87,7 +87,7 @@ class ResourceSpaceController
     public function createResource($image_url)
     {
 //        $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&param7=" . urlencode(json_encode(array(1=>"Foo",8=>"Bar"))); # <--- The function to execute, and parameters
-        $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&url=".urlencode($image_url);
+        $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=".urlencode($image_url);
         // $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=". urlencode($image_url) . "&metadata=" . urlencode(json_encode(array(18=>"My captions",8=>"Česnakinis"))); # <--- The function to execute, and parameters
         // $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0";
         // $this->query="user=" . $this->apiUser . "&function=create_resource&param1=5&param2=0";
