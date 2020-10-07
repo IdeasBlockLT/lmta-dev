@@ -103,6 +103,19 @@ class ResourceSpaceController
         return $response;   
     }
 
+    public function createResourceWithMetadata($image_url, $title, $date)
+    {
+
+        $this->query    ="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=". 
+                        urlencode($image_url) . 
+                        "&metadata=" . 
+                        urlencode(json_encode(array(18=>$date,
+                                                    8=>$title,
+                                                    12=>$date))); # <--- The function to execute, and parameters
+        $response = $this->runBaby();
+        return $response;   
+    }
+
     /**
      * Taking the video for the index cover
      * @param $id
