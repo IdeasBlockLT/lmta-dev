@@ -106,6 +106,7 @@ class ResourceSpaceController
     public function createResourceWithMetadata($image_url, $title, $date)
     {
 
+        dd($date);
         $this->query    ="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=". 
                         urlencode($image_url) . 
                         "&metadata=" . 
