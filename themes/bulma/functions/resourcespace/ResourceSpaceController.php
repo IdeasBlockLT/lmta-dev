@@ -137,7 +137,7 @@ class ResourceSpaceController
         $data     = file_get_contents($request);
         $response = json_decode($data, true);
         // return $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
-        return $request;
+        return $response;
     }
 
     public function power()
