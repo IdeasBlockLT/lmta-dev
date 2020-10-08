@@ -9,6 +9,9 @@
 
     $resource_data      = $resource->doSearch($title);
 	$resource_extension = $resource_data[0]["file_extension"];
+	$resource_id        = $resource_data[0]["ref"];
+
+	$resource_url		= $resource->getResourcePath($resource_id, $resource_extension);
 
 	$array_images = array('jpg','gif','png');
 	$array_video  = array('mp4');
@@ -34,7 +37,7 @@
 
     <div class="embed-responsive embed-responsive-16by9">
 	    <iframe class="embed-responsive-item" id="player" 
-	            src="https://www.youtube.com/embed/live_stream?channel=UCws-DeDqDVzDRjYD6AXzjww&enablejsapi=1"
+	            src="<?php echo $resource_url; ?>"
 	            allowfullscreen>
 	    </iframe>
 	</div>
