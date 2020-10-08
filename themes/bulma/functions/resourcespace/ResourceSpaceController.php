@@ -26,7 +26,7 @@ class ResourceSpaceController
      */
     public function getResourcePath($id, $extension = null)
     {
-        $this->query = "user=" . $this->apiUser . '&function=get_resource_path&param1=' . $id . '&param2=false&param3=true&param4=true&param5='.$extension.'&param7=true';
+        $this->query = "user=" . $this->apiUser . '&function=get_resource_path&ref=' . $id . '&getfilepath=false&extension='.$extension;
         return $this->runBaby();
     }
 
