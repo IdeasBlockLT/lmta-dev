@@ -24,9 +24,9 @@ class ResourceSpaceController
      * @param $id
      * @return mixed
      */
-    public function getResourcePath($id)
+    public function getResourcePath($id, $extension = null)
     {
-        $this->query = "user=" . $this->apiUser . '&function=get_resource_path&param1=' . $id . '&param2=true&param3=true&param4=true&param7=true';
+        $this->query = "user=" . $this->apiUser . '&function=get_resource_path&param1=' . $id . '&param2=false&param3=true&param4=true&param5='.$extension.'&param7=true';
         return $this->runBaby();
     }
 
