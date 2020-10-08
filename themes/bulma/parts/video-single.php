@@ -26,6 +26,9 @@
 	            allowfullscreen>
 	    </iframe>
 	</div>
+	<script>
+		alert("ok, don't pay for the video");
+	</script>
 
 <?php elseif(in_array($resource_extension, $array_video)) : ?>
 
