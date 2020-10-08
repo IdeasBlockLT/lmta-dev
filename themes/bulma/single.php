@@ -1,9 +1,12 @@
 <?php
-    $resource = new ResourceSpaceController();
+    // $resource = new ResourceSpaceController();
 
-    // Get Id of this post and find out in RS if there is an image 
-    $ID   = get_the_ID();
-    $meta = get_post_meta($ID)["mediateka_title"][0];
+    // // Get Id of this post and find out in RS if there is an image 
+    // $ID    = get_the_ID();
+    // $meta  = get_post_meta($ID);
+    // $title = $meta["mediateka_title"][0];
+    // $date  = $meta["date"][0];
+
     // $url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
     // $data = $resource->createResource($url);;
     // dd($data[0]["file_extension"]);
@@ -24,7 +27,7 @@
 <div class="container w-90 mx-auto">
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
         <div class="col-md-7 col-7 themed-grid-col mr-3">
-            <?php get_template_part('parts/video') ?>
+            <?php get_template_part('parts/video-single') ?>
         </div>
         <div class="col-md-4 col-4 themed-grid-col border-left">
             <div class="pb-4">
