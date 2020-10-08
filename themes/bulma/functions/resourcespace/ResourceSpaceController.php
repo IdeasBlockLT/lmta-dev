@@ -86,8 +86,7 @@ class ResourceSpaceController
 
     public function createResource($image_url)
     {
-//        $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&param7=" . urlencode(json_encode(array(1=>"Foo",8=>"Bar"))); # <--- The function to execute, and parameters
-        // $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=".urlencode($image_url);
+
         $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=". 
         urlencode($image_url) . 
         "&metadata=" . 
@@ -103,15 +102,20 @@ class ResourceSpaceController
         return $response;   
     }
 
+    /**
+     * Create a new resource with title, date and image
+     * @param $image_url = the url of the cover image in the post to upload to resourcespace
+     * @param $title     = the 'custom field' from the post with the post title to be saved in resourcespace
+     * @param $date      = the date of the concert corresponding to this post.
+     * @return mixed
+     */
     public function createResourceWithMetadata($image_url, $title, $date)
     {
-
-        // dd($date);
         $this->query    ="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=". 
                         urlencode($image_url) . 
                         "&metadata=" . 
                         urlencode(json_encode(array(18=>$date,
-                                                    8=>$title,
+                                                    8 =>$title,
                                                     12=>$date))); # <--- The function to execute, and parameters
         $response = $this->runBaby();
         return $response;   
