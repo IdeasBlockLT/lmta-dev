@@ -144,7 +144,7 @@ class ResourceSpaceController
     {
         #check if this if for mediateka
 
-        $this->query = $query = "user=" . $this->apiUser . "&function=do_search&param1='" . $keyword . "'";
+        $this->query = $query = "user=" . $this->apiUser . "&function=do_search&param1='" . urlencode($keyword) . "'";
         return $this->runBaby();
     }
 
