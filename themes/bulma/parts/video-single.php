@@ -9,15 +9,15 @@
 
     $resource_data      = $resource->doSearch($title);
 
-    if(isset($resource_data))
+    try
     {
     	$resource_extension = $resource_data[0]["file_extension"];
-    }
-
-    if(isset($resource_data))
-    {
     	$resource_id        = $resource_data[0]["ref"];
     	$resource_url		= $resource->getResourcePath($resource_id, $resource_extension);
+    }
+    catch(Exception $e)
+    {
+    	$error = $e;
     }
 
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
