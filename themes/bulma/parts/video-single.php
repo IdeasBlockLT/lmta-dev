@@ -4,10 +4,18 @@
     // Get Id of this post and find out in RS if there is an image 
     $ID    = get_the_ID();
     $meta  = get_post_meta($ID);
-    $title = $meta["mediateka_title"][0];
-    $date  = $meta["date"][0];
 
-    $resource_data      = $resource->doSearch($title);
+    if(isset($meta["mediateka_title"]))
+    {
+    	$title = $meta["mediateka_title"][0];
+	    $resource_data      = $resource->doSearch($title);
+    }
+
+    if(isset($meta["date"]))
+    {
+    	$date  = $meta["date"][0];
+    }
+    
 
     if(isset($resource_data[0]))
     {
