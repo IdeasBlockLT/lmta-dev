@@ -8,12 +8,13 @@
     $date  = $meta["date"][0];
 
     $resource_data      = $resource->doSearch($title);
-    if($resource_data[0]["file_extension"])
+
+    if($resource_data[0]["file_extension"] != null )
     {
     	$resource_extension = $resource_data[0]["file_extension"];
     }
 
-    if($resource_data[0]["ref"])
+    if($resource_data[0]["ref"] != null )
     {
     	$resource_id        = $resource_data[0]["ref"];
     	$resource_url		= $resource->getResourcePath($resource_id, $resource_extension);
