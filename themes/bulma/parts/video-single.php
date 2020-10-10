@@ -8,15 +8,24 @@
     $date  = $meta["date"][0];
 
     $resource_data      = $resource->doSearch($title);
-	$resource_extension = $resource_data[0]["file_extension"];
-	$resource_id        = $resource_data[0]["ref"];
+    if($resource_data[0]["file_extension"];)
+    {
+    	$resource_extension = $resource_data[0]["file_extension"];
+    }
 
-	$resource_url		= $resource->getResourcePath($resource_id, $resource_extension);
+    if($resource_data[0]["ref"];)
+    {
+    	$resource_id        = $resource_data[0]["ref"];
+    	$resource_url		= $resource->getResourcePath($resource_id, $resource_extension);
+    }
+	
+
+	
+
+	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
 
 	$array_images = array('jpg','gif','png');
 	$array_video  = array('mp4');
-
-	$url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
 
 ?>
 
@@ -25,7 +34,7 @@
 
 	<div class="embed-responsive embed-responsive-16by9">
 	    <iframe class="embed-responsive-item" id="player" 
-	            src="<?php echo $url; ?>"
+	            src="<?php echo $cover_url; ?>"
 	            allowfullscreen>
 	    </iframe>
 	</div>
@@ -45,6 +54,15 @@
 	<script>
 		alert("pay for the video");
 	</script>
+
+<?php else:?>
+
+	<div class="embed-responsive embed-responsive-16by9">
+	    <iframe class="embed-responsive-item" id="player" 
+	            src="<?php bloginfo('stylesheet_directory') ?>/images/jpeg.jpg"
+	            allowfullscreen>
+	    </iframe>
+	</div>
 
 <?php endif; ?>
 
