@@ -9,12 +9,12 @@
 
     $resource_data      = $resource->doSearch($title);
 
-    if($resource_data[0]["file_extension"] != null )
+    if(isset($resource_data))
     {
     	$resource_extension = $resource_data[0]["file_extension"];
     }
 
-    if($resource_data[0]["ref"] != null )
+    if(isset($resource_data))
     {
     	$resource_id        = $resource_data[0]["ref"];
     	$resource_url		= $resource->getResourcePath($resource_id, $resource_extension);
