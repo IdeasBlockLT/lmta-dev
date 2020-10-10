@@ -25,7 +25,7 @@
 ?>
 
 <!-- If we have image extension, we have only image on the resource -->
-<?php if (in_array($resource_extension,$array_images)): ?>
+<?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
 
 	<div class="embed-responsive embed-responsive-16by9">
 	    <iframe class="embed-responsive-item" id="player" 
@@ -37,7 +37,7 @@
 		alert("ok, don't pay for the video");
 	</script>
 
-<?php elseif(in_array($resource_extension, $array_video)) : ?>
+<?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
 
     <div class="embed-responsive embed-responsive-16by9">
 	    <iframe class="embed-responsive-item" id="player" 
