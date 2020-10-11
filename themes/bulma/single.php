@@ -23,14 +23,13 @@
         $resource_id        = $resource_data[0]["ref"];
         $resource_url       = $resource->getResourcePath($resource_id, $resource_extension);
 
-        set_query_var( 'resource_url', $resource_url);
+        // set_query_var( 'resource_url', $resource_url);
     }
 
     $cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
 
     $array_images = array('jpg','gif','png');
     $array_video  = array('mp4');
-
 
 
 ?>
@@ -42,7 +41,7 @@
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
         <div class="col-md-7 col-7 themed-grid-col mr-3">
 
-            <?php get_template_part('parts/video-only', [ 'resource_url' => $resource_url ] ) ?>
+            <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
 
             <!-- If we have image extension, we have only image on the resource -->
             <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
