@@ -43,7 +43,7 @@
 
 
 
-            <?php elseif( isset($resource_url) ) : ?>
+            <?php if( isset($resource_url) ) : ?>
 
                 <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
 
