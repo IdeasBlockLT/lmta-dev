@@ -81,16 +81,23 @@
                     <strong><?= the_title(); ?></strong>
                 </h4>
                 <br>
-                <?php if ( (isset($price))  && ($price > 0) ): ?>
+                <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
                     <br>
                     <h5>
-                        <strong>"Price: <? echo $price; ?> eur.</strong>
+                        <strong>"This event does not have video yet "</strong>
                     </h5>
-                <?php endif; ?>   
+                    <br>
+                    <br>
+                    <?php if ( (isset($price))  && ($price > 0) ): ?>
+                        <br>
+                        <h5>
+                            <strong>"Price: <? echo $price; ?> eur.</strong>
+                        </h5>
+                    <?php endif; ?> 
+                <?php endif; ?> 
+                  
                 <br>
-                <h5>
-                    <strong><? echo ""; ?></strong>
-                </h5>
+                <br>
                 <button type="button" class="btn btn-buy">Mokėti</button>
             </div>
         </div>
