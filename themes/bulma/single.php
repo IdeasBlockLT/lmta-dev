@@ -82,7 +82,7 @@
                 <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
                     <br>
                     <h5>
-                        <strong>"This event does not have video yet "</strong>
+                        <strong>This event does not have video yet.</strong>
                     </h5>
                     <br>
                     <br>
@@ -93,7 +93,7 @@
                      <?php if ( (isset($price))  && ($price > 0) ): ?>
                         <br>
                         <h5>
-                            <strong>"Price: <? echo $price[0]; ?> eur.</strong>
+                            <strong>Price: <? echo $price[0]; ?> eur.</strong>
                         </h5>
                         <button type="button" class="btn btn-buy">Mokėti</button>
                     <?php endif; ?>
