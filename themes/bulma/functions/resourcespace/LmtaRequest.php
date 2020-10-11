@@ -1,7 +1,5 @@
 <?php
 
-
-
 // Class stolen from diego
 class  LmtaRequest
 {
@@ -43,12 +41,12 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 
 				// TODO: HERE CHECK FIRST IF RESOURCE ALREADY EXISTS WITH THIS NAME AND EDIT THAT ONE: !!!!!!!!!!!!!!!!!!!!!!!! 
 				// OR NOT? WHAT IF COVER IMAGE IS UPDATED, THAT WOULD OVERRIDE THE VIDEO IN RESOURCESPACE??????
-			    $new_id    = $resource->createResourceWithMetadata($url, $title_field, $date );
-
+				// ONLY IF THIS IS A REAL POST, NOT A TRANSLATION (A REVISION)
+				if($post->post_type === 'post')
+				{
+					$new_id    = $resource->createResourceWithMetadata($url, $title_field, $date );
+				}
 			    // dd($new_id." : ".$url);
-
-
-
 		    }
 		  }
 		  if ( $new_status != 'publish' ) {
