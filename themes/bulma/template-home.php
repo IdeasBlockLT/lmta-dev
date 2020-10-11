@@ -31,9 +31,7 @@ $args = array(
             <div class="col-12 col-md-7 themed-grid-col mr-5">
                 <?php get_template_part('parts/video') ?>
                 <small class="d-block mt-4"><?php the_field('date'); ?></small>
-                <a href="<? the_permalink(the_post()); ?>">
-                <h3 class="hover-blue"><?= the_title(); ?></h3>
-                </a>
+                <h3 class="hover-blue" href="<? the_permalink(the_post()); ?>"><?= the_title(); ?></h3>
                 <p><?= the_excerpt(); ?></p>
             </div>
             <?php endif; ?>
