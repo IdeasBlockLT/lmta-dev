@@ -20,6 +20,7 @@
     {
         $resource_extension = $resource_data[0]["file_extension"];
         $resource_id        = $resource_data[0]["ref"];
+        $price              = $resource_data[0]["price"];
         $resource_url       = $resource->getResourcePath($resource_id, $resource_extension);
     }
 
@@ -80,7 +81,16 @@
                     <strong><?= the_title(); ?></strong>
                 </h4>
                 <br>
+                <?php if ( (isset($price))  && ($price > 0) ): ?>
+                    <br>
+                    <h5>
+                        <strong>"Price: <? echo $price; ?> eur.</strong>
+                    </h5>
+                <?php endif; ?>   
                 <br>
+                <h5>
+                    <strong><? echo ""; ?></strong>
+                </h5>
                 <button type="button" class="btn btn-buy">Mokėti</button>
             </div>
         </div>

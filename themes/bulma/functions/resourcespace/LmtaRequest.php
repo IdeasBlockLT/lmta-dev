@@ -32,7 +32,6 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 			    $post_metadata 	= get_post_meta($ID);
 			    $title_field 	= $post_metadata["mediateka_title"][0]; // TODO: USE THIS TITLE TO GIVE METADATA TO THE NEW CREATED RESOURCE
 			    $date 			= $post_metadata["date"] [0];
-			    $price 			= $post_metadata['price'][0];
 			    // $data = $resource->doSearch($meta);
 			    // dd($data[0]["file_extension"]);
 
