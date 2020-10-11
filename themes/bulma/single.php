@@ -11,16 +11,14 @@
         $resource_data = $resource->doSearch($title);
     }
 
-    if(isset($meta["date"]))
-    {
-        $date  = $meta["date"][0];
-    }
+    $date  = isset($meta["date"])  ?  $meta["date"]  : null;
+    $price = isset($meta["price"]) ?  $meta["price"] : null;
 
-    if(isset($resource_data[0]))
+    $resource_extension =  isset($resource_data[0]["file_extension"]) ? $resource_data[0]["file_extension"] : null ;
+    $resource_id        =  isset($resource_data[0]["ref"])            ? $resource_data[0]["ref"]            : null ;
+
+    if (isset($resource_id) && isset($resource_extension))
     {
-        $resource_extension = $resource_data[0]["file_extension"];
-        $resource_id        = $resource_data[0]["ref"];
-        $price              = $resource_data[0]["price"];
         $resource_url       = $resource->getResourcePath($resource_id, $resource_extension);
     }
 
