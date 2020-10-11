@@ -1,24 +1,35 @@
 <?php
-    // $resource = new ResourceSpaceController();
+    $resource = new ResourceSpaceController();
 
-    // // Get Id of this post and find out in RS if there is an image 
-    // $ID    = get_the_ID();
-    // $meta  = get_post_meta($ID);
-    // $title = $meta["mediateka_title"][0];
-    // $date  = $meta["date"][0];
+    // Get Id of this post and find out in RS if there is an image 
+    $ID    = get_the_ID();
+    $meta  = get_post_meta($ID);
 
-    // $url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
-    // $data = $resource->createResource($url);;
-    // dd($data[0]["file_extension"]);
-    // dd("a ver : ".$data);
+    if(isset($meta["mediateka_title"]))
+    {
+        $title = $meta["mediateka_title"][0];
+        $resource_data      = $resource->doSearch($title);
+    }
 
+    if(isset($meta["date"]))
+    {
+        $date  = $meta["date"][0];
+    }
+    
 
-//    if ($resource->hasVideo())
-//    {
-//        $cover = $resource->takeVideo();
-//    }else{
-//        $cover = $resource->takePreviewImage();
-//    }
+    if(isset($resource_data[0]))
+    {
+        $resource_extension = $resource_data[0]["file_extension"];
+        $resource_id        = $resource_data[0]["ref"];
+        $resource_url       = $resource->getResourcePath($resource_id, $resource_extension);
+
+    }
+
+    $cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
+
+    $array_images = array('jpg','gif','png');
+    $array_video  = array('mp4');
+
 ?>
 
 <?php get_template_part('parts/head') ?>
@@ -27,7 +38,31 @@
 <div class="container w-90 mx-auto">
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
         <div class="col-md-7 col-7 themed-grid-col mr-3">
-            <?php get_template_part('parts/video-single') ?>
+
+            <!-- <?php get_template_part('parts/video-single') ?> -->
+
+            <!-- If we have image extension, we have only image on the resource -->
+            <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
+
+                <?php get_template_part('parts/image') ?>
+
+            <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
+
+                <?php get_template_part('parts/video-only') ?>
+
+            <?php else:?>
+
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" id="player" 
+                            src="<?php bloginfo('stylesheet_directory') ?>/images/jpeg.jpg"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+
+            <?php endif; ?>
+
+
+
         </div>
         <div class="col-md-4 col-4 themed-grid-col border-left">
             <div class="pb-4">
