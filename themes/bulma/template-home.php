@@ -49,7 +49,9 @@ $args = array(
                 <?php while ($query->have_posts()) :$query->the_post(); ?>
                     <div class="themed-grid-col w-100 <?php echo (!get_next_post_link()) ? '' : 'border-bottom' ?>">
                         <small><?php the_field('date'); ?></small>
-                        <h5 class="hover-blue"><?php echo ucfirst(get_the_title()) ?></h5>
+                        <a  style="text-decoration: none;color: black; " 
+                            href="<? the_permalink(the_post()); ?>">
+                        <h5 class="hover-blue"><?php echo ucfirst(get_the_title()) ?></h5></a>
                         <p><?= the_excerpt('hello'); ?></p>
                     </div>
                 <?php endwhile; ?>
