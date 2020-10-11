@@ -109,13 +109,14 @@ class ResourceSpaceController
      * @param $date      = the date of the concert corresponding to this post.
      * @return mixed
      */
-    public function createResourceWithMetadata($image_url, $title, $date)
+    public function createResourceWithMetadata($image_url, $title, $date, $price)
     {
         $this->query    ="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=". 
                         urlencode($image_url) . 
                         "&metadata=" . 
                         urlencode(json_encode(array(18=>$date,
                                                     8 =>$title,
+                                                    10=>$price,
                                                     12=>$date))); # <--- The function to execute, and parameters
         $response = $this->runBaby();
         return $response;   

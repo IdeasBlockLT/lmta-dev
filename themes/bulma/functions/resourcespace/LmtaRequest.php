@@ -28,10 +28,11 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 		    	// create resource in resourcespace
 			    // Get Id of this post
 			    $resource = new ResourceSpaceController();
-			    $ID   = $post->ID;
-			    $post_metadata = get_post_meta($ID);
-			    $title_field = $post_metadata["mediateka_title"][0]; // TODO: USE THIS TITLE TO GIVE METADATA TO THE NEW CREATED RESOURCE
-			    $date = $post_metadata["date"][0];
+			    $ID   			= $post->ID;
+			    $post_metadata 	= get_post_meta($ID);
+			    $title_field 	= $post_metadata["mediateka_title"][0]; // TODO: USE THIS TITLE TO GIVE METADATA TO THE NEW CREATED RESOURCE
+			    $date 			= $post_metadata["date"] [0];
+			    $price 			= $post_metadata['price'][0];
 			    // $data = $resource->doSearch($meta);
 			    // dd($data[0]["file_extension"]);
 
@@ -45,7 +46,7 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 				// TODO: WHEN VISITING SINGLE, IF POST IS TRANSLATION, USER THE ID OF THE PARENT POST
 				if($post->post_type === 'post')
 				{
-					$new_id    = $resource->createResourceWithMetadata($url, $title_field, $date );
+					$new_id    = $resource->createResourceWithMetadata($url, $title_field, $date, $price);
 				}
 			    // dd($new_id." : ".$url);
 		    }

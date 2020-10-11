@@ -7,30 +7,26 @@
 
     if(isset($meta["mediateka_title"]))
     {
-        $title = $meta["mediateka_title"][0];
-        $resource_data      = $resource->doSearch($title);
+        $title         = $meta["mediateka_title"][0];
+        $resource_data = $resource->doSearch($title);
     }
 
     if(isset($meta["date"]))
     {
         $date  = $meta["date"][0];
     }
-    
 
     if(isset($resource_data[0]))
     {
         $resource_extension = $resource_data[0]["file_extension"];
         $resource_id        = $resource_data[0]["ref"];
         $resource_url       = $resource->getResourcePath($resource_id, $resource_extension);
-
-        // set_query_var( 'resource_url', $resource_url);
     }
 
     $cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
 
     $array_images = array('jpg','gif','png');
     $array_video  = array('mp4');
-
 
 ?>
 
@@ -83,6 +79,8 @@
                 <h4>
                     <strong><?= the_title(); ?></strong>
                 </h4>
+                <br>
+                <br>
                 <button type="button" class="btn btn-buy">Mokėti</button>
             </div>
         </div>
