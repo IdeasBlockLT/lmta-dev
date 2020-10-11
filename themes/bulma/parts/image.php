@@ -7,9 +7,7 @@
             allowfullscreen>
     </iframe>
 </div>
-<script>
-	alert("ok, don't pay for the video");
-</script>
+
 
 
 

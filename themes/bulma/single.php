@@ -39,16 +39,20 @@
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
         <div class="col-md-7 col-7 themed-grid-col mr-3">
 
-            <!-- <?php get_template_part('parts/video-single') ?> -->
+            <?php get_template_part('parts/video-only') ?>
 
             <!-- If we have image extension, we have only image on the resource -->
             <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
 
-                <?php get_template_part('parts/image') ?>
+                <script>
+                    alert("ok, don't pay for the video");
+                </script>
 
             <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
 
-                <?php get_template_part('parts/video-only') ?>
+                <script>
+                    alert("pay for the video");
+                </script>
 
             <?php else:?>
 
