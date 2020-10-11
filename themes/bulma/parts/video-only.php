@@ -1,6 +1,8 @@
 <?php
 
 	$resource_url = get_the_author_meta( 'resource_url', 'resource_url' );
+
+	dd($resource_url);
 ?>
 
 <div class="embed-responsive embed-responsive-16by9">
