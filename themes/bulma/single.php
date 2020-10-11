@@ -36,7 +36,7 @@
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
         <div class="col-md-7 col-7 themed-grid-col mr-3">
 
-
+            <!-- TODO: ADD CONDITIONS FOR IF THE USER HAS PAID FOR THIS VIDEO OR WTF? -->
 
             <?php if( isset($resource_url) ) : ?>
 
