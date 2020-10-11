@@ -93,6 +93,7 @@
                      <?php if ( (isset($price))  && ($price > 0) ): ?>
                         <br>
                         <h5>
+                            <? dd($price);?>
                             <strong>"Price: <? echo $price; ?> eur.</strong>
                         </h5>
                         <button type="button" class="btn btn-buy">Mokėti</button>
