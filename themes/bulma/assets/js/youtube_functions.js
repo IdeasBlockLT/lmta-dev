@@ -28,7 +28,25 @@ function error_video(event) {
     document.getElementById('player').src ='https://resourcespace.lmta.lt/filestore/1/6/2_85e8885fe9b2ec5/162_afefd9e4c5116d0.mp4';
 
     var title       = document.getElementsByClassName("first-post")[0];
-    title.innerHTML = "NOT Live now!"; 
+    var title_string = getCookie("first_title");
+
+    title.innerHTML = title_string;
  
 
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }

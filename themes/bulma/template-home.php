@@ -32,8 +32,7 @@ $args = array(
 
                 <?php 
                     get_template_part('parts/video'); 
-                    // $is_live =  $_COOKIE['is_live'];
-                    // dd($_COOKIE['is_live']);
+                    setcookie("first_title", the_title(), time(), "/");
                 ?>
 
 
