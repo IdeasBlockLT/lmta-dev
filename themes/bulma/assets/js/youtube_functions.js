@@ -23,7 +23,7 @@ window.YT.ready(function() {
     var excerpt     = document.getElementsByClassName("first-post-excerpt")[0].getElementsByTagName("p")[0];
     
     var videoData = player.getVideoData();
-
+    console.log(videoData);
     // TODO: here we need to catch the title from the youtube link with API
     var videoTitle = videoData['title'];
     title.innerHTML = "Live now!- "+ videoData;
