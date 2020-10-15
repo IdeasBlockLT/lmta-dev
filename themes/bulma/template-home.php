@@ -41,10 +41,10 @@ $args = array(
 
 
                 <small class="d-block mt-4 "><?php the_field('date'); ?></small>
-                <a style="text-decoration: none;color: black; " 
+                <a class="first-post-link" style="text-decoration: none;color: black; " 
                    href="<? the_permalink(the_post()); ?>">
                    <h3 class="hover-blue first-post"><?= the_title(); ?></h3></a>
-                <p><?= the_excerpt(); ?></p>
+                <p class="first-post-excerpt"><?= the_excerpt(); ?></p>
             </div>
             <?php endif; ?>
 

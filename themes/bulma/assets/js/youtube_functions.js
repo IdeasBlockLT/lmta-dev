@@ -19,15 +19,16 @@ window.YT.ready(function() {
     event.target.playVideo();
 
     var title       = document.getElementsByClassName("first-post")[0];
-
+    var link        = document.getElementsByClassName("first-post-link")[0];
+    var excerpt     = document.getElementsByClassName("first-post-excerpt")[0];
     
-    
-
     var videoData = player.getVideoData();
 
     // TODO: here we need to catch the title from the youtube link with API
     var videoTitle = videoData['title'];
-    title.innerHTML = "Live now!- "+ videoTitle; 
+    title.innerHTML = "Live now!- "+ videoTitle;
+    link.innerHTML = "https://www.youtube.com/watch?v="+link;
+    excerpt.innerHTML = ""; 
   }
 
 function error_video(event) {
@@ -36,6 +37,9 @@ function error_video(event) {
     document.getElementById('player').src ='https://resourcespace.lmta.lt/filestore/1/6/2_85e8885fe9b2ec5/162_afefd9e4c5116d0.mp4';
 
     var title       = document.getElementsByClassName("first-post")[0];
+    var link        = document.getElementsByClassName("first-post-link")[0];
+    var excerpt     = document.getElementsByClassName("first-post-excerpt")[0];
+    
     var title_string = getCookie("first_title");
 
     title.innerHTML = title_string;
