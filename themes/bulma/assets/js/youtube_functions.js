@@ -2,6 +2,7 @@
 /**
  * Need to wait until Youtube Player is ready!
  */
+var player = null;
 window.YT.ready(function() {
     console.log("API");
     player = new window.YT.Player("player", {
@@ -21,6 +22,9 @@ window.YT.ready(function() {
 
     // TODO: here we need to catch the title from the youtube link
     title.innerHTML = "Live now!"; 
+
+    console.log("code");
+    console.log(player.getVideoEmbedCode());
 
   }
 
