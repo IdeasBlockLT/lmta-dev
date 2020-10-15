@@ -18,7 +18,7 @@ window.YT.ready(function() {
     event.target.playVideo();
     document.cookie = "is_live=1";
 
-    var first_post_class = document.getElementsByClassName('first-post');
+    var first_post_class = document.getElementsByClassName('first-post')[0];
     var title = first_post_class.getElementsByTagName("h1")[0];
 
     title.innerHTML = "yourTextHere"; 
