@@ -31,7 +31,7 @@ $args = array(
             <div class="col-12 col-md-7 themed-grid-col mr-5">
 
                 <?php 
-                    get_template_part('parts/video') 
+                    get_template_part('parts/video'); 
                     $is_live =  $_COOKIE['is_live'];
                     dd($is_live);
                 ?>
