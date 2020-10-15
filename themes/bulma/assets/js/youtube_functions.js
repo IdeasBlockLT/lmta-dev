@@ -18,9 +18,11 @@ window.YT.ready(function() {
     event.target.playVideo();
     document.cookie = "is_live=1";
 
-    var first_post_class  = document.getElementsByClassName('first-post')[0];
-    var a_tags            = first_post_class.getElementsByTagName('a')[0];
-    var title             = a_tags.getElementsByTagName("h3")[0];
+    // var first_post_class  = document.getElementsByClassName('first-post')[0];
+    // var a_tags            = first_post_class.getElementsByTagName("a")[0];
+    // var title             = a_tags.getElementsByTagName("h3")[0];
+
+    var title             = document.getElementsByClassName('first-post')[0].getElementsByTagName("a")[0].getElementsByTagName("h3")[0];
 
     title.innerHTML = "yourTextHere"; 
 
