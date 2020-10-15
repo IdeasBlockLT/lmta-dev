@@ -39,7 +39,7 @@ $args = array(
 
 
 
-                <small class="d-block mt-4"><?php the_field('date'); ?></small>
+                <small class="d-block mt-4 first-post"><?php the_field('date'); ?></small>
                 <a style="text-decoration: none;color: black; " 
                    href="<? the_permalink(the_post()); ?>">
                    <h3 class="hover-blue"><?= the_title(); ?></h3></a>
