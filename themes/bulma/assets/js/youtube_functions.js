@@ -17,12 +17,7 @@ window.YT.ready(function() {
   function onPlayerReady(event) {
     event.target.playVideo();
     document.cookie = "is_live=1";
-
-    // var first_post_class  = document.getElementsByClassName('first-post')[0];
-    // var a_tags            = first_post_class.getElementsByTagName("a")[0];
     var title             = document.getElementsByClassName("first-post")[0];
-
-
     title.innerHTML = "Live now!"; 
 
 
