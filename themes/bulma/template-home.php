@@ -29,7 +29,16 @@ $args = array(
         <!--Will show the first from the query.-->
         <div class="row mb-0 mb-md-5">
             <div class="col-12 col-md-7 themed-grid-col mr-5">
-                <?php get_template_part('parts/video') ?>
+
+                <?php 
+                    get_template_part('parts/video') 
+                    $is_live =  $_COOKIE['is_live'];
+                    dd($is_live);
+                ?>
+
+
+
+
                 <small class="d-block mt-4"><?php the_field('date'); ?></small>
                 <a style="text-decoration: none;color: black; " 
                    href="<? the_permalink(the_post()); ?>">

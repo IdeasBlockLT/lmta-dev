@@ -19,7 +19,7 @@
 
     if (isset($resource_id) && isset($resource_extension))
     {
-        $resource_url       = $resource->getResourcePath($resource_id, $resource_extension);
+        $resource_url = $resource->getResourcePath($resource_id, $resource_extension);
     }
 
     $cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
