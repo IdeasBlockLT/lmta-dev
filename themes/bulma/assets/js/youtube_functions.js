@@ -30,8 +30,7 @@ function error_video(event) {
     var title       = document.getElementsByClassName("first-post")[0];
     var title_string = getCookie("first_title");
 
-    // title.innerHTML = title_string;
-    title.innerHTML = 'coco';
+    title.innerHTML = title_string;
  
 
 }
