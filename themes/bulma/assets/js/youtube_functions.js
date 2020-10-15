@@ -20,7 +20,9 @@ window.YT.ready(function() {
 
     var title       = document.getElementsByClassName("first-post")[0];
     var link        = document.getElementsByClassName("first-post-link")[0];
-    var excerpt     = document.getElementsByClassName("first-post-div")[0].getElementsByTagName("p")[1];
+    var first_post_div = document.getElementsByClassName("first_post_div")[0];
+    var excerpt     = first_post_div.getElementsByTagName("p")[1];
+    var button      = first_post_div.getElmentByClassName("btn")[0];
     
     var videoData = player.getVideoData();
     console.log(videoData);
@@ -28,7 +30,9 @@ window.YT.ready(function() {
     var videoTitle = videoData['title'];
     title.innerHTML = "Live now!- "+ videoTitle;
     link.href = "https://www.youtube.com/watch?v="+videoData['video_id'];
+    button.href = "https://www.youtube.com/watch?v="+videoData['video_id'];
     excerpt.innerHTML = ""; 
+
   }
 
 function error_video(event) {
