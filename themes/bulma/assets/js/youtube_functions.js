@@ -20,26 +20,14 @@ window.YT.ready(function() {
 
     var title       = document.getElementsByClassName("first-post")[0];
 
-    // TODO: here we need to catch the title from the youtube link
-    title.innerHTML = "Live now!"; 
-
-    console.log("code");
-    console.log(player.getVideoUrl());
-
-    var query = player.getVideoUrl().split("?")[1];
-    console.log("query: " + query);
-
-    var video_query = query.split("&")[0];
-    console.log("video_query: " +  video_query);
-
-    var video_id =  video_query.split("=")[1];
-    console.log("video_id" + video_id);
-
-    var video_info_url = "http://youtube.com/get_video_info?video_id=" + video_id;
+    
     
 
-    console.log(player.getVideoData());
+    var videoData = player.getVideoData();
 
+    // TODO: here we need to catch the title from the youtube link with API
+    var title = videoData['title'];
+    title.innerHTML = "Live now!- "+ title; 
   }
 
 function error_video(event) {
