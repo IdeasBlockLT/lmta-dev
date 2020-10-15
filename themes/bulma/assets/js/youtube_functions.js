@@ -18,11 +18,11 @@ window.YT.ready(function() {
   function onPlayerReady(event) {
     event.target.playVideo();
 
-    var title       = document.getElementsByClassName("first-post")[0];
-    var link        = document.getElementsByClassName("first-post-link")[0];
-    var first_post_div = document.getElementsByClassName("first_post_div")[0];
-    var excerpt     = first_post_div.getElementsByTagName("p")[1];
-    var button      = first_post_div.getElmentByClassName("btn")[0];
+    var title          = document.getElementsByClassName("first-post")[0];
+    var link           = document.getElementsByClassName("first-post-link")[0];
+    var first_post_div = document.getElementsByClassName("first-post-div")[0];
+    var excerpt        = first_post_div.getElementsByTagName("p")[1];
+    var button         = first_post_div.getElmentByClassName("btn")[0];
     
     var videoData = player.getVideoData();
     console.log(videoData);
