@@ -24,7 +24,7 @@ window.YT.ready(function() {
     title.innerHTML = "Live now!"; 
 
     console.log("code");
-    console.log(player.getVideoEmbedCode());
+    console.log(player.getVideoUrl());
 
   }
 
