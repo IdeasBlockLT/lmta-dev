@@ -26,6 +26,16 @@ window.YT.ready(function() {
     console.log("code");
     console.log(player.getVideoUrl());
 
+    var query = player.getVideoUr().split("?")[1];
+
+    var video_query = query.split("&")[0];
+
+    var video_id =  video_query.split("=")[1];
+
+    var video_info_url = "http://youtube.com/get_video_info?video_id=" + video_id;
+
+    console.log(player.getVideoData());
+
   }
 
 function error_video(event) {
