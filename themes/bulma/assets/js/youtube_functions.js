@@ -26,8 +26,8 @@ window.YT.ready(function() {
     var videoData = player.getVideoData();
 
     // TODO: here we need to catch the title from the youtube link with API
-    var title = videoData['title'];
-    title.innerHTML = "Live now!- "+ title; 
+    var videoTitle = videoData['title'];
+    title.innerHTML = "Live now!- "+ videoTitle; 
   }
 
 function error_video(event) {
