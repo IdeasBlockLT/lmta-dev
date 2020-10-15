@@ -18,6 +18,8 @@ window.YT.ready(function() {
     event.target.playVideo();
 
     var title       = document.getElementsByClassName("first-post")[0];
+
+    // TODO: here we need to catch the title from the youtube link
     title.innerHTML = "Live now!"; 
 
   }
