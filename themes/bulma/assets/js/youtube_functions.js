@@ -20,14 +20,14 @@ window.YT.ready(function() {
 
     var title       = document.getElementsByClassName("first-post")[0];
     var link        = document.getElementsByClassName("first-post-link")[0];
-    var excerpt     = document.getElementsByClassName("first-post-excerpt")[0];
+    var excerpt     = document.getElementsByClassName("first-post-excerpt")[0].getElementByTagName("p");[0];
     
     var videoData = player.getVideoData();
 
     // TODO: here we need to catch the title from the youtube link with API
     var videoTitle = videoData['title'];
     title.innerHTML = "Live now!- "+ videoTitle;
-    link.innerHTML = "https://www.youtube.com/watch?v="+link;
+    link.innerHTML = "https://www.youtube.com/watch?v="+videoData['id'];
     excerpt.innerHTML = ""; 
   }
 
