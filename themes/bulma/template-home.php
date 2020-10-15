@@ -30,12 +30,14 @@ $args = array(
         <div class="row mb-0 mb-md-5">
             <div class="col-12 col-md-7 themed-grid-col mr-5">
 
-                <?php 
+                <?php
                     get_template_part('parts/video'); 
-                    setcookie("first_title", the_title());
+                    // setcookie("first_title", the_title());
                 ?>
 
-
+                <script>
+                    document.cookie = "first_title=<?php echo(the_title());?>";
+                </script>
 
 
                 <small class="d-block mt-4 "><?php the_field('date'); ?></small>
