@@ -23,7 +23,7 @@ window.YT.ready(function() {
     var title             = document.getElementsByClassName("first-post")[0];
 
 
-    title.innerHTML = "yourTextHere"; 
+    title.innerHTML = "Live now!"; 
 
 
   }
