@@ -20,7 +20,7 @@ window.YT.ready(function() {
 
     var title       = document.getElementsByClassName("first-post")[0];
     var link        = document.getElementsByClassName("first-post-link")[0];
-    var excerpt     = document.getElementsByClassName("first-post-excerpt")[0].getElementsByTagName("p")[0];
+    var excerpt     = document.getElementsByClassName("first-post-div")[0].getElementsByTagName("p")[1];
     
     var videoData = player.getVideoData();
     console.log(videoData);

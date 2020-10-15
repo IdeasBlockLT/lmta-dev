@@ -28,7 +28,7 @@ $args = array(
         <?php if ($query->have_posts()) :$query->the_post(); ?>
         <!--Will show the first from the query.-->
         <div class="row mb-0 mb-md-5">
-            <div class="col-12 col-md-7 themed-grid-col mr-5">
+            <div class="col-12 col-md-7 themed-grid-col mr-5 first-post-div">
 
                 <?php
                     get_template_part('parts/video'); 
