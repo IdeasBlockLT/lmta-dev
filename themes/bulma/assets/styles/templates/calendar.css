@@ -14,11 +14,23 @@ input[value='1']{
     font-family: "FontAwesome", 'sans-serif';
     content: "\f004";
 }
-
-input[value='1']:checked ~ #one{
-    display: block;
+.one, .two{
+    /*display: none;*/
 }
-input[value='2']:checked ~ #two{
+
+/*input[value='1']:checked ~ .one{*/
+/*    display: block;*/
+/*}*/
+/*input[value='2']:checked ~ .two{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    flex-wrap: nowrap;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    align-content: stretch;*/
+/*}*/
+
+.one-column{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -26,4 +38,61 @@ input[value='2']:checked ~ #two{
     align-items: center;
     align-content: stretch;
 }
-section{display: none;}
+
+/*section{*/
+/*    display: none;*/
+/*}*/
+
+.custom-card{
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.custom-image-horizontal{
+    height: 225px;
+    width: auto;
+    object-fit: cover;
+}
+@media (min-width: 1440px) {
+    .custom-size {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+.custom-image-vertical{
+    width: 30%;
+    height: 280px;
+    object-fit: cover;
+}
+#calendar-posts{
+    border: 2px solid green;
+}
+
+.qa:nth-child(3),
+.qa:nth-child(6),
+.qa:nth-child(9){
+    border:none!important;
+}
+#horizontal, #vertical{
+    font-size: 1.6rem;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    color: #dee2e6;
+}
+#horizontal:focus, #vertical:focus{
+    outline: none!important;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    color: black;
+}
+
+.custom-borders__one_column{
+    border: none;
+    /*border-top: 1px solid rgba(0,0,0,.125);*/
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.custom__card-body{
+    padding: 1.25rem 1.25rem 0rem 1.25rem!important;
+}

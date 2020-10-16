@@ -51,7 +51,7 @@ function arphabet_widgets_init()
 //Excerpt text to be max 30 characters
 function custom_excerpt_length()
 {
-    return 30;
+    return 40;
 }
 
 add_filter('excerpt_length', 'custom_excerpt_length');
@@ -62,16 +62,21 @@ pll_register_string(strtolower(FIND_MORE), FIND_MORE);
 //height:150px;
 //display: flex;
 //align-items: flex-end
+//function custom_excerpt_more()
+//{
+//    $current_lang = pll_current_language();
+//    $trans = pll_translate_string(FIND_MORE, $current_lang);
+//    return '<div><br><a href="' . get_the_permalink() . '" class="btn btn-light mt-3 custom-more hover-blue__white"> ' . strtoupper($trans) . ' </a></div>';
+//}
+
+//On empty showing ... after excerpt
 function custom_excerpt_more()
 {
-    $current_lang = pll_current_language();
-    $trans = pll_translate_string(FIND_MORE, $current_lang);
-    return '<div><br><a href="' . get_the_permalink() . '" class="btn btn-light mt-3 custom-more hover-blue__white"> ' . strtoupper($trans) . ' </a></div>';
+    return ;
 }
-
 add_filter('excerpt_more', 'custom_excerpt_more');
 
-add_action('save_post', 'create_resource');
+//add_action('save_post', 'create_resource');
 
  function create_resource($post_id)
  {
@@ -83,6 +88,8 @@ add_action('save_post', 'create_resource');
 
  }
 
+// Register Custom Navigation Walker
+require_once('parts/wp_bootstrap_pagination.php');
 
 //add_action( 'widgets_init', 'arphabet_widgets_init' );
 
