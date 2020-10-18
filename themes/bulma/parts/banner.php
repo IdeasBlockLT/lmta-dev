@@ -12,7 +12,7 @@ $current_lang = pll_current_language();
             <p class="d-inline-block align-center custom-banner <?= esc_html($args['size']) ?>">
                 <a href="<?php echo home_url(); ?>">
                     <img id="banner-logo" style="width: 10%" class="mx-auto d-inline-block align-self-center mr-3 img-thumbnail border-0 w-50"
-                         src="<?php bloginfo('stylesheet_directory') ?>/assets/images/logo.jpg" alt="">
+                         src="<?php bloginfo('stylesheet_directory') ?>/assets/images/logo_lmta.png" alt="">
                 </a>
                 <strong class="custom-size-banner"><?php bloginfo('name') ?> <small id="tv" class="text-uppercase"><?php bloginfo('description') ?></small></strong>
             </p>
