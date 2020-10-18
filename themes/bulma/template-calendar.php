@@ -20,7 +20,7 @@ $resource = new ResourceSpaceController();
 
     <div id="two-columns_busimi-iviki" class="row">
         
-        <?php //get_template_part('parts/busimi-ivike') ?>
+        <?php get_template_part('parts/busimi-ivike') ?>
 
         <?php get_template_part('parts/horizontal-vertical') ?>
 
