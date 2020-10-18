@@ -1,12 +1,10 @@
-<?php /* Template Name: Mediateka */
-
-$resource = new ResourceSpaceController();
-//$results = $resource->doSearch();
-//$sizes = $resource->getResourceAllImageSizes(1001, true);
-//$resource->createResource();
-
-
-
+<?php
+$page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$args = array(
+    'orderby' => 'date',
+    'posts_per_page' => 9,
+    'paged' => $page
+);
 
 ?>
 <?php get_template_part('parts/head') ?>
@@ -18,15 +16,36 @@ $resource = new ResourceSpaceController();
 ]) ?>
 
     <div class="container w-90 mx-auto">
-        <?php 
-        	if(isset($_POST["searchTerm"]))
-			{
-				$searchTerm = $_POST['searchTerm'];
-				get_template_part('parts/mediateka-keywords', null, array(   'searchTerm'   => $search_term));
+
+
+    	<div class="container w-90 mx-auto">
+    
+		    <div id="two-columns_busimi-iviki" class="row">
+		        
+		        <?php get_template_part('parts/busimi-ivike') ?>
+
+		        <?php get_template_part('parts/horizontal-vertical') ?>
+
+		    </div>
+		    
+
+		    <?php 
+		    $searchTerm = isset($_POST["searchTerm"])? $_POST["searchTerm"] : null ;
+		    
+			//<!--3 item column-->
+	   		get_template_part('parts/1-item-row', null, array("args"=>$args, "searchTerm" => $searchTerm) )
+	    	//<!--1 item column-->
+	    	get_template_part('parts/3-item-row', null, array("args"=>$args, "searchTerm" => $searchTerm)) 
 				
-			}
-			else{
-				get_template_part('parts/mediateka-keywords');
-			}
+			?>
+
+		    
+		</div>
+
+
+        <?php 
+			get_template_part('parts/mediateka-keywords');
          ?>
+
+
     </div>
