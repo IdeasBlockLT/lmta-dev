@@ -25,7 +25,7 @@ $resource = new ResourceSpaceController();
         <?php get_template_part('parts/horizontal-vertical') ?>
 
     </div>
-
+    <?php dd($args); ?>
     <!--3 item column-->
     <?php get_template_part('parts/1-item-row') ?>
 
