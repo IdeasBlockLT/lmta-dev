@@ -33,9 +33,9 @@ $args = array(
 		    $searchTerm = isset($_POST["searchTerm"])? $_POST["searchTerm"] : null ;
 		    
 			//<!--3 item column-->
-	   		get_template_part('parts/1-item-row', null, array("args"=>$args, "searchTerm" => $searchTerm) )
+	   		get_template_part('parts/1-item-row', null, array("args"=>$args, "searchTerm" => $searchTerm) );
 	    	//<!--1 item column-->
-	    	get_template_part('parts/3-item-row', null, array("args"=>$args, "searchTerm" => $searchTerm)) 
+	    	get_template_part('parts/3-item-row', null, array("args"=>$args, "searchTerm" => $searchTerm) ); 
 				
 			?>
 
