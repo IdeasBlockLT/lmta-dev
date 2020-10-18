@@ -113,9 +113,9 @@ $resource = new ResourceSpaceController();
         <?php endif; ?>
     </div>
     
-</div>
+    <?php get_template_part('parts/banner-words') ?>
 
-<?php get_template_part('parts/banner-words') ?>
+</div>
 
 <?php get_footer(); ?>
 <script>
