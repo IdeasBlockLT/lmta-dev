@@ -27,7 +27,7 @@ $resource = new ResourceSpaceController();
     </div>
 
     <!--3 item column-->
-    <?php get_template_part('1-item-row') ?>
+    <?php get_template_part('parts/1-item-row') ?>
 
     <!--1 item column-->
     <?php get_template_part('parts/3-item-row') ?>

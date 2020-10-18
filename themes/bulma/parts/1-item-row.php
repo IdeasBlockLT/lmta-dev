@@ -1,5 +1,6 @@
 <!--1 item row-->
 <div id="one-column" class="row hide mb-2">
+    <?php dd($args); ?>
     <?php $posts = new WP_Query($args); ?>
     <?php if (have_posts()): ?>
         <?php while ($posts->have_posts()): $posts->the_post(); ?>
