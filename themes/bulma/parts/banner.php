@@ -9,7 +9,7 @@ $current_lang = pll_current_language();
             <a class="text-muted" href="#"></a>
         </div>
         <div class="col-10 text-center">
-            <p class="d-inline-block align-center custom-banner <?= esc_html($args['size']) ?>">
+            <p class="d-inline-block align-center custom-banner <?= esc_html($args['size']) ?>"   style="background-color: #5797fb00">
                 <a href="<?php echo home_url(); ?>">
                     <img id="banner-logo" style="width: 10%" class="mx-auto d-inline-block align-self-center mr-3 img-thumbnail border-0 w-50"
                          src="<?php bloginfo('stylesheet_directory') ?>/assets/images/logo_lmta.png" alt="">
