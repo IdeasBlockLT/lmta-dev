@@ -61,8 +61,8 @@ input[value='1']{
 }
 
 .custom-image-vertical{
-    width: 30%;
-    height: 280px;
+    width: 600px;
+    height: 300px;
     object-fit: cover;
 }
 #calendar-posts{
@@ -92,7 +92,14 @@ input[value='1']{
     /*border-top: 1px solid rgba(0,0,0,.125);*/
     border-bottom: 1px solid rgba(0,0,0,.125);
 }
+.border-remove{
+    border: none;
+}
 
 .custom__card-body{
     padding: 1.25rem 1.25rem 0rem 1.25rem!important;
+}
+
+#future-events, #past-events{
+    cursor: pointer;
 }

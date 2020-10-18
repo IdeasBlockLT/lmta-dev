@@ -1,14 +1,26 @@
 <?php /* Template Name: Calendar */ ?>
 <?php
+$current_lang = pll_current_language();
+$readMore = pll_translate_string(FIND_MORE, $current_lang);
+
 $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array(
-    'orderby' => 'date',
+
+$today = date("Y-m-d H:i");
+$args = [
+    'orderby' => 'streamDate',
+    'order' => 'DESC',
+    'meta_key' => 'streamDate',
     'posts_per_page' => 9,
-    'paged' => $page
-);
+    'meta_query' => [
+        'key' => 'streamDate',
+        'meta-value' => 'streamDate',
+        'value' => $today,
+        'compare' => '>=',
+        'type' => 'CHAR',
+    ]
+];
 
 $resource = new ResourceSpaceController();
-//$image = $resource->getPreviews('trevio');
 
 ?>
 <?php get_template_part('parts/head') ?>
@@ -19,7 +31,12 @@ $resource = new ResourceSpaceController();
         <div class="col-md-6 mx-auto">
             <div class="mb-4 custom-size">
                 <h4 class="d-inline">
-                    <strong>Būsimi renginiai</strong><span class="text-muted">/ Įvykę renginiai</span>
+                    <span value=">=" id="future-events">
+                        Būsimi renginiai
+                    </span>
+                    <span value="<" id="past-events" class="text-muted">
+                        / Įvykę renginiai
+                    </span>
                 </h4>
             </div>
         </div>
@@ -29,19 +46,18 @@ $resource = new ResourceSpaceController();
                                style="display: inline">Vaizdavimas</label>
                 </strong>
                 <button type="button" autofocus="true" name="switch" value="1"
-                        checked="true"
                         class="inputs" id="horizontal">
-                    <i class="fas fa-grip-horizontal"></i>
+                    <i class="fas fa-grip-horizontal" style="color: black"></i>
                 </button>
-                <button type="button" name="switch" value="1" checked="true"
+                <button type="button" name="switch" value="1"
                         class="inputs" id="vertical">
                     <i class="fas fa-grip-lines"></i>
                 </button>
             </div>
         </div>
     </div>
+    <!--3 items column-->
     <div id="three-columns" class="row">
-        <!--3 items column-->
         <?php $posts = new WP_Query($args); ?>
         <?php if ($posts): ?>
             <?php $x = 0; ?>
@@ -53,13 +69,21 @@ $resource = new ResourceSpaceController();
                              src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
                              alt="">
                         <div class="mt-3 mt-md-4 pt-md-2 hr-control">
-                            <small><?php the_field('date'); ?></small>
+                            <small>
+                                <?php if (get_field('streamDate')): ?>
+                                    <?php the_field('streamDate') ?>
+                                <?php endif; ?></small>
                             <h5>
                                 <a class="hover-blue"
                                    href="<?= get_the_permalink() ?>"><?= the_title(); ?>
                                 </a>
                             </h5>
                             <p class="card-text"><?= the_excerpt(); ?></p>
+                            <button class="mt-auto btn btn-light custom-more hover-blue__white mb-3">
+                                <a href="' . get_the_permalink() . '" class="">
+                                    <?= strtoupper($readMore); ?>
+                                </a>
+                            </button>
                         </div>
                         <?php if ($x < 7): ?>
                             <hr>
@@ -84,27 +108,37 @@ $resource = new ResourceSpaceController();
     <div id="one-column" class="row hide mb-2">
         <?php $posts = new WP_Query($args); ?>
         <?php if (have_posts()): ?>
+            <?php $y = 0; ?>
             <?php while ($posts->have_posts()): $posts->the_post(); ?>
-            <div class="col-12">
-                <div class="card flex-md-row box-shadow h-md-250 custom-borders__one_column py-5">
-                    <img class="flex-auto d-none d-md-block custom-image-vertical border-right" src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>" alt="Card image cap">
-                    <div class="card-body custom__card-body d-flex flex-column align-items-start border-md-left ml-md-4">
-                        <small><?php the_field('date'); ?></small>
-                        <h5>
-                            <a class="hover-blue"
-                               href="<?= get_the_permalink() ?>"><?= the_title(); ?>
-                            </a>
-                        </h5>
-                        <p class="card-text"><?= the_excerpt(); ?></p>
-                        <button class="mt-auto btn btn-light custom-more hover-blue__white">
-                            <a href="' . get_the_permalink() . '" class="">
-                                Read more
-                            </a>
-                        </button>
+                <?php $y++; ?>
+                <div class="col-12">
+                    <div class="card flex-md-row box-shadow h-md-250 custom-borders__one_column py-5
+                <?php if ($y == 9): echo 'border-remove'; endif; ?>">
+                        <img class="flex-auto d-none d-md-block custom-image-vertical border-right"
+                             src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
+                             alt="Card image cap">
+                        <div class="card-body custom__card-body d-flex flex-column align-items-start border-md-left ml-md-4">
+                            <small>
+                                <?php if (get_field('streamDate')): ?>
+                                    <?php the_field('streamDate') ?>
+                                <?php endif; ?>
+                            </small>
+                            <h5>
+                                <a class="hover-blue"
+                                   href="<?= get_the_permalink() ?>"><?= the_title(); ?>
+                                </a>
+                            </h5>
+                            <p class="card-text"><?= the_excerpt(); ?></p>
+                            <button class="mt-auto btn btn-light custom-more hover-blue__white">
+                                <a href="' . get_the_permalink() . '" class="">
+                                    <?= strtoupper($readMore); ?>
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php endwhile; ?>
+
         <?php else: ?>
             <?php echo 'hello'; ?>
             <?php echo paginate_links(); ?>
@@ -112,24 +146,4 @@ $resource = new ResourceSpaceController();
     </div>
     <?php get_template_part('parts/banner-words') ?>
 </div>
-
 <?php get_footer(); ?>
-<script>
-    let threeColumns = $("#three-columns");
-    let oneColumn = $("#one-column");
-    $("#horizontal").click(function () {
-        oneColumn.addClass("hide");
-        oneColumn.next().find('>div').removeClass("one-column");
-
-        threeColumns.css("display", "flex");
-        threeColumns.find('>div').css("display", "block");
-    });
-
-    $("#vertical").click(function () {
-        threeColumns.css("display", "none");
-        threeColumns.find('>div').css("display", "none");
-
-        oneColumn.removeClass("hide");
-        oneColumn.next().find('>div').not('#calendar-menu').addClass("one-column");
-    })
-</script>
