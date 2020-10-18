@@ -11,6 +11,7 @@ if(isset($_POST["searchTerm"]))
 	dd($_POST['searchTerm']);
 }
 
+dd($_POST['searchTerm']);
 
 ?>
 <?php get_template_part('parts/head') ?>
