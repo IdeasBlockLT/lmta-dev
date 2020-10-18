@@ -14,6 +14,7 @@ $args = array(
     'input-color' => 'blue',
     'placeholder' => 'Įveskite ieškomą raktžodį' //Para traducir
 ]) ?>
+<?php get_template_part('parts/banner', 'banner', ['size' => 'size1']); ?>
 
     <div class="container w-90 mx-auto">
 
