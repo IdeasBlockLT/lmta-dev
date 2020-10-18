@@ -25,12 +25,12 @@ $resource = new ResourceSpaceController();
         <?php get_template_part('parts/horizontal-vertical') ?>
 
     </div>
-    <?php dd($args); ?>
+    
     <!--3 item column-->
-    <?php get_template_part('parts/1-item-row') ?>
+    <?php get_template_part('parts/1-item-row', null, array("args"=>$args) ) ?>
 
     <!--1 item column-->
-    <?php get_template_part('parts/3-item-row') ?>
+    <?php get_template_part('parts/3-item-row', null, array("args"=>$args)) ?>
 </div>
 
 <?php get_template_part('parts/banner-words') ?>
