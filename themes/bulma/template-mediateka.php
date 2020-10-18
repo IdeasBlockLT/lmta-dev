@@ -22,8 +22,11 @@ $resource = new ResourceSpaceController();
         	if(isset($_POST["searchTerm"]))
 			{
 				$searchTerm = $_POST['searchTerm'];
+				get_template_part('parts/mediateka-keywords', null, array(   'searchTerm'   => $search_term));
 				
 			}
-			get_template_part('parts/mediateka-keywords', null, array(   'searchTerm'   => $search_term));
+			else{
+				get_template_part('parts/mediateka-keywords');
+			}
          ?>
     </div>
