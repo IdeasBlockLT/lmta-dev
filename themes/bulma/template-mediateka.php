@@ -54,3 +54,5 @@ $args = array(
 
 
     </div>
+
+<script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/horizontal-vertical.js'; ?>" type="module"></script>

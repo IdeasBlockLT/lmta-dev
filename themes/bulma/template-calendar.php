@@ -37,7 +37,7 @@ $resource = new ResourceSpaceController();
 
 <?php get_footer(); ?>
 
-<script>
+<!-- <script>
     let threeColumns = $("#three-columns");
     let oneColumn = $("#one-column");
     $("#horizontal").click(function () {
@@ -55,4 +55,5 @@ $resource = new ResourceSpaceController();
         oneColumn.removeClass("hide");
         oneColumn.next().find('>div').not('#calendar-menu').addClass("one-column");
     })
-</script>
+</script> -->
+<script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/horizontal-vertical.js'; ?>" type="module"></script>
