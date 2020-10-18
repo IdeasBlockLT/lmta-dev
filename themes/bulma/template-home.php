@@ -32,7 +32,6 @@ $args = array(
 
                 <?php
                     get_template_part('parts/video'); 
-                    // setcookie("first_title", the_title());
                 ?>
 
                 <script>

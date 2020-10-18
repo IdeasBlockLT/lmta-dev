@@ -9,6 +9,7 @@ $a = new resourcespaceNew();
 
         <form action="/mediateka" method="post">
             <input type="text"
+                   id="searchTerm"
                    class="searchTerm backgroundColor-<?= !empty($args['input-color']) ? 'blue color-white' : ' ' . 'color-black__holder' ?>"
                    placeholder="<?= ($args['placeholder']) ?> "
                    size="4"

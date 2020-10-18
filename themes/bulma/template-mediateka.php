@@ -4,6 +4,14 @@ $resource = new ResourceSpaceController();
 //$results = $resource->doSearch();
 //$sizes = $resource->getResourceAllImageSizes(1001, true);
 //$resource->createResource();
+
+
+if(isset($_POST["searchTerm"]))
+{
+	dd($_POST['searchTerm']);
+}
+
+
 ?>
 <?php get_template_part('parts/head') ?>
 <?php get_template_part('parts/header', 'custom-nav', [
