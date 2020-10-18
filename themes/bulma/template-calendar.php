@@ -20,20 +20,20 @@ $resource = new ResourceSpaceController();
 
     <div id="two-columns_busimi-iviki" class="row">
         
-        <?php get_template_part('parts/busimi-ivike') ?>
+        <?php get_template_part('busimi-ivike') ?>
 
-        <?php get_template_part('parts/horizontal-vertical') ?>
+        <?php get_template_part('horizontal-vertical') ?>
 
     </div>
 
     <!--3 item column-->
-    <?php get_template_part('parts/1-item-row') ?>
+    <?php get_template_part('1-item-row') ?>
 
     <!--1 item column-->
-    <?php get_template_part('parts/3-item-row') ?>
+    <?php get_template_part('3-item-row') ?>
 </div>
 
-<?php get_template_part('parts/banner-words') ?>
+<?php get_template_part('banner-words') ?>
 
 <?php get_footer(); ?>
 <script>

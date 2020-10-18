@@ -1,4 +1,4 @@
-<!--1 item column-->
+<!--1 item row-->
 <div id="one-column" class="row hide mb-2">
     <?php $posts = new WP_Query($args); ?>
     <?php if (have_posts()): ?>
