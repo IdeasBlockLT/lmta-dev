@@ -8,7 +8,7 @@ $current_lang = pll_current_language();
         <div class="col pt-1">
             <a class="text-muted" href="#"></a>
         </div>
-        <div class="col-10 text-center">
+        <div class="col-10 text-center" style="background-color: #5797fb00">
             <p class="d-inline-block align-center custom-banner <?= esc_html($args['size']) ?>"   style="background-color: #5797fb00">
                 <a href="<?php echo home_url(); ?>">
                     <img id="banner-logo" style="width: 10%" class="mx-auto d-inline-block align-self-center mr-3 img-thumbnail border-0 w-50"
