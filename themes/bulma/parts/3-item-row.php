@@ -7,7 +7,7 @@
         <?php while ($posts->have_posts()): $posts->the_post(); ?>
             <?php $x++; ?>
             <div class="col-md-6 col-lg-4 mx-auto border-right pr-3 pl-3 qa">
-                <div class="card border-0 mb-4 custom-size">
+                <div class="card border-0 mb-4 custom-size" style="background-color: #5797fb00">
                     <img class="bd-placeholder-img card-img-top custom-image-horizontal"
                          src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
                          alt="">
