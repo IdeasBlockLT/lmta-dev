@@ -6,12 +6,7 @@ $resource = new ResourceSpaceController();
 //$resource->createResource();
 
 
-if(isset($_POST["searchTerm"]))
-{
-	dd($_POST['searchTerm']);
-}
 
-dd($_POST['searchTerm']);
 
 ?>
 <?php get_template_part('parts/head') ?>
@@ -23,5 +18,12 @@ dd($_POST['searchTerm']);
 ]) ?>
 
     <div class="container w-90 mx-auto">
-        <?php get_template_part('parts/mediateka-keywords') ?>
+        <?php 
+        	if(isset($_POST["searchTerm"]))
+			{
+				$searchTerm = $_POST['searchTerm'];
+				
+			}
+			get_template_part('parts/mediateka-keywords', null, array(   'searchTerm'   => $search_term));
+         ?>
     </div>

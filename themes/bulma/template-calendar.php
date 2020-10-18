@@ -40,6 +40,7 @@ $resource = new ResourceSpaceController();
             </div>
         </div>
     </div>
+
     <div id="three-columns" class="row">
         <!--3 items column-->
         <?php $posts = new WP_Query($args); ?>
@@ -78,8 +79,8 @@ $resource = new ResourceSpaceController();
             <?php echo 'hello'; ?>
             <!--        --><?php //paginate_links($args); ?>
         <?php endif; ?>
-
     </div>
+
     <!--1 item column-->
     <div id="one-column" class="row hide mb-2">
         <?php $posts = new WP_Query($args); ?>
@@ -110,6 +111,7 @@ $resource = new ResourceSpaceController();
             <?php echo paginate_links(); ?>
         <?php endif; ?>
     </div>
+    
     <?php get_template_part('parts/banner-words') ?>
 </div>
 
