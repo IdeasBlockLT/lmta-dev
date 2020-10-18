@@ -14,8 +14,9 @@ $resource = new ResourceSpaceController();
 <?php get_template_part('parts/head') ?>
 <?php get_template_part('parts/header') ?>
 <?php get_template_part('parts/banner', 'banner', ['size' => 'size1']); ?>
+
 <div class="container w-90 mx-auto">
-    <div class="row">
+    <div id="two-columns_busimi-iviki class="row">
         <div class="col-md-6 mx-auto">
             <div class="mb-4 custom-size">
                 <h4 class="d-inline">
@@ -112,8 +113,9 @@ $resource = new ResourceSpaceController();
         <?php endif; ?>
     </div>
     
-    <?php get_template_part('parts/banner-words') ?>
 </div>
+
+<?php get_template_part('parts/banner-words') ?>
 
 <?php get_footer(); ?>
 <script>
