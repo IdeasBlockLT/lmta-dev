@@ -14,21 +14,6 @@ input[value='1']{
     font-family: "FontAwesome", 'sans-serif';
     content: "\f004";
 }
-.one, .two{
-    /*display: none;*/
-}
-
-/*input[value='1']:checked ~ .one{*/
-/*    display: block;*/
-/*}*/
-/*input[value='2']:checked ~ .two{*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    flex-wrap: nowrap;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    align-content: stretch;*/
-/*}*/
 
 .one-column{
     display: flex;
@@ -38,10 +23,6 @@ input[value='1']{
     align-items: center;
     align-content: stretch;
 }
-
-/*section{*/
-/*    display: none;*/
-/*}*/
 
 .custom-card{
     margin: 0 auto;
@@ -61,7 +42,7 @@ input[value='1']{
 }
 
 .custom-image-vertical{
-    width: 600px;
+    width: 450px;
     height: 300px;
     object-fit: cover;
 }
@@ -102,4 +83,8 @@ input[value='1']{
 
 #future-events, #past-events{
     cursor: pointer;
+}
+.custom-padding:not(:first-of-type){
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }

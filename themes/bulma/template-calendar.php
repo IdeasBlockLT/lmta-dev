@@ -63,7 +63,7 @@ $resource = new ResourceSpaceController();
             <?php $x = 0; ?>
             <?php while ($posts->have_posts()): $posts->the_post(); ?>
                 <?php $x++; ?>
-                <div class="col-md-6 col-lg-4 mx-auto border-right pr-3 pl-3 qa">
+                <div class="col-md-6 col-lg-4 border-right pr-3 pl-3 qa">
                     <div class="card border-0 mb-4 custom-size">
                         <img class="bd-placeholder-img card-img-top custom-image-horizontal"
                              src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
@@ -75,32 +75,27 @@ $resource = new ResourceSpaceController();
                                 <?php endif; ?></small>
                             <h5>
                                 <a class="hover-blue"
-                                   href="<?= get_the_permalink() ?>"><?= the_title(); ?>
+                                   href="<?= get_permalink() ?>"><?= the_title(); ?>
                                 </a>
                             </h5>
                             <p class="card-text"><?= the_excerpt(); ?></p>
                             <button class="mt-auto btn btn-light custom-more hover-blue__white mb-3">
-                                <a href="' . get_the_permalink() . '" class="">
+                                <a href="<?php echo get_the_permalink() ?>" class="">
                                     <?= strtoupper($readMore); ?>
                                 </a>
                             </button>
                         </div>
-                        <?php if ($x < 7): ?>
-                            <hr>
+                        <?php if ($x == $posts->found_posts): ?>
                         <?php else: ?>
+                        <hr>
                         <?php endif; ?>
                     </div>
                 </div>
             <?php endwhile; ?>
-            <?php echo paginate_links($posts); ?>
-            <?php
-            if (function_exists('wp_bootstrap_pagination'))
-                wp_bootstrap_pagination($posts);
-            ?>
-            <h2>pagination place</h2>
+            <?php if ($x < get_option( 'posts_per_page' )): ?>
+
+            <?php endif; ?>
         <?php else: ?>
-            <?php echo 'hello'; ?>
-            <!--        --><?php //paginate_links($args); ?>
         <?php endif; ?>
 
     </div>
@@ -112,8 +107,13 @@ $resource = new ResourceSpaceController();
             <?php while ($posts->have_posts()): $posts->the_post(); ?>
                 <?php $y++; ?>
                 <div class="col-12">
+                    <?php if ($y == 1): ?>
+                    <div class="card flex-md-row box-shadow h-md-250 custom-borders__one_column pb-5
+                    <?php if ($y == $posts->found_posts): echo 'border-remove'; endif; ?>">
+                    <?php else: ?>
                     <div class="card flex-md-row box-shadow h-md-250 custom-borders__one_column py-5
-                <?php if ($y == 9): echo 'border-remove'; endif; ?>">
+                    <?php if ($y == $posts->found_posts): echo 'border-remove'; endif; ?>">
+                        <?php endif; ?>
                         <img class="flex-auto d-none d-md-block custom-image-vertical border-right"
                              src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
                              alt="Card image cap">
@@ -125,12 +125,12 @@ $resource = new ResourceSpaceController();
                             </small>
                             <h5>
                                 <a class="hover-blue"
-                                   href="<?= get_the_permalink() ?>"><?= the_title(); ?>
+                                   href="<?= get_permalink() ?>"><?= the_title(); ?>
                                 </a>
                             </h5>
                             <p class="card-text"><?= the_excerpt(); ?></p>
                             <button class="mt-auto btn btn-light custom-more hover-blue__white">
-                                <a href="' . get_the_permalink() . '" class="">
+                                <a href="<?php echo get_the_permalink() ?>" class="">
                                     <?= strtoupper($readMore); ?>
                                 </a>
                             </button>

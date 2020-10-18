@@ -146,14 +146,38 @@ function filter_projects() {
     }
 
     $response = '';
-    if($ajaxposts->have_posts()) {
-        while($ajaxposts->have_posts()) : $ajaxposts->the_post();
-            $response .= get_template_part($template);
-        endwhile;
+    $count = $ajaxposts->found_posts;
+
+    if ($ajaxposts->have_posts()) {
+        $x = 0;
+        if ($template == 'parts/one-column') {
+            while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
+                $x++;
+                if ($x == $count) {
+                    $response .= get_template_part($template, 'border', ['border-adjust' => 'border-remove']);
+                    break;
+                }
+                if ($x === 1){
+                    $response .= get_template_part($template, 'padding', ['padding-adjust' => 'true']);
+                }else {
+                    $response .= get_template_part($template);
+                }
+            endwhile;
+        } else {
+            while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
+                $x++;
+                if ($x + 2 >= $count) {
+                    $response .= get_template_part($template, 'border', ['border-adjust' => 'border-remove']);
+                }else {
+                    $response .= get_template_part($template);
+                }
+            endwhile;
+        }
     } else {
         $response = 'empty';
     }
-
+    $count = $ajaxposts->found_posts;
+    $_SESSION['counter'] = $count;
     echo $response;
     exit;
 }
