@@ -6,7 +6,6 @@
 //Loads all categories to show as strings translations
 $categories = get_categories();
 foreach ($categories as $category){
-    dump($category);
     pll_register_string(strtolower($category->name), $category->name);
 }
 
