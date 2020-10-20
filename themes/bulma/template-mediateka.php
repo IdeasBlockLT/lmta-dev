@@ -6,6 +6,8 @@ $args = array(
     'paged' => $page
 );
 
+
+
 ?>
 <?php get_template_part('parts/head') ?>
 <?php get_template_part('parts/header', 'custom-nav', [
