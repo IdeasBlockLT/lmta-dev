@@ -6,8 +6,6 @@ $args = array(
     'paged' => $page
 );
 
-
-
 ?>
 <?php get_template_part('parts/head') ?>
 <?php get_template_part('parts/header', 'custom-nav', [
@@ -29,7 +27,6 @@ $args = array(
     
 		    <div id="two-columns_busimi-iviki" class="row">
 		        
-		        <?php get_template_part('parts/busimi-ivike') ?>
 
 		        <?php get_template_part('parts/horizontal-vertical') ?>
 

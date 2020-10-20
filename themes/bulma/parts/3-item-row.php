@@ -11,7 +11,7 @@
                     <img class="bd-placeholder-img card-img-top custom-image-horizontal"
                          src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
                          alt="">
-                    <div class="mt-3 mt-md-4 pt-md-2 hr-control">
+                    <div class="mt-3 mt-md-4 pt-md-2 hr-control full-card">
                         <small><?php the_field('date'); ?></small>
                         <h5>
                             <a class="hover-blue"
