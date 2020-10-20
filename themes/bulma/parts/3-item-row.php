@@ -21,11 +21,11 @@
                         <p class="card-text"><?= the_excerpt(); ?></p>
                     </div>
                     <?php if ($x < 7): ?>
-                        <!-- <hr> -->
+                        <hr>
                     <?php else: ?>
                     <?php endif; ?>
                 </div>
-                <hr>
+                
             </div>
         <?php endwhile; ?>
         <?php echo paginate_links($posts); ?>
