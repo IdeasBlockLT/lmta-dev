@@ -9,4 +9,5 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/ajax.js'; ?>" type="module"></script>
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/app.js'; ?>" type="module"></script>
+<script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/toggle-calendar.js'; ?>" type="module"></script>
 <script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script>

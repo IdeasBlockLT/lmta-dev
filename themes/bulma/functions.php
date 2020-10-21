@@ -15,7 +15,7 @@ include('functions/resourcespace/ResourceSpaceController.php');
 include('functions/resourcespace/resourcespace-api.php');
 
 // LMTA request
-include('functions/resourcespace/LmtaRequest.php');
+//include('functions/resourcespace/LmtaRequest.php');
 
 //lang
 include('lang/lt.php');
@@ -51,13 +51,13 @@ function arphabet_widgets_init()
 //Excerpt text to be max 30 characters
 function custom_excerpt_length()
 {
-    return 40;
+    return 30;
 }
 
 add_filter('excerpt_length', 'custom_excerpt_length');
 
 const FIND_MORE = 'Skaityti daugiau';
-pll_register_string(strtolower(FIND_MORE), FIND_MORE);
+//pll_register_string(strtolower(FIND_MORE), FIND_MORE);
 
 //height:150px;
 //display: flex;
@@ -89,17 +89,100 @@ add_filter('excerpt_more', 'custom_excerpt_more');
 
  }
 
+//add_filter('manage_post_posts_columns', function($columns) {
+//    unset($columns['date']);
+//    return $columns;
+//});
+
 // Register Custom Navigation Walker
 require_once('parts/wp_bootstrap_pagination.php');
 
-//add_action( 'widgets_init', 'arphabet_widgets_init' );
+/**
+ * If last post in query, return TRUE.
+ */
+function is_last_post($wp_query) {
+    $post_current = $wp_query->current_post + 1;
+    $post_count = $wp_query->post_count;
+    if ( $post_current == $post_count ) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-//function add_additional_class_on_li($classes, $item, $args) {
-//    if(isset($args->add_li_class)) {
-//        $classes[] = $args->add_li_class;
-//    }
-//    return $classes;
-//}
-//add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+/**
+ * If more than one page exists, return TRUE.
+ */
+function is_paginated() {
+    global $wp_query;
+    if ( $wp_query->max_num_pages > 1 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function filter_projects() {
+    $today = date("Y-m-d H:i");
+
+    $ajaxposts = new WP_QUERY([
+        'orderby' => 'streamDate',
+        'order' => 'DESC',
+        'meta_key' => 'streamDate',
+        'posts_per_page' => 9,
+        'meta_query' => [
+            'key' => 'streamDate',
+            'meta-value' => 'streamDate',
+            'value' => $today,
+            'compare' => $_POST['events'],//>= <=
+//            'type' => 'CHAR',
+        ]
+    ]);
+
+    #Choosing the template
+    if($_POST['template'] == 'one-column'){
+        $template = 'parts/one-column';
+    }else{
+        $template = 'parts/three-columns';
+    }
+
+    $response = '';
+    $count = $ajaxposts->found_posts;
+
+    if ($ajaxposts->have_posts()) {
+        $x = 0;
+        if ($template == 'parts/one-column') {
+            while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
+                $x++;
+                if ($x == $count) {
+                    $response .= get_template_part($template, 'border', ['border-adjust' => 'border-remove']);
+                    break;
+                }
+                if ($x === 1){
+                    $response .= get_template_part($template, 'padding', ['padding-adjust' => 'true']);
+                }else {
+                    $response .= get_template_part($template);
+                }
+            endwhile;
+        } else {
+            while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
+                $x++;
+                if ($x + 2 >= $count) {
+                    $response .= get_template_part($template, 'border', ['border-adjust' => 'border-remove']);
+                }else {
+                    $response .= get_template_part($template);
+                }
+            endwhile;
+        }
+    } else {
+        $response = 'empty';
+    }
+    $count = $ajaxposts->found_posts;
+    $_SESSION['counter'] = $count;
+    echo $response;
+    exit;
+}
+add_action('wp_ajax_filter_projects', 'filter_projects');
+add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');
 
 

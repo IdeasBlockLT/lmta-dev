@@ -1,79 +1,137 @@
-(function() { //IIFE
+jQuery.ajaxSetup({
+    async: false
+});
 
-    'use strict';
+let futureEvents = $("#future-events");
+let pastEvents = $("#past-events");
+$(document).ready(function () { // on document ready
+    futureEvents.click(); // click the element
+})
 
-    // selectInput is the select element w/ id of 'choose'
-    var selectInput = document.getElementById('choose'),
-        // here we are compiling a list of all the nodes w/ a class of 'options'
-        panels = document.querySelectorAll('.options'),
-        currentSelect,
-        elmClass,
-        i;
+/**
+ * Get the current active events to be shown future/pasts
+ * @returns {string}
+ */
+function getActive() {
+    var active = '';
+    if (!futureEvents.hasClass('text-muted')) {
+        var active = '#future-events';
+    } else {
+        var active = '#past-events';
+    }
+    return active;
+}
+
+let threeColumns = $("#three-columns");
+let oneColumn = $("#one-column");
+$("#horizontal").attr('checked', 'checked');
+
+$("#horizontal").click(function () {
+    oneColumn.addClass("hide");
+    oneColumn.next().find('>div').removeClass("one-column");
+
+    $("#horizontal").find('i').css('cssText', 'color: black;');
+    $("#horizontal").attr('checked', 'checked');
+
+    $("#vertical").find('i').css('color', '#dee2e6');
+    $("#vertical").removeAttr('checked');
 
 
-    // To allow for compatibility with IE < 10,
-    // we'll use these custom add/remove class functions
-    // instead of classList.add()/.remove()
+    threeColumns.css("display", "flex");
+    threeColumns.find('>div').css("display", "block");
 
-    function addClass( elm, newClass ) {
-        elm.className += ' ' + newClass;
+    let active = getActive();
+    console.log('getting');
+    if (active) {
+        $(active).trigger('click');
     }
 
+});
 
-    function removeClass( elm, deleteClass ) {
-        elm.className = elm.className.replace(new RegExp("\\b" + deleteClass + "\\b", 'g'), '').trim();
-        // the RegExp here makes sure that only the class we want to delete, and not any other
-        // potentially matching stings get deleted.
-        // e.g. -- if deleteClass = options and we also had a class of options--1 and options
-        // on the elm, just the class of options would get deleted
+$("#vertical").click(function () {
+    threeColumns.css("display", "none");
+    threeColumns.find('>div').css("display", "none");
+
+    $("#vertical").find('i').css('cssText', 'color: black;');
+    $("#vertical").attr('checked', 'checked');
+
+    $("#horizontal").find('i').css('color', '#dee2e6');
+    $("#horizontal").removeAttr('checked');
+
+    oneColumn.removeClass("hide");
+    oneColumn.next().find('>div').not('#calendar-menu').addClass("one-column");
+
+    let active = getActive();
+    if (active) {
+        $(active).trigger('click');
     }
 
+});
 
-    // Function to go through all nodes with 'options' as a class
-    // and remove the class of 'show' from them.
-    function clearShow() {
-        for ( i = 0; i < panels.length; i++ ) {
-            removeClass( panels[i], 'show');
+
+$('#future-events, #past-events').click(function () {
+
+        let futureEvents = $("#future-events");
+        futureEvents.css("font-weight", "bold")
+        let pastEvents = $("#past-events");
+
+        var operator = '';
+        if (!typeof active) {
+            var operator = $(active).attr('value');
+        } else {
+            var operator = $(this).attr('value');
         }
-    }
 
-    function addHide() {
-        for ( i = 0; i < panels.length; i++ ) {
-            addClass( panels[i], 'hide');
+        if ($(this).attr('id') === futureEvents.attr('id')) {
+            futureEvents.removeClass('text-muted');
+            futureEvents.css('font-weight', 'bold');
+            pastEvents.addClass('text-muted');
+            pastEvents.css('font-weight', '');
+        } else {
+            pastEvents.removeClass('text-muted');
+            pastEvents.css('font-weight', 'bold');
+            futureEvents.addClass('text-muted');
+            futureEvents.css('font-weight', '');
         }
-    }
 
+        var template = '';
 
-    // Function to add the class of show to the node that has
-    // the class that matches the current value of the select drop down (#choose)
-    function addShow( showThis ) {
-        var el = document.getElementsByClassName( showThis );
-        for ( i = 0; i < el.length; i++ ) {
-            addClass( el[i], 'show')
+        var attr = $("#horizontal").attr('checked');
+        // For some browsers, `attr` is undefined; for others,
+        // `attr` is false.  Check for both.
+        if (typeof attr !== typeof undefined && attr !== false) {
+            template = 'three-columns';
+        } else {
+            template = 'one-column';
         }
+
+        $.ajax({
+            beforeSend: function () {
+                $("#loader1").show();
+                $("#inside-loader").show();
+            },
+            async: true,
+            type: "POST",
+            url: '/wordpress/wp-admin/admin-ajax.php',
+            dataType: 'html',
+            data: {
+                action: 'filter_projects',
+                events: operator,
+                template: template
+            },
+            success: function (response) {
+                if (template === 'one-column') {
+                    $('#one-column').html(response);
+                } else {
+                    $('#three-columns').html(response);
+                }
+            },
+            complete: function (data) {
+                // Hide image container
+                $("#loader1").hide();
+                $("#inside-loader").hide();
+            }
+        })
     }
+)
 
-
-    // Run the clear/add functions and set the value for what
-    function vUpdate () {
-        currentSelect = selectInput.value;
-
-        clearShow();
-        // addHide();
-        addShow(currentSelect);
-    }
-
-
-    // Update the value of currentSelect when selectInput changes option focus
-    selectInput.addEventListener('change', vUpdate);
-
-
-    // If a page is refreshed the select input may not reset to the default
-    // option. If that's the case, find the current value of #choose
-    // and run addShow() to make that content block visible
-    if (selectInput.value !== 'nul') {
-        currentSelect = selectInput.value;
-        addShow(currentSelect);
-    }
-
-})(); // close IIFE

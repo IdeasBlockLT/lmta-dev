@@ -1,14 +1,26 @@
 <?php /* Template Name: Calendar */ ?>
 <?php
+$current_lang = pll_current_language();
+$readMore = pll_translate_string(FIND_MORE, $current_lang);
+
 $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array(
-    'orderby' => 'date',
+
+$today = date("Y-m-d H:i");
+$args = [
+    'orderby' => 'streamDate',
+    'order' => 'DESC',
+    'meta_key' => 'streamDate',
     'posts_per_page' => 9,
-    'paged' => $page
-);
+    'meta_query' => [
+        'key' => 'streamDate',
+        'meta-value' => 'streamDate',
+        'value' => $today,
+        'compare' => '>=',
+        'type' => 'CHAR',
+    ]
+];
 
 $resource = new ResourceSpaceController();
-//$image = $resource->getPreviews('trevio');
 
 ?>
 <?php get_template_part('parts/head') ?>
@@ -17,7 +29,6 @@ $resource = new ResourceSpaceController();
 
 <div class="container w-90 mx-auto">
     
-
     <div id="two-columns_busimi-iviki" class="row">
         
         <?php get_template_part('parts/busimi-ivike') ?>
@@ -30,6 +41,7 @@ $resource = new ResourceSpaceController();
     <?php get_template_part('parts/1-item-row', null, array("args"=>$args) ) ?>
 
     <!--1 item column-->
+
     <?php get_template_part('parts/3-item-row', null, array("args"=>$args)) ?>
 </div>
 
@@ -57,3 +69,4 @@ $resource = new ResourceSpaceController();
     })
 </script> -->
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/horizontal-vertical.js'; ?>" type="module"></script>
+

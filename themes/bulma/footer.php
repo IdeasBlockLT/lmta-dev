@@ -2,9 +2,8 @@
 <?php get_template_part('parts/footer-menu') ?>
     <div class="row mx-auto pt-3">
         <div class="col custom-footer">
-            <?php echo '&copy' . get_the_date('Y') ?>
+            <?php echo '&copy ' . get_the_date('Y');?>
             <?php if (is_active_sidebar('footer')): ?>
-
                 <?php dynamic_sidebar('footer'); ?>
                 <?php bloginfo('name'); ?>
             <?php endif ?>

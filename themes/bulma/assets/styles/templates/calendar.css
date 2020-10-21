@@ -14,21 +14,6 @@ input[value='1']{
     font-family: "FontAwesome", 'sans-serif';
     content: "\f004";
 }
-.one, .two{
-    /*display: none;*/
-}
-
-/*input[value='1']:checked ~ .one{*/
-/*    display: block;*/
-/*}*/
-/*input[value='2']:checked ~ .two{*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    flex-wrap: nowrap;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    align-content: stretch;*/
-/*}*/
 
 .one-column{
     display: flex;
@@ -38,10 +23,6 @@ input[value='1']{
     align-items: center;
     align-content: stretch;
 }
-
-/*section{*/
-/*    display: none;*/
-/*}*/
 
 .custom-card{
     margin: 0 auto;
@@ -62,8 +43,8 @@ input[value='1']{
 }
 
 .custom-image-vertical{
-    width: 30%;
-    height: 280px;
+    width: 450px;
+    height: 300px;
     object-fit: cover;
 }
 #calendar-posts{
@@ -93,7 +74,98 @@ input[value='1']{
     /*border-top: 1px solid rgba(0,0,0,.125);*/
     border-bottom: 1px solid rgba(0,0,0,.125);
 }
+.border-remove{
+    border: none;
+}
 
 .custom__card-body{
     padding: 1.25rem 1.25rem 0rem 1.25rem!important;
 }
+
+#future-events, #past-events{
+    cursor: pointer;
+}
+.custom-padding:not(:first-of-type){
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/*Loader*/
+.loader {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+.loader-container {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 20%;
+    margin: 0 auto;
+    display: inline-block;
+    height: 150px;
+    /*width: 200px;*/
+    cursor: pointer;
+}
+.one {
+    /*position: absolute;*/
+    /*z-index: 1;*/
+    /*left: 50%;*/
+    background-color: #5797fb;
+    border-radius: 50%;
+    animation: loader1Animation 1s ease-in-out infinite;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+.one:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 19px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+@keyframes loader1Animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+div#loader {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    height: 51px;
+    width: 51px;
+    margin: 20px auto;
+    border-radius: 50%;
+    border: dashed 1px black;
+    -webkit-animation-name: loader-spin;
+    animation-name: loader-spin;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+@-webkit-keyframes loader-spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
