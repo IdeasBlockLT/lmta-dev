@@ -112,7 +112,7 @@ $('#future-events, #past-events').click(function () {
             },
             async: true,
             type: "POST",
-            url: '/wordpress/wp-admin/admin-ajax.php',
+            url: '/wp-admin/admin-ajax.php',
             dataType: 'html',
             data: {
                 action: 'filter_projects',
