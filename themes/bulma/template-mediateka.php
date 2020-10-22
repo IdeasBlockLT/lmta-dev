@@ -1,9 +1,7 @@
 <?php /* Template Name: Mediateka */
 
-$resource = new ResourceSpaceController();
-//$results = $resource->doSearch();
-//$sizes = $resource->getResourceAllImageSizes(1001, true);
-//$resource->createResource();
+//$resource = new ResourceSpaceController();
+
 ?>
 <?php get_template_part('parts/head') ?>
 <?php get_template_part('parts/header', 'custom-nav', [
