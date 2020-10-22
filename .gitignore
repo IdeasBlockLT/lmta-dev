@@ -11,5 +11,6 @@ themes/themes-starter-bootstrap
 themes/bulma/vendor
 wptouch-data
 themes/bulma/functions/resourcespace/config.php
+themes/bulma/functions/resourcespace/config.roberto.php
 
 
