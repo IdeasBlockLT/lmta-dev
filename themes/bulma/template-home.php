@@ -28,11 +28,22 @@ $args = array(
         <?php if ($query->have_posts()) :$query->the_post(); ?>
         <!--Will show the first from the query.-->
         <div class="row mb-0 mb-md-5">
-            <div class="col-12 col-md-7 themed-grid-col mr-5">
-                <?php get_template_part('parts/video') ?>
-                <small class="d-block mt-4"><?php the_field('date'); ?></small>
-                <h3 class="hover-blue"><?= the_title(); ?></h3>
-                <p><?= the_excerpt(); ?></p>
+            <div class="col-12 col-md-7 themed-grid-col mr-5 first-post-div">
+
+                <?php
+                    get_template_part('parts/video'); 
+                ?>
+
+                <script>
+                    document.cookie = "first_title=<?php echo(the_title());?>";
+                </script>
+
+
+                <small class="d-block mt-4 "><?php the_field('date'); ?></small>
+                <a class="first-post-link" style="text-decoration: none;color: black; " 
+                   href="<? the_permalink(the_post()); ?>">
+                   <h3 class="hover-blue first-post"><?= the_title(); ?></h3></a>
+                <p class="first-post-excerpt"><?= the_excerpt(); ?></p>
             </div>
             <?php endif; ?>
 
@@ -47,7 +58,9 @@ $args = array(
                 <?php while ($query->have_posts()) :$query->the_post(); ?>
                     <div class="themed-grid-col w-100 <?php echo (!get_next_post_link()) ? '' : 'border-bottom' ?>">
                         <small><?php the_field('date'); ?></small>
-                        <h5 class="hover-blue"><?php echo ucfirst(get_the_title()) ?></h5>
+                        <a  style="text-decoration: none;color: black; " 
+                            href="<? the_permalink(the_post()); ?>">
+                        <h5 class="hover-blue"><?php echo ucfirst(get_the_title()) ?></h5></a>
                         <p><?= the_excerpt('hello'); ?></p>
                     </div>
                 <?php endwhile; ?>
