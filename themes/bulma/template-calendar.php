@@ -28,33 +28,9 @@ $resource = new ResourceSpaceController();
 <?php get_template_part('parts/banner', 'banner', ['size' => 'size1']); ?>
 <div class="container w-90 mx-auto">
     <div class="row">
-        <div class="col-md-6 mx-auto">
-            <div class="mb-4 custom-size">
-                <h4 class="d-inline">
-                    <span value=">=" id="future-events">
-                        Būsimi renginiai
-                    </span>
-                    <span value="<" id="past-events" class="text-muted">
-                        / Įvykę renginiai
-                    </span>
-                </h4>
-            </div>
-        </div>
-        <div class="col-md-6 mx-auto">
-            <div class="mb-4 custom-size" style="text-align: right">
-                <strong><label class="mr-4" for="Vaizdavimas"
-                               style="display: inline">Vaizdavimas</label>
-                </strong>
-                <button type="button" autofocus="true" name="switch" value="1"
-                        class="inputs" id="horizontal">
-                    <i class="fas fa-grip-horizontal" style="color: black"></i>
-                </button>
-                <button type="button" name="switch" value="1"
-                        class="inputs" id="vertical">
-                    <i class="fas fa-grip-lines"></i>
-                </button>
-            </div>
-        </div>
+        <?php get_template_part('parts/busimi-ivike'); ?>
+
+        <?php get_template_part('parts/horizontal-vertical'); ?>
     </div>
     <!-- Image loader -->
     <div id="loader1" class="loader-container" style="display:none;">

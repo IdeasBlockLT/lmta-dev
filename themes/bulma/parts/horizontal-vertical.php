@@ -4,11 +4,10 @@
                        style="display: inline">Vaizdavimas</label>
         </strong>
         <button type="button" autofocus="true" name="switch" value="1"
-                checked="true"
                 class="inputs" id="horizontal">
-            <i class="fas fa-grip-horizontal"></i>
+            <i class="fas fa-grip-horizontal" style="color: black"></i>
         </button>
-        <button type="button" name="switch" value="1" checked="true"
+        <button type="button" name="switch" value="1"
                 class="inputs" id="vertical">
             <i class="fas fa-grip-lines"></i>
         </button>
