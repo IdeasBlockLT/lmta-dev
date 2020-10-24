@@ -2,20 +2,31 @@
     $resource = new ResourceSpaceController();
 
     // Get Id of this post and find out in RS if there is an image 
-    $ID = get_the_ID();
-    // $meta = get_post_meta($ID)["mediateka_title"][0];
-    // $url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
-    // $data = $resource->createResource($url);;
-    // dd($data[0]["file_extension"]);
-    // dd("a ver : ".$data);
+    $ID    = get_the_ID();
+    $meta  = get_post_meta($ID);
 
+    if(isset($meta["mediateka_title"]))
+    {
+        $title         = $meta["mediateka_title"][0];
+        $resource_data = $resource->doSearch($title);
+    }
 
-//    if ($resource->hasVideo())
-//    {
-//        $cover = $resource->takeVideo();
-//    }else{
-//        $cover = $resource->takePreviewImage();
-//    }
+    $date  = isset($meta["date"])  ?  $meta["date"]  : null;
+    $price = isset($meta["price"]) ?  $meta["price"] : null;
+
+    $resource_extension =  isset($resource_data[0]["file_extension"]) ? $resource_data[0]["file_extension"] : null ;
+    $resource_id        =  isset($resource_data[0]["ref"])            ? $resource_data[0]["ref"]            : null ;
+
+    if (isset($resource_id) && isset($resource_extension))
+    {
+        $resource_url = $resource->getResourcePath($resource_id, $resource_extension);
+    }
+
+    $cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
+
+    $array_images = array('jpg','gif','png');
+    $array_video  = array('mp4');
+
 ?>
 
 <?php get_template_part('parts/head') ?>
@@ -24,7 +35,42 @@
 <div class="container w-90 mx-auto">
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
         <div class="col-md-7 col-7 themed-grid-col mr-3">
-            <?php get_template_part('parts/video') ?>
+
+            <!-- TODO: ADD CONDITIONS FOR IF THE USER HAS PAID FOR THIS VIDEO OR WTF? -->
+
+            <?php if( isset($resource_url) ) : ?>
+
+                <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
+
+            <?php endif; ?>
+
+
+            <!-- If we have image extension, we have only image on the resource -->
+            <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
+
+                <script>
+                    alert("ok, don't pay for the video");
+                </script>
+
+            <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
+
+                <script>
+                    alert("pay for the video");
+                </script>
+
+            <?php else:?>
+
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" id="player" 
+                            src="<?php bloginfo('stylesheet_directory') ?>/images/jpeg.jpg"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+
+            <?php endif; ?>
+
+
+
         </div>
         <div class="col-md-4 col-4 themed-grid-col border-left">
             <div class="pb-4">
@@ -32,7 +78,29 @@
                 <h4>
                     <strong><?= the_title(); ?></strong>
                 </h4>
-                <button type="button" class="btn btn-buy">Mokėti</button>
+                <br>
+                <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
+                    <br>
+                    <h5>
+                        <strong>This event does not have video yet.</strong>
+                    </h5>
+                    <br>
+                    <br>
+                    
+                <?php elseif ( (isset($resource_extension))  && in_array($resource_extension,$array_video) ): ?>
+                    <br>
+                    <br>
+                     <?php if ( (isset($price))  && ($price > 0) ): ?>
+                        <br>
+                        <h5>
+                            <strong>Price: <? echo $price[0]; ?> eur.</strong>
+                        </h5>
+                        <button type="button" class="btn btn-buy">Mokėti</button>
+                    <?php endif; ?>
+                    
+                <?php endif; ?> 
+                  
+                
             </div>
         </div>
     </div>

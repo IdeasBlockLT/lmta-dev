@@ -1,6 +1,6 @@
 <?php
 
-include 'config.php';
+include 'config.roberto.php';
 
 
 class ResourceSpaceController
@@ -14,7 +14,7 @@ class ResourceSpaceController
 
     public function __construct()
     {
-        $this->config = include('config.php');
+        $this->config = include('config.roberto.php');
         $this->resourcespaceUrl = $this->config['resourcespace_url'];
         $this->apiKey           = $this->config['api_key'];
         $this->apiUser          = $this->config['api_user'];
@@ -24,9 +24,9 @@ class ResourceSpaceController
      * @param $id
      * @return mixed
      */
-    public function getResourcePath($id)
+    public function getResourcePath($id, $extension = null)
     {
-        $this->query = "user=" . $this->apiUser . '&function=get_resource_path&param1=' . $id . '&param2=true&param3=true&param4=true&param7=true';
+        $this->query = "user=" . $this->apiUser . '&function=get_resource_path&ref=' . $id . '&getfilepath=false&extension='.$extension;
         return $this->runBaby();
     }
 
@@ -86,14 +86,39 @@ class ResourceSpaceController
 
     public function createResource($image_url)
     {
-//        $query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&param7=" . urlencode(json_encode(array(1=>"Foo",8=>"Bar"))); # <--- The function to execute, and parameters
-        $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=".$image_url;
+
+        $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=". 
+        urlencode($image_url) . 
+        "&metadata=" . 
+        urlencode(json_encode(array(18=>"Custom captions blah blah",
+                                    8=>"Česnakinis",
+                                    12=>"2020-01-01 23:59"))); # <--- The function to execute, and parameters
         // $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0";
         // $this->query="user=" . $this->apiUser . "&function=create_resource&param1=5&param2=0";
         // $this->query = $query = "user=" . $this->apiUser . "&function=do_search&param1='rast'";
         // dd($query);
         $response = $this->runBaby();
         // return $this->query;
+        return $response;   
+    }
+
+    /**
+     * Create a new resource with title, date and image
+     * @param $image_url = the url of the cover image in the post to upload to resourcespace
+     * @param $title     = the 'custom field' from the post with the post title to be saved in resourcespace
+     * @param $date      = the date of the concert corresponding to this post.
+     * @return mixed
+     */
+    public function createResourceWithMetadata($image_url, $title, $date, $price)
+    {
+        $this->query    ="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=". 
+                        urlencode($image_url) . 
+                        "&metadata=" . 
+                        urlencode(json_encode(array(18=>$date,
+                                                    8 =>$title,
+                                                    10=>$price,
+                                                    12=>$date))); # <--- The function to execute, and parameters
+        $response = $this->runBaby();
         return $response;   
     }
 
@@ -120,7 +145,7 @@ class ResourceSpaceController
     {
         #check if this if for mediateka
 
-        $this->query = $query = "user=" . $this->apiUser . "&function=do_search&param1='" . $keyword . "'";
+        $this->query = $query = "user=" . $this->apiUser . "&function=do_search&param1='" . urlencode($keyword) . "'";
         return $this->runBaby();
     }
 
@@ -131,8 +156,9 @@ class ResourceSpaceController
         $sign = hash("sha256", $this->apiKey . $this->query);
 
         # Make the request.
-        $list = [];
-        $data = file_get_contents($this->resourcespaceUrl . $this->query . "&sign=" . $sign);
+        $list     = [];
+        $request  = $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
+        $data     = file_get_contents($request);
         $response = json_decode($data, true);
         // return $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
         return $response;

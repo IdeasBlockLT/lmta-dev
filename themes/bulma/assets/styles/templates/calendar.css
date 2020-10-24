@@ -38,6 +38,7 @@ input[value='1']{
     .custom-size {
         width: 90%;
         margin: 0 auto;
+        height: 100%;
     }
 }
 
