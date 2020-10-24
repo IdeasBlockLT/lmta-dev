@@ -31,7 +31,17 @@ $resource = new ResourceSpaceController();
     
     <div id="two-columns_busimi-iviki" class="row">
         
-        <?php get_template_part('parts/busimi-ivike') ?>
+        <?php //get_template_part('parts/busimi-ivike') ?>
+
+        <div class="col-md-6 mx-auto">
+            <div class="mb-4 custom-size">
+                <h4 class="d-inline">
+                    <strong>Būsimi renginiai</strong><span class="text-muted">/ Įvykę renginiai</span>
+                </h4>
+            </div>
+        </div>
+
+
 
         <?php get_template_part('parts/horizontal-vertical') ?>
 
