@@ -1,8 +1,5 @@
 <?php /* Template Name: Calendar */ ?>
 <?php
-$current_lang = pll_current_language();
-$readMore = pll_translate_string(FIND_MORE, $current_lang);
-
 $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $today = date("Y-m-d H:i");
@@ -19,8 +16,6 @@ $args = [
         'type' => 'CHAR',
     ]
 ];
-
-$resource = new ResourceSpaceController();
 
 ?>
 <?php get_template_part('parts/head') ?>
@@ -43,7 +38,7 @@ $resource = new ResourceSpaceController();
 
 
     </div>
-    
+
     <!--3 item column-->
     <?php get_template_part('parts/1-item-row', null, array("args"=>$args) ) ?>
 
@@ -56,25 +51,4 @@ $resource = new ResourceSpaceController();
 <?php get_template_part('parts/banner-words') ?>
 
 <?php get_footer(); ?>
-
-<!-- <script>
-    let threeColumns = $("#three-columns");
-    let oneColumn = $("#one-column");
-    $("#horizontal").click(function () {
-        oneColumn.addClass("hide");
-        oneColumn.next().find('>div').removeClass("one-column");
-
-        threeColumns.css("display", "flex");
-        threeColumns.find('>div').css("display", "block");
-    });
-
-    $("#vertical").click(function () {
-        threeColumns.css("display", "none");
-        threeColumns.find('>div').css("display", "none");
-
-        oneColumn.removeClass("hide");
-        oneColumn.next().find('>div').not('#calendar-menu').addClass("one-column");
-    })
-</script> -->
-<script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/horizontal-vertical.js'; ?>" type="module"></script>
 

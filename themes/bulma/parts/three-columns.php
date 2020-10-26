@@ -1,9 +1,3 @@
-<?php
-
-$current_lang = pll_current_language();
-$readMore = pll_translate_string(FIND_MORE, $current_lang);
-
-?>
 <?php $x = 0; ?>
 <?php $x++; ?>
 <div class="col-md-6 col-lg-4 border-right pr-3 pl-3 qa">
@@ -24,8 +18,8 @@ $readMore = pll_translate_string(FIND_MORE, $current_lang);
             </h5>
             <p class="card-text"><?= the_excerpt(); ?></p>
             <button class="mt-auto btn btn-light custom-more hover-blue__white mb-3">
-                <a href="<?php echo get_permalink() ?>" class="">
-                    <?= strtoupper($readMore); ?>
+                <a href="<?php echo get_permalink() ?>" class="text-uppercase">
+                    <?php echo(pll_e('Skaityti daugiau')); ?>
                 </a>
             </button>
         </div>

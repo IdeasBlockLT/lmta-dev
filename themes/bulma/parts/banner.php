@@ -1,5 +1,4 @@
 <?php
-$current_lang = pll_current_language();
 
 #Setting input-color
 if (!isset($args['background-color'])) {

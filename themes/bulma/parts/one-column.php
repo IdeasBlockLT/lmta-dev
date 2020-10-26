@@ -1,10 +1,3 @@
-<?php
-
-$current_lang = pll_current_language();
-$readMore = pll_translate_string(FIND_MORE, $current_lang);
-//if ($y == 9): echo 'border-remove'; endif;
-
-?>
 <?php $y = 0; ?>
 <?php $y++; ?>
 <div class="col-12">
@@ -32,7 +25,7 @@ $readMore = pll_translate_string(FIND_MORE, $current_lang);
                 <p class="card-text"><?= the_excerpt(); ?></p>
                 <button class="mt-auto btn btn-light custom-more hover-blue__white">
                     <a href="<?php echo get_the_permalink() ?>" class="">
-                        <?= strtoupper($readMore); ?>
+                        <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
                     </a>
                 </button>
             </div>

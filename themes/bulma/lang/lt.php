@@ -7,3 +7,11 @@ pll_register_string(strtolower('soon_events'), 'Artimiausi renginiai');
 pll_register_string(strtolower('read_more'), 'Skaityti daugiau');
 pll_register_string(strtolower('keywords'), 'Raktazodziai');
 
+
+/**
+ * Declaring Constants to use later in template like this
+ * pll_e('CONSTANT');
+ */
+
+const FIND_MORE = 'Skaityti daugiau';
+const SOON_EVENTS = 'Aritimiausi renginiai';

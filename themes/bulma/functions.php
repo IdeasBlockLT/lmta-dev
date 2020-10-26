@@ -20,7 +20,6 @@ include('functions/resourcespace/resourcespace-api.php');
 //lang
 include('lang/lt.php');
 
-
 require_once('includes.php');
 require_once('navwalker/class-wp-bootstrap-navwalker.php');
 
@@ -48,7 +47,7 @@ function arphabet_widgets_init()
     ));
 }
 
-//Excerpt text to be max 30 characters
+//Excerpt text to be max x characters
 function custom_excerpt_length()
 {
     return 30;
@@ -56,26 +55,12 @@ function custom_excerpt_length()
 
 add_filter('excerpt_length', 'custom_excerpt_length');
 
-const FIND_MORE = 'Skaityti daugiau';
-//pll_register_string(strtolower(FIND_MORE), FIND_MORE);
-
-//height:150px;
-//display: flex;
-//align-items: flex-end
-//function custom_excerpt_more()
-//{
-//    $current_lang = pll_current_language();
-//    $trans = pll_translate_string(FIND_MORE, $current_lang);
-//    return '<div><br><a href="' . get_the_permalink() . '" class="btn btn-light mt-3 custom-more hover-blue__white"> ' . strtoupper($trans) . ' </a></div>';
-//}
-
 //On empty showing ... after excerpt
 function custom_excerpt_more()
 {
     return ;
 }
 add_filter('excerpt_more', 'custom_excerpt_more');
-
 
 //add_action('save_post', 'create_resource');
 
@@ -88,11 +73,6 @@ add_filter('excerpt_more', 'custom_excerpt_more');
      $newResource->createResource();
 
  }
-
-//add_filter('manage_post_posts_columns', function($columns) {
-//    unset($columns['date']);
-//    return $columns;
-//});
 
 // Register Custom Navigation Walker
 require_once('parts/wp_bootstrap_pagination.php');

@@ -1,16 +1,5 @@
 <?php /* Template Name: Home */
 
-
-$resource = new ResourceSpaceController();
-//dd($resource->doSearch());
-//dd($resource->getResourcePath(2));
-//dd($resource->getPreviews(61));
-//$resource->doSearch('trevio');
-//$video = $resource->coverVideo(415);
-//$hola = $resource->doSearch('mozart');
-//dd($hola);
-//$sizes = $resource->getResourceAllImageSizes(1001, true);
-
 //Query taking the first 4, ordered by newest created
 $args = array(
     'orderby' => 'title',
