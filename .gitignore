@@ -12,5 +12,8 @@ themes/bulma/vendor
 wptouch-data
 themes/bulma/functions/resourcespace/config.php
 themes/bulma/functions/resourcespace/config.roberto.php
+.DS_Store
+themes/bulma/.DS_Store
+themes/bulma/assets/.DS_Store
 
 
