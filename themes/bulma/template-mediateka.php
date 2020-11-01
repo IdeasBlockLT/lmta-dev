@@ -35,7 +35,9 @@ $args = array(
 
 		    </div>
 		    
-
+		    <script>
+		    	alert(<? echo ($searchTerm); ?>);
+		    </script>
 		    <?php 
 		    // $searchTerm = isset($_POST["searchTerm"])? $_POST["searchTerm"] : null ;
 		    
