@@ -1,9 +1,12 @@
 <?php
+$searchTerm = isset($_POST["searchTerm"])? $_POST["searchTerm"] : "" ;
+
 $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = array(
     'orderby' => 'date',
     'posts_per_page' => 9,
-    'paged' => $page
+    'paged' => $page,
+    's' => $searchTerm
 );
 
 ?>
@@ -34,7 +37,7 @@ $args = array(
 		    
 
 		    <?php 
-		    $searchTerm = isset($_POST["searchTerm"])? $_POST["searchTerm"] : null ;
+		    // $searchTerm = isset($_POST["searchTerm"])? $_POST["searchTerm"] : null ;
 		    
 			//<!--3 item column-->
 	   		get_template_part('parts/1-item-row', null, array("args"=>$args, "searchTerm" => $searchTerm) );
