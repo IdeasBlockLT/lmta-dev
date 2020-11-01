@@ -1,7 +1,10 @@
 <!--1 item row-->
 <div id="one-column" class="row hide mb-2">
 
-    <?php $posts = new WP_Query($args); ?>
+    <?php 
+        $args = $args['args'];
+        $posts = new WP_Query($args); 
+    ?>
     <?php if (have_posts()): ?>
         <?php while ($posts->have_posts()): $posts->the_post(); ?>
         <div class="col-12">

@@ -1,7 +1,10 @@
 <!--3 item row-->
 <div id="three-columns" class="row">
     <!--3 items row-->
-    <?php $posts = new WP_Query($args); ?>
+    <?php 
+        $args = $args['args'];
+        $posts = new WP_Query($args); 
+    ?>
     <?php if ($posts): ?>
         <?php $x = 0; ?>
         <?php while ($posts->have_posts()): $posts->the_post(); ?>
