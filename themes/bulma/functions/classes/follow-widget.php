@@ -29,19 +29,15 @@ class follow_widget extends WP_Widget
 
         echo $args['before_widget'];
 
-//        if ( ! empty( $instance['title'] ) ) {
-//            echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-//        }
-
         echo '<div class="textwidget">';
         ?>
         <h3><?= $instance['title'] ?></h3>
         <div>
-            <a class="custom-a pr-2 hover-blue" href="<?= $instance['facebook'] ?>">Facebook</a>
+            <a class="custom-a pr-2 hover-blue" href="<?= $instance['facebook'] ?>" target="_blank">Facebook</a>
             <span> | </span>
-            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['linkedin'] ?>">Linkedin</a>
+            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['instagram'] ?>" target="_blank">Instagram</a>
             <span> | </span>
-            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['youtube'] ?>">Youtube  </a>
+            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['youtube'] ?>" target="_blank">Youtube</a>
         </div>
 
         <?php
@@ -64,8 +60,8 @@ class follow_widget extends WP_Widget
             $instance['facebook'] = 'facebook';
         }
 
-        if (!isset($instance['linkedin'])) {
-            $instance['linkedin'] = 'linkedin';
+        if (!isset($instance['instagram'])) {
+            $instance['instagram'] = 'instagram';
         }
 
         if (!isset($instance['youtube'])) {
@@ -87,10 +83,16 @@ class follow_widget extends WP_Widget
                    value="<?php echo $instance['facebook']; ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('linkedin'); ?>"><?php _e('Linkedin:'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('linkedin'); ?>"
-                   name="<?php echo $this->get_field_name('linkedin'); ?>" type="text"
-                   value="<?php echo $instance['linkedin']; ?>"/>
+            <label for="<?php echo $this->get_field_id('instagram'); ?>"><?php _e('Instagram:'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('instagram'); ?>"
+                   name="<?php echo $this->get_field_name('instagram'); ?>" type="text"
+                   value="<?php echo $instance['instagram']; ?>"/>
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('youtube'); ?>"><?php _e('Youtube:'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('youtube'); ?>"
+                   name="<?php echo $this->get_field_name('youtube'); ?>" type="text"
+                   value="<?php echo $instance['youtube']; ?>"/>
         </p>
         <?php
     }
