@@ -9,7 +9,6 @@
         <div class="columncontent__about p-2">
             <?php the_content(); ?>
         </div>
-        <?php get_template_part('parts/banner-words') ?>
     </div>
 
 </div>

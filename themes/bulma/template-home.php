@@ -54,7 +54,6 @@ $args = array(
                     </div>
                 <?php endwhile; ?>
             </div>
-            <?php get_template_part('parts/banner-words') ?>
         </div>
     </div>
 
