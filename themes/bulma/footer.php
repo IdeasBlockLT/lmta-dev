@@ -2,12 +2,14 @@
     <?php get_template_part('parts/footer-menu') ?>
     <div class="row mx-auto pt-3">
         <div class="col custom-footer">
-            <?php echo '&copy ' . get_the_date('Y'); ?>
+            <span style="padding-right: 5px!important;">
+            <?php echo '&copy '; ?>
+            </span>
             <?php if (is_active_sidebar('footer')): ?>
                 <?php dynamic_sidebar('footer'); ?>
                 <?php bloginfo('name'); ?>
             <?php endif ?>
-            <!--            <span class="horizontal-line">text</span>-->
+            <?php echo get_the_date('Y'); ?>
         </div>
     </div>
 </footer>
