@@ -14,7 +14,7 @@ class ResourceSpaceController
 
     public function __construct()
     {
-        $this->config = include('config.roberto.php');
+        $this->config = include('config.lmta.php');
         $this->resourcespaceUrl = $this->config['resourcespace_url'];
         $this->apiKey           = $this->config['api_key'];
         $this->apiUser          = $this->config['api_user'];
