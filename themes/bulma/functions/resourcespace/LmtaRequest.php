@@ -47,7 +47,7 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 				{
 					$new_id    = $resource->createResourceWithMetadata($url, $title_field, $date, $price);
 				}
-			    // dd($new_id." : ".$url);
+			    dd($new_id." : ".$url);
 		    }
 		  }
 		  if ( $new_status != 'publish' ) {
