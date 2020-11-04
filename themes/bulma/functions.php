@@ -14,8 +14,9 @@ include('functions/classes/follow-widget.php');
 include('functions/resourcespace/ResourceSpaceController.php');
 include('functions/resourcespace/resourcespace-api.php');
 
+// TODO this probably can have a better place. Becuase here is called many times, isn't it?
 // LMTA request
-//include('functions/resourcespace/LmtaRequest.php');
+include('functions/resourcespace/LmtaRequest.php');
 
 //lang
 include('lang/lt.php');
