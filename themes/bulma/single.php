@@ -125,8 +125,8 @@
             <?php endif; ?>
         </div>
     </div>
-    <?php get_template_part('parts/banner-single') ?>
-    <?php get_template_part('parts/banner-words') ?>
+    <?php //get_template_part('parts/banner-single') ?>
+    <?php //get_template_part('parts/banner-words') ?>
 </div>
 
 
