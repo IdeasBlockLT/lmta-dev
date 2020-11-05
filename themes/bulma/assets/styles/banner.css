@@ -19,7 +19,7 @@
 @media only screen and (min-width: 600px) {
     #banner-logo {
         display: block;
-        max-width: 10% !important;
+        max-width: 6% !important;
     }
 }
 
