@@ -27,13 +27,8 @@ $args = [
     <div class="container w-90 mx-auto text-justify__home p-2">
         <?php $query = new WP_Query($args); ?>
 
-        <?php //if ($query->have_posts()) : $query->the_post(); ?>
-        <?php 
-            if ($query->have_posts()) 
-            {
-              $query->the_post();  
-            }
-        ?>
+        <?php if ($query->have_posts()) : $query->the_post(); ?>
+
 
         <!--Will show the first from the query.-->
         <div class="row mb-0 mb-md-5">
@@ -54,7 +49,7 @@ $args = [
                    <h3 class="hover-blue first-post"><?= the_title(); ?></h3></a>
                 <p class="first-post-excerpt"><?= the_excerpt(); ?></p>
             </div>
-            <?php endif; ?>
+        <?php endif; ?>
 
             <!--The rest of the videos-->
             <!--Need custom size of columns for wider columns-->
