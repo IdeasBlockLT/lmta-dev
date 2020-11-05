@@ -62,7 +62,6 @@ $args = [
                 <?php while ($query->have_posts()) :$query->the_post(); ?>
                     <div class="themed-grid-col w-100 <?php echo (!get_next_post_link()) ? '' : 'border-bottom' ?>">
                         <br>
-                        <br>
                         <small><?php the_field('streamDate'); ?></small>
                         <a  style="text-decoration: none;color: black; " 
                             href="<? the_permalink(); ?>">
