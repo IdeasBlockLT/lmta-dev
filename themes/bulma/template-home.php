@@ -14,7 +14,15 @@ $args = array(
 <!--refs-->
     <div class="container w-90 mx-auto text-justify__home p-2">
         <?php $query = new WP_Query($args); ?>
-        <?php if ($query->have_posts()) :$query->the_post(); ?>
+
+        <?php //if ($query->have_posts()) : $query->the_post(); ?>
+        <?php 
+            if ($query->have_posts()) 
+            {
+              $query->the_post();  
+            }
+        ?>
+
         <!--Will show the first from the query.-->
         <div class="row mb-0 mb-md-5">
             <div class="col-12 col-md-7 themed-grid-col mr-5 first-post-div">
