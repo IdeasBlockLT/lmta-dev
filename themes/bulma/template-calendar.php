@@ -6,14 +6,14 @@ $today = date("Y-m-d H:i");
 $args = [
     'orderby' => 'streamDate',
     'order' => 'DESC',
-    'meta_key' => 'streamDate',
+    // 'meta_key' => 'streamDate',
     'posts_per_page' => 9,
     'meta_query' => [
         'key' => 'streamDate',
-        'meta-value' => 'streamDate',
+        // 'meta-value' => 'streamDate',
         'value' => $today,
         'compare' => '>=',
-        'type' => 'CHAR',
+        'type' => 'DATE',
     ]
 ];
 
