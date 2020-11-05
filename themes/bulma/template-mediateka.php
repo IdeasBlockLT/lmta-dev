@@ -5,6 +5,7 @@ $searchTerm = isset($_POST["searchTerm"]) ? $_POST["searchTerm"] : "";
 $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = array(
     'orderby' => 'date',
+    'post_type'=>'post',
     'posts_per_page' => 9,
     'paged' => $page,
     's' => $searchTerm
