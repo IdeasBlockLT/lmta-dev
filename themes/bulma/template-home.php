@@ -1,11 +1,23 @@
 <?php /* Template Name: Home */
 
 //Query taking the first 4, ordered by newest created
-$args = array(
-    'orderby' => 'title',
-    'order' => 'DESC',
-    'posts_per_page' => '4'
-);
+// $args = array(
+//     'orderby' => 'title',
+//     'order' => 'DESC',
+//     'posts_per_page' => '4'
+// );
+$today = date("Y-m-d H:i");
+$args = [
+    'orderby' => 'streamDate',
+    'order' => 'ASC',
+    'posts_per_page' => 9,
+    'meta_query' => [
+        'key' => 'streamDate',
+        'value' => $today,
+        'compare' => '>=',
+        'type' => 'DATE',
+    ]
+];
 
 ?>
 <?php get_template_part('parts/head') ?>
@@ -36,9 +48,9 @@ $args = array(
                 </script>
 
 
-                <small class="d-block mt-4 "><?php the_field('date'); ?></small>
+                <small class="d-block mt-4 "><?php the_field('streamDate'); ?></small>
                 <a class="first-post-link" style="text-decoration: none;color: black; " 
-                   href="<? the_permalink(the_post()); ?>">
+                   href="<? the_permalink(); ?>">
                    <h3 class="hover-blue first-post"><?= the_title(); ?></h3></a>
                 <p class="first-post-excerpt"><?= the_excerpt(); ?></p>
             </div>
@@ -54,7 +66,7 @@ $args = array(
                 </div>
                 <?php while ($query->have_posts()) :$query->the_post(); ?>
                     <div class="themed-grid-col w-100 <?php echo (!get_next_post_link()) ? '' : 'border-bottom' ?>">
-                        <small><?php the_field('date'); ?></small>
+                        <small><?php the_field('streamDate'); ?></small>
                         <a  style="text-decoration: none;color: black; " 
                             href="<? the_permalink(the_post()); ?>">
                         <h5 class="hover-blue"><?php echo ucfirst(get_the_title()) ?></h5></a>
