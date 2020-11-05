@@ -49,7 +49,7 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 					// echo ("<script> alert('Resource created with ID:'".$new_id."); </script");
 				}
 
-			    dd($new_id." : ".$url); 
+			    // dd($new_id." : ".$url); 
 		    }
 		  }
 		  if ( $new_status != 'publish' ) {
