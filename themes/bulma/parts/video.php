@@ -1,8 +1,8 @@
 
-<!-- <div class="embed-responsive embed-responsive-16by9"> -->
-<div class="wrap1">	
+<div class="embed-responsive embed-responsive-16by9">
+<!-- <div class="wrap1">	 -->
     <iframe 
-    		class="frame" 
+    		class="embed-responsive-item frame"
     		id="player" 
             src="https://www.youtube.com/embed/live_stream?channel=UCws-DeDqDVzDRjYD6AXzjww&enablejsapi=1"
             allowfullscreen>
