@@ -61,11 +61,13 @@ $args = [
                 </div>
                 <?php while ($query->have_posts()) :$query->the_post(); ?>
                     <div class="themed-grid-col w-100 <?php echo (!get_next_post_link()) ? '' : 'border-bottom' ?>">
+                        <br>
+                        <br>
                         <small><?php the_field('streamDate'); ?></small>
                         <a  style="text-decoration: none;color: black; " 
-                            href="<? the_permalink(the_post()); ?>">
-                        <h5 class="hover-blue"><?php echo ucfirst(get_the_title()) ?></h5></a>
-                        <p><?= the_excerpt('hello'); ?></p>
+                            href="<? the_permalink(); ?>">
+                        <h5 class="hover-blue"><?php the_title() ?></h5></a>
+                        <p><?= the_excerpt(); ?></p>
                     </div>
                 <?php endwhile; ?>
             </div>
