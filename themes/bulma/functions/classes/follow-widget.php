@@ -103,12 +103,12 @@ class follow_widget extends WP_Widget
         $instance = array();
 
         $instance['facebook'] = (!empty($new_instance['facebook'])) ? $new_instance['facebook'] : '';
-        $instance['linkedin'] = (!empty($new_instance['linkedin'])) ? $new_instance['linkedin'] : '';
-        $instance['title'] = (!empty($new_instance['title'])) ? $new_instance['title'] : '';
+        $instance['instagram'] = (!empty($new_instance['instagram'])) ? $new_instance['instagram'] : '';
+        $instance['youtube']    = (!empty($new_instance['youtube'])) ? $new_instance['youtube'] : '';
 
         return $instance;
     }
-
+    
 }
 
 function load_follow_widget()
