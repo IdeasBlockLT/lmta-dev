@@ -89,12 +89,11 @@ class ResourceSpaceController
 
         $this->query    ="user=" . $this->apiUser . "&function=create_resource".
                         "&param1=5".
-                        "&param2=0".
-                        "&param3=" .urlencode($image_url) . 
-                        "&param4=" .
-                        "&param5=" .
-                        "&param6=" .
-                        "&param7=" . 
+                        "&param2=0"."&param3=".urlencode($image_url). 
+                        "&param4=".
+                        "&param5=".
+                        "&param6=".
+                        "&param7=". 
                         urlencode(json_encode(array(18=>$date,
                                                     8 =>$title,
                                                     10=>$price,
