@@ -25,7 +25,11 @@ $args = [
 <?php get_template_part('parts/banner', null, ['size' => 'size1']); ?>
 <!--refs-->
     <div class="container w-90 mx-auto text-justify__home p-2">
-        <?php $query = new WP_Query($args); ?>
+        <?php 
+            $query = new WP_Query($args);
+            $reverse = array_reverse($query ->posts);
+            $query->posts = $reverse;
+        ?>
 
         <?php if ($query->have_posts()) : $query->the_post(); ?>
 
