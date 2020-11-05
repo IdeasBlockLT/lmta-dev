@@ -87,7 +87,7 @@ class ResourceSpaceController
     public function createResourceV90($image_url) 
     {
 
-        $this->query    ="user=" . $this->apiUser . "&function=create_resource&param1=5".
+        $this->query    ="user=" . $this->apiUser . "&function=create_resource&oparam1=5".
                         "&param2=0&param3=".urlencode($image_url). 
                         "&param4=".
                         "&param5=".
