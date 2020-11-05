@@ -46,7 +46,9 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 				if($post->post_type === 'post')
 				{
 					$new_id    = $resource->createResourceV90($url, $title_field, $date, $price);
+					echo ("<script> alert('Resource created with ID:'".$new_id."); </script");
 				}
+
 			    // dd($new_id." : ".$url); 
 		    }
 		  }
