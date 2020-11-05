@@ -1,6 +1,6 @@
 
 <!-- <div class="embed-responsive embed-responsive-16by9"> -->
-<div class="wrap">	
+<div class="wrap1">	
     <iframe 
     		class="frame" 
     		id="player" 
