@@ -46,8 +46,8 @@ function error_video(event) {
     var excerpt     = document.getElementsByClassName("first-post-excerpt")[0];
     
     var title_string = getCookie("first_title");
-
-
+    var permalink    = getCookie("first_permalink");
+    link.href       = permalink;    
     title.innerHTML = title_string;
  
 
