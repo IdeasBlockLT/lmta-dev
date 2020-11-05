@@ -1,3 +1,4 @@
+<?php /* Template Name: Mediateka */ ?>
 <?php
 $searchTerm = isset($_POST["searchTerm"]) ? $_POST["searchTerm"] : "";
 
