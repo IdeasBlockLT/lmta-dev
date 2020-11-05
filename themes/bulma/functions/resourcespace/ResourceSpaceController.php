@@ -180,7 +180,7 @@ class ResourceSpaceController
         $request  = $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
         $data     = file_get_contents($request);
         $response = json_decode($data, true);
-        // dd("<pre>".$request."</pre>");
+        dd("<pre>".$request."</pre>");
         // return $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
         return $response;
     }
