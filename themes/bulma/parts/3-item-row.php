@@ -33,10 +33,10 @@
         <?php endwhile; ?>
         <?php //echo paginate_links($posts); ?>
         <?php
-        if (function_exists('wp_bootstrap_pagination'))
+        //if (function_exists('wp_bootstrap_pagination'))
             //wp_bootstrap_pagination($posts);
         ?>
-        <h2>pagination place</h2>
+        <!-- <h2>pagination place</h2> -->
     <?php else: ?>
         <?php //echo 'hello'; ?>
         <!--        --><?php //paginate_links($args); ?>
