@@ -88,13 +88,13 @@ class ResourceSpaceController
     {
 
         $this->query    ="user=" . $this->apiUser . "&function=create_resource".
-                        "&Param1=5".
-                        "&Param2=0".
-                        "&Param3=".urlencode($image_url). 
-                        "&Param4=".
-                        "&Param5=".
-                        "&Param6=".
-                        "&Param7=". 
+                        "&param1=5".
+                        "&param2=0".
+                        "&param3=".urlencode($image_url). 
+                        "&param4=".
+                        "&param5=".
+                        "&param6=".
+                        "&param7=". 
                         urlencode(json_encode(array(18=>$date,
                                                     8 =>$title,
                                                     10=>$price,
@@ -161,7 +161,7 @@ class ResourceSpaceController
         $request  = $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
         $data     = file_get_contents($request);
         $response = json_decode($data, true);
-        dd($request);
+        dd("<pre>".$request."</pre>");
         // return $this->resourcespaceUrl . $this->query . "&sign=" . $sign;
         return $response;
     }
