@@ -31,7 +31,7 @@
                 
             </div>
         <?php endwhile; ?>
-        <?php echo paginate_links($posts); ?>
+        <?php //echo paginate_links($posts); ?>
         <?php
         if (function_exists('wp_bootstrap_pagination'))
             //wp_bootstrap_pagination($posts);
