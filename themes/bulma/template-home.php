@@ -9,7 +9,7 @@
 $today = date("Y-m-d H:i");
 $args = [
     'orderby' => 'meta_value',
-    'order' => 'DESC',
+    'order' => 'ASC',
     'posts_per_page' => 4,
     'meta_query' => [
         'key' => 'streamDate',
