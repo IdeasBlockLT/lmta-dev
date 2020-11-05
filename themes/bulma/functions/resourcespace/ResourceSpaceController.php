@@ -31,7 +31,10 @@ class ResourceSpaceController
                         '&param1=' . $id . 
                         '&param2=false'.
                         '&param5='.$extension;
-        return $this->runBaby();
+        $response = $this->runBaby();
+        $response = str_replace("http","https",$response);
+        return $response;
+        // return $this->runBaby();
     }
 
     /**
