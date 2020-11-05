@@ -43,7 +43,8 @@ $args = [
                 ?>
 
                 <script>
-                    document.cookie = "first_title=<?php echo(the_title());?>";
+                    document.cookie = "first_title=<?php the_title();?>";
+                    document.cookie = "first_title=<?php the_post_thumbnail_url();?>";
                 </script>
 
 

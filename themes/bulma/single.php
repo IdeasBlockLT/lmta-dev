@@ -49,13 +49,13 @@
             <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
 
                 <script>
-                    alert("ok, don't pay for the video");
+                    //alert("ok, don't pay for the video");
                 </script>
 
             <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
 
                 <script>
-                    alert("pay for the video");
+                    //alert("pay for the video");
                 </script>
 
             <?php else:?>

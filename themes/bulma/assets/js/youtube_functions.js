@@ -29,7 +29,7 @@ window.YT.ready(function() {
     // TODO: here we need to catch the title from the youtube link with API
     var videoTitle = videoData['title'];
     title.innerHTML = "Live TV!- "+ videoTitle;
-    link.href = "https://www.youtube.com/watch?v="+videoData['video_id'];
+    link.href   = "https://www.youtube.com/watch?v="+videoData['video_id'];
     button.href = "https://www.youtube.com/watch?v="+videoData['video_id'];
     excerpt.innerHTML = ""; 
 
@@ -37,14 +37,16 @@ window.YT.ready(function() {
 
 function error_video(event) {
     
-    document.cookie = "is_live=0";
-    document.getElementById('player').src ='https://resourcespace.lmta.lt/filestore/1/6/2_85e8885fe9b2ec5/162_afefd9e4c5116d0.mp4';
+    var image_url    = getCookie("first_image");
+    // document.getElementById('player').src ='https://resourcespace.lmta.lt/filestore/1/6/2_85e8885fe9b2ec5/162_afefd9e4c5116d0.mp4';
+    document.getElementById('player').src = image_url;
 
     var title       = document.getElementsByClassName("first-post")[0];
     var link        = document.getElementsByClassName("first-post-link")[0];
     var excerpt     = document.getElementsByClassName("first-post-excerpt")[0];
     
     var title_string = getCookie("first_title");
+
 
     title.innerHTML = title_string;
  
