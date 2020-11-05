@@ -45,7 +45,7 @@ function on_all_status_transitions( $new_status, $old_status, $post )
 				// TODO: WHEN VISITING SINGLE, IF POST IS TRANSLATION, USER THE ID OF THE PARENT POST
 				if($post->post_type === 'post')
 				{
-					$new_id    = $resource->createResourceWithMetadata($url, $title_field, $date, $price);
+					$new_id    = $resource->createResourceV90($url, $title_field, $date, $price);
 				}
 			    // dd($new_id." : ".$url);
 		    }

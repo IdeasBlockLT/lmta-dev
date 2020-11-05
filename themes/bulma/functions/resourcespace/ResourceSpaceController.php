@@ -84,21 +84,22 @@ class ResourceSpaceController
         return $response[0]['url'];
     }
 
-    public function createResource($image_url)
+    public function createResourceV90($image_url)
     {
 
-        $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0&url=". 
-        urlencode($image_url) . 
-        "&metadata=" . 
-        urlencode(json_encode(array(18=>"Custom captions blah blah",
-                                    8=>"Česnakinis",
-                                    12=>"2020-01-01 23:59"))); # <--- The function to execute, and parameters
-        // $this->query="user=" . $this->apiUser . "&function=create_resource&resource_type=5&archive=0";
-        // $this->query="user=" . $this->apiUser . "&function=create_resource&param1=5&param2=0";
-        // $this->query = $query = "user=" . $this->apiUser . "&function=do_search&param1='rast'";
-        // dd($query);
+        $this->query    ="user=" . $this->apiUser . "&function=create_resource".
+                        "&param1=5".
+                        "&param2=0".
+                        "&param3=" .urlencode($image_url) . 
+                        "&param4=" .
+                        "&param5=" .
+                        "&param6=" .
+                        "&param7=" . 
+                        urlencode(json_encode(array(18=>$date,
+                                                    8 =>$title,
+                                                    10=>$price,
+                                                    12=>$date))); # <--- The function to execute, and parameters
         $response = $this->runBaby();
-        // return $this->query;
         return $response;   
     }
 
