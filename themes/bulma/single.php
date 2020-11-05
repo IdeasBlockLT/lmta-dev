@@ -90,7 +90,7 @@
                 <?php elseif ( (isset($resource_extension))  && in_array($resource_extension,$array_video) ): ?>
                     <br>
                     <br>
-                     <?php if ( (isset($price))  && ($price > 0) ): ?>
+                     <?php if ( (isset($price))  && ((int)$price > 0) ): ?>
                         <br>
                         <h5>
                             <strong>Price: <? echo $price[0]; ?> eur.</strong>
