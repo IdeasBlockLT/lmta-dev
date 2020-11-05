@@ -16,7 +16,7 @@ $args = [
         'compare' => '>=',
         'type' => 'DATE',
     ],
-    'order' => 'ASC',
+    'order' => 'DESC',
 ];
 
 ?>
