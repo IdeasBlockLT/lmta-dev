@@ -2,10 +2,10 @@
 <div class="embed-responsive embed-responsive-16by9">
 <!-- <div class="wrap1">	 -->
     <iframe 
-    		class="embed-responsive-item frame"
+    		class="embed-responsive-item"
     		id="player" 
             src="https://www.youtube.com/embed/live_stream?channel=UCws-DeDqDVzDRjYD6AXzjww&enablejsapi=1"
-            allowfullscreen>
+            allowfullscreen scrolling='no' >
     </iframe>
 </div>
 
