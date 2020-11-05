@@ -9,7 +9,7 @@
                 <?php dynamic_sidebar('footer'); ?>
                 <?php bloginfo('name'); ?>
             <?php endif ?>
-            <?php echo get_the_date('Y'); ?>
+            <?php echo ("Lietuvos teatros ir muzikos akademija. ."get_the_date('Y')); ?>
         </div>
     </div>
 </footer>
