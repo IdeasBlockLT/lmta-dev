@@ -34,7 +34,7 @@
         <?php echo paginate_links($posts); ?>
         <?php
         if (function_exists('wp_bootstrap_pagination'))
-            wp_bootstrap_pagination($posts);
+            //wp_bootstrap_pagination($posts);
         ?>
         <h2>pagination place</h2>
     <?php else: ?>
