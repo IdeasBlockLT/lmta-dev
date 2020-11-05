@@ -29,6 +29,6 @@
         <?php endwhile; ?>
     <?php else: ?>
         <?php echo 'hello'; ?>
-        <?php echo paginate_links(); ?>
+        <?php //echo paginate_links(); ?>
     <?php endif; ?>
 </div>

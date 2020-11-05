@@ -38,7 +38,7 @@
         ?>
         <h2>pagination place</h2>
     <?php else: ?>
-        <?php echo 'hello'; ?>
+        <?php //echo 'hello'; ?>
         <!--        --><?php //paginate_links($args); ?>
     <?php endif; ?>
 </div>
