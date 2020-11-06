@@ -71,7 +71,7 @@ $args = [
                         <br>
                         <small><?php the_field('streamDate'); ?></small>
                         <a  style="text-decoration: none;color: black; " 
-                            href="<? the_permalink(); ?>">
+                            href="<?php the_permalink(); ?>">
                         <h5 class="hover-blue"><?php the_title() ?></h5></a>
                         <p><?= the_excerpt(); ?></p>
                     </div>
