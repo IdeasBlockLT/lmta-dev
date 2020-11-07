@@ -22,6 +22,11 @@
                             </a>
                         </h5>
                         <p class="card-text"><?= the_excerpt(); ?></p>
+                        <button class="mt-auto btn btn-light custom-more hover-blue__white">
+                            <a href="<?php echo get_the_permalink() ?>" class="">
+                                <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
+                            </a>
+                        </button>
                     </div>
                     <?php if ($x < 7): ?>
                         <hr>
