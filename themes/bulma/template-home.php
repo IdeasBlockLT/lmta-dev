@@ -55,6 +55,7 @@ $args = [
                     </a>
                 </button>
             </div>
+            
         <?php endif; ?>
             <!--The rest of the videos-->
             <!--Need custom size of columns for wider columns-->
