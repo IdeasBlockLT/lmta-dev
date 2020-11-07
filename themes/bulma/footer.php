@@ -8,8 +8,8 @@
             <?php if (is_active_sidebar('footer')): ?>
                 <?php dynamic_sidebar('footer'); ?>
                 <?php bloginfo('name'); ?>
+                <?php echo get_the_date('Y'); ?>
             <?php endif ?>
-            <?php echo ("Lietuvos teatros ir muzikos akademija. ".get_the_date('Y')); ?>
         </div>
     </div>
 </footer>
