@@ -43,6 +43,7 @@ $args = [
                     document.cookie = "first_image=<?php the_post_thumbnail_url();?>";
                     document.cookie = "first_permalink=<?php the_permalink();?>";
                 </script>
+                <br>
                 <div class="first-date"><small class="d-block mt-4 "><?php the_field('streamDate'); ?></small></div>
                 <a class="first-post-link" style="text-decoration: none;color: black; "
                    href="<?php the_permalink(); ?>">
