@@ -46,11 +46,11 @@ $args = [
                 </script>
                 <small class="d-block mt-4 "><?php the_field('streamDate'); ?></small>
                 <a class="first-post-link" style="text-decoration: none;color: black; "
-                   href="<? the_permalink(); ?>">
+                   href="<?php the_permalink(); ?>">
                    <h3 class="hover-blue first-post"><?= the_title(); ?></h3></a>
                 <p class="first-post-excerpt"><?= the_excerpt(); ?></p>
                 <button class="mt-auto btn btn-light custom-more hover-blue__white">
-                    <a href="<?php the_permalink(); ?>" class="">
+                    <a href="<?php the_permalink(); ?>" class="first-btn-a">
                         <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
                     </a>
                 </button>

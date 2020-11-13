@@ -4,7 +4,7 @@
  */
 var player = null;
 window.YT.ready(function() {
-  
+
     player = new window.YT.Player("player", {
     height: "390",
     width: "640",
@@ -20,9 +20,8 @@ window.YT.ready(function() {
 
     var title          = document.getElementsByClassName("first-post")[0];
     var link           = document.getElementsByClassName("first-post-link")[0];
-    var first_post_div = document.getElementsByClassName("first-post-div")[0];
-    var excerpt        = first_post_div.getElementsByTagName("p")[1];
-    var button         = first_post_div.getElementsByClassName("btn")[0];
+    var excerpt        = document.getElementsByClassName("first-post-excerpt")[0];
+    var button         = document.getElementsByClassName("first-btn-a")[0];
     
     var videoData = player.getVideoData();
 
@@ -44,11 +43,13 @@ function error_video(event) {
     var title       = document.getElementsByClassName("first-post")[0];
     var link        = document.getElementsByClassName("first-post-link")[0];
     var excerpt     = document.getElementsByClassName("first-post-excerpt")[0];
+    var button      = document.getElementsByClassName("first-btn-a")[0];
     
     var title_string = getCookie("first_title");
     var permalink    = getCookie("first_permalink");
     link.href       = permalink;    
     title.innerHTML = title_string;
+    button.href     = permalink;
  
 
 }
