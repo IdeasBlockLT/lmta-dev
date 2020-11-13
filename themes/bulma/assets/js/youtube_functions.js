@@ -25,6 +25,7 @@ window.YT.ready(function() {
     var date           = document.getElementsByClassName("first-date")[0];
 
     date.style.display = "none";
+    excerpt.style.display = "none";
     
     var videoData = player.getVideoData();
 
@@ -50,10 +51,11 @@ function error_video(event) {
     var date        = document.getElementsByClassName("first-date")[0];
 
     date.style.display = "block";
+    excerpt.style.display = "block";
     
     var title_string = getCookie("first_title");
     var permalink    = getCookie("first_permalink");
-    var the_excerpt  = getCookie("first-post-excerpt");
+    var the_excerpt  = getCookie("first_post_excerpt");
     link.href        = permalink;    
     title.innerHTML  = title_string;
     button.href      = permalink;

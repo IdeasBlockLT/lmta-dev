@@ -42,7 +42,6 @@ $args = [
                     document.cookie = "first_title=<?php the_title();?>";
                     document.cookie = "first_image=<?php the_post_thumbnail_url();?>";
                     document.cookie = "first_permalink=<?php the_permalink();?>";
-                    document.cookie = "first-post-excerpt=<?php the_excerpt();?>";
                 </script>
                 <small class="first-date d-block mt-4 "><?php the_field('streamDate'); ?></small>
                 <a class="first-post-link" style="text-decoration: none;color: black; "
