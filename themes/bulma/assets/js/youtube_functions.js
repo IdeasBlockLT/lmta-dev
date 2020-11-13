@@ -24,7 +24,7 @@ window.YT.ready(function() {
     var button         = document.getElementsByClassName("first-btn-a")[0];
     var date           = document.getElementsByClassName("first-date")[0];
 
-    date.style.display = "none";
+    // date.style.display = "none";
     excerpt.style.display = "none";
     
     var videoData = player.getVideoData();
@@ -35,6 +35,7 @@ window.YT.ready(function() {
     link.href   = "https://www.youtube.com/watch?v="+videoData['video_id'];
     button.href = "https://www.youtube.com/watch?v="+videoData['video_id'];
     excerpt.innerHTML = ""; 
+    date.innerHTML    = "";
 
   }
 
@@ -50,16 +51,19 @@ function error_video(event) {
     var button      = document.getElementsByClassName("first-btn-a")[0];
     var date        = document.getElementsByClassName("first-date")[0];
 
-    date.style.display = "block";
+    // date.style.display = "block";
     excerpt.style.display = "block";
     
     var title_string = getCookie("first_title");
     var permalink    = getCookie("first_permalink");
     var the_excerpt  = getCookie("first_post_excerpt");
+    var the_date     = getCookie("first_date");
+
     link.href        = permalink;    
     title.innerHTML  = title_string;
     button.href      = permalink;
     excerpt.innerHTML= the_excerpt;
+    date.innerHTML   = the_date;
  
 
 }
