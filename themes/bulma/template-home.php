@@ -43,11 +43,11 @@ $args = [
                     document.cookie = "first_image=<?php the_post_thumbnail_url();?>";
                     document.cookie = "first_permalink=<?php the_permalink();?>";
                 </script>
-                <small class="first-date d-block mt-4 "><?php the_field('streamDate'); ?></small>
+                <div class="first-date"><small class="d-block mt-4 "><?php the_field('streamDate'); ?></small></div>
                 <a class="first-post-link" style="text-decoration: none;color: black; "
                    href="<?php the_permalink(); ?>">
                    <h3 class="hover-blue first-post"><?= the_title();?></h3></a>
-                <p class="first-post-excerpt"><?= the_excerpt();?></p>
+                <div class="first-post-excerpt"><p ><?= the_excerpt();?></p></div>
                 <button class="mt-auto btn btn-light custom-more hover-blue__white">
                     <a href="<?php the_permalink(); ?>" class="first-btn-a">
                         <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
@@ -86,5 +86,6 @@ $args = [
             </div>
         </div>
     </div>
+
 <?php get_footer(); ?>
 
