@@ -50,7 +50,7 @@ $args = [
                    <h3 class="hover-blue first-post"><?= the_title(); ?></h3></a>
                 <p class="first-post-excerpt"><?= the_excerpt(); ?></p>
                 <button class="mt-auto btn btn-light custom-more hover-blue__white">
-                    <a href="<?php echo get_the_permalink() ?>" class="">
+                    <a href="<?php the_permalink(); ?>" class="">
                         <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
                     </a>
                 </button>
@@ -78,7 +78,7 @@ $args = [
                         <h5 class="hover-blue"><?php the_title() ?></h5></a>
                         <p><?= the_excerpt(); ?></p>
                         <button class="mt-auto btn btn-light custom-more hover-blue__white">
-                            <a href="<?php echo get_the_permalink() ?>" class="">
+                            <a href="<?php the_permalink(); ?>" class="">
                                 <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
                             </a>
                         </button>
