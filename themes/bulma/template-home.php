@@ -42,9 +42,9 @@ $args = [
                     document.cookie = "first_title=<?php the_title();?>";
                     document.cookie = "first_image=<?php the_post_thumbnail_url();?>";
                     document.cookie = "first_permalink=<?php the_permalink();?>";
-                    console.log('<?php  the_field('streamDate');?>');
+                    document.cookie = "first-post-excerpt=<?php the_excerpt();?>";
                 </script>
-                <small class="d-block mt-4 "><?php the_field('streamDate'); ?></small>
+                <small class="first-date d-block mt-4 "><?php the_field('streamDate'); ?></small>
                 <a class="first-post-link" style="text-decoration: none;color: black; "
                    href="<?php the_permalink(); ?>">
                    <h3 class="hover-blue first-post"><?= the_title(); ?></h3></a>

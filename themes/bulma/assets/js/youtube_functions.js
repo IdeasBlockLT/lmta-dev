@@ -22,6 +22,9 @@ window.YT.ready(function() {
     var link           = document.getElementsByClassName("first-post-link")[0];
     var excerpt        = document.getElementsByClassName("first-post-excerpt")[0];
     var button         = document.getElementsByClassName("first-btn-a")[0];
+    var date           = document.getElementsByClassName("first-date")[0];
+
+    date.style.display = "none";
     
     var videoData = player.getVideoData();
 
@@ -44,12 +47,17 @@ function error_video(event) {
     var link        = document.getElementsByClassName("first-post-link")[0];
     var excerpt     = document.getElementsByClassName("first-post-excerpt")[0];
     var button      = document.getElementsByClassName("first-btn-a")[0];
+    var date        = document.getElementsByClassName("first-date")[0];
+
+    date.style.display = "block";
     
     var title_string = getCookie("first_title");
     var permalink    = getCookie("first_permalink");
-    link.href       = permalink;    
-    title.innerHTML = title_string;
-    button.href     = permalink;
+    var the_excerpt  = getCookie("first-post-excerpt");
+    link.href        = permalink;    
+    title.innerHTML  = title_string;
+    button.href      = permalink;
+    excerpt.innerHTML= the_excerpt;
  
 
 }
