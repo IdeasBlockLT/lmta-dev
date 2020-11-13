@@ -4,7 +4,7 @@
  */
 var player = null;
 window.YT.ready(function() {
-    console.log("API");
+  
     player = new window.YT.Player("player", {
     height: "390",
     width: "640",
@@ -25,7 +25,7 @@ window.YT.ready(function() {
     var button         = first_post_div.getElementsByClassName("btn")[0];
     
     var videoData = player.getVideoData();
-    console.log(videoData);
+
     // TODO: here we need to catch the title from the youtube link with API
     var videoTitle = videoData['title'];
     title.innerHTML = "Live TV!- "+ videoTitle;
