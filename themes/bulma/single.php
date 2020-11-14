@@ -74,7 +74,7 @@
         </div>
 
 
-        <script> console.log("woocommerce access: <?php Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
+        <script> console.log("woocommerce access: <?php echo Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
         
 
         <div class="col-md-4 col-4 themed-grid-col border-left">
