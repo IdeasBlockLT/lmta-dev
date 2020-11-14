@@ -72,6 +72,11 @@
 
 
         </div>
+
+
+        <script> console.log("woocommerce access: <?php Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
+        
+
         <div class="col-md-4 col-4 themed-grid-col border-left">
             <div class="pb-4">
                 <small><?php the_field('date'); ?></small>
