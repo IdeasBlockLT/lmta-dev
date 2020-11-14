@@ -75,6 +75,11 @@
 
 
         <script> console.log("woocommerce access: <?php echo Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
+        <?php if(Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
+            This is the content that a user should see if they paid for the post
+        <?php else: ?>
+            <?php echo Woocommerce_Pay_Per_Post_Helper::get_no_access_content(); ?>
+        <?php endif; ?> 
         
 
         <div class="col-md-4 col-4 themed-grid-col border-left">
