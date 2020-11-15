@@ -1,4 +1,4 @@
-<footer class="container w-90 mt-4 p-2 mx-auto pt-4 border-top">
+<footer class="footer-default container w-90 mt-4 p-2 mx-auto pt-4 border-top">
     <?php get_template_part('parts/footer-menu') ?>
     <div class="row mx-auto pt-3">
         <div class="col custom-footer">
