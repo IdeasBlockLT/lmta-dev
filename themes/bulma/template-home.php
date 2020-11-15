@@ -10,6 +10,7 @@ $today = date("Y-m-d H:i");
 $args = [
     'orderby' => 'meta_value',
     'posts_per_page' => 4,
+    'post_status' => 'publish',
     'meta_query' => [
         'key' => 'streamDate',
         'value' => $today,
