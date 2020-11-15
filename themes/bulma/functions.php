@@ -103,65 +103,46 @@ function is_paginated() {
     }
 }
 
+/**
+ * Filter projects for ajax
+ */
 function filter_projects() {
-    $today = date("Y-m-d H:i");
 
-    $ajaxposts = new WP_QUERY([
+    $today = date("Y-m-d H:i");
+//    $paged = ( get_query_var('paged') ) ? get_query_var( 'paged' ) : 1;
+    $paged = $_POST['page'] ? $_POST['page'] : 1;
+
+    $_SESSION['template'] = $_POST['template'];
+    #Choosing the template
+    if($_POST['template'] == 'one-column'){
+        $template = 'parts/one-column';
+        $postPerPage = 6;
+    }else{
+        $template = 'parts/three-columns';
+        $postPerPage = 9;
+    }
+
+    $args = [
         'orderby' => 'streamDate',
         'order' => 'DESC',
         'meta_key' => 'streamDate',
-        'posts_per_page' => 9,
+        'post_status' => 'publish',
+        'posts_per_page' => $postPerPage,
+        'paged' => $paged,
+        'page' => $paged,
         'meta_query' => [
             'key' => 'streamDate',
             'meta-value' => 'streamDate',
             'value' => $today,
             'compare' => $_POST['events'],//>= <=
-//            'type' => 'CHAR',
+            'type' => 'DATE',
         ]
-    ]);
+    ];
 
-    #Choosing the template
-    if($_POST['template'] == 'one-column'){
-        $template = 'parts/one-column';
-    }else{
-        $template = 'parts/three-columns';
-    }
+    $slug = $_POST['slug'];
 
-    $response = '';
-    $count = $ajaxposts->found_posts;
-
-    if ($ajaxposts->have_posts()) {
-        $x = 0;
-        if ($template == 'parts/one-column') {
-            while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
-                $x++;
-                if ($x == $count) {
-                    $response .= get_template_part($template, 'border', ['border-adjust' => 'border-remove']);
-                    break;
-                }
-                if ($x === 1){
-                    $response .= get_template_part($template, 'padding', ['padding-adjust' => 'true']);
-                }else {
-                    $response .= get_template_part($template);
-                }
-            endwhile;
-        } else {
-            while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
-                $x++;
-                if ($x + 2 >= $count) {
-                    $response .= get_template_part($template, 'border', ['border-adjust' => 'border-remove']);
-                }else {
-                    $response .= get_template_part($template);
-                }
-            endwhile;
-        }
-    } else {
-        $response = 'empty';
-    }
-    $count = $ajaxposts->found_posts;
-    $_SESSION['counter'] = $count;
-    echo $response;
-    exit;
+    echo get_template_part($template, null, array("args"=> $args, 'slug'=> $slug));
+    exit();
 }
 add_action('wp_ajax_filter_projects', 'filter_projects');
 add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');

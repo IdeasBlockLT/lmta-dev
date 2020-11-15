@@ -169,3 +169,11 @@ div#loader {
     }
 }
 
+.current{
+    background-color: #5797fb!important;
+    border-radius: 25px;
+    padding: 5px 8px!important;
+    color: white!important;
+    /*box-shadow: 1px 1px rgba(113, 113, 113, 0.7);*/
+}
+

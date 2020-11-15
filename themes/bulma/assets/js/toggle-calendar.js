@@ -1,17 +1,6 @@
-jQuery.ajaxSetup({
-    async: false
-});
-
 let futureEvents = $("#future-events");
 let pastEvents = $("#past-events");
-$(document).ready(function () { // on document ready
-    futureEvents.click(); // click the element
-})
 
-/**
- * Get the current active events to be shown future/pasts
- * @returns {string}
- */
 function getActive() {
     var active = '';
     if (!futureEvents.hasClass('text-muted')) {
@@ -22,41 +11,62 @@ function getActive() {
     return active;
 }
 
+function getTemplate()
+{
+    let template = '';
+    if ($("#horizontal").attr('data-checked')){
+        template = 'three-columns';
+    }else{
+        template = 'one-column';
+    }
+    return template;
+}
+
 let threeColumns = $("#three-columns");
 let oneColumn = $("#one-column");
-$("#horizontal").attr('checked', 'checked');
 
 $("#horizontal").click(function () {
-    oneColumn.addClass("hide");
-    oneColumn.next().find('>div').removeClass("one-column");
+    horizontal();
+});
+
+$("#vertical").click(function () {
+    vertical();
+});
+
+function horizontal()
+{
+    oneColumn.css("display", "none");
+    oneColumn.find('>div').css("display", "none");
 
     $("#horizontal").find('i').css('cssText', 'color: black;');
-    $("#horizontal").attr('checked', 'checked');
+    $("#horizontal").attr('data-checked', true);
 
     $("#vertical").find('i').css('color', '#dee2e6');
-    $("#vertical").removeAttr('checked');
+    $("#vertical").removeAttr('data-checked');
 
 
     threeColumns.css("display", "flex");
     threeColumns.find('>div').css("display", "block");
 
     let active = getActive();
-    console.log('getting');
     if (active) {
         $(active).trigger('click');
     }
+}
 
-});
-
-$("#vertical").click(function () {
+function vertical()
+{
     threeColumns.css("display", "none");
     threeColumns.find('>div').css("display", "none");
 
+    oneColumn.css("display", "flex");
+    oneColumn.find('>div').css("display", "flex");
+
     $("#vertical").find('i').css('cssText', 'color: black;');
-    $("#vertical").attr('checked', 'checked');
+    $("#vertical").attr('data-checked', true);
 
     $("#horizontal").find('i').css('color', '#dee2e6');
-    $("#horizontal").removeAttr('checked');
+    $("#horizontal").removeAttr('data-checked');
 
     oneColumn.removeClass("hide");
     oneColumn.next().find('>div').not('#calendar-menu').addClass("one-column");
@@ -65,73 +75,152 @@ $("#vertical").click(function () {
     if (active) {
         $(active).trigger('click');
     }
+}
+
+jQuery(document).on('click', '.page-numbers', function (e) {
+    e.preventDefault();
+
+    var page = $(this).html();
+
+    let slug = $("#slug").attr('data-slug');
+    var template = getTemplate();
+
+    let operator = '';
+
+    if ($('#future-events').hasClass('text-muted')) {
+        operator = $('#past-events').attr('value');
+    } else {
+        operator = $('#future-events').attr('value');
+    }
+
+    $.ajax({
+        beforeSend: function () {
+            $("#loader1").show();
+            $("#inside-loader").show();
+        },
+        async: true,
+        type: "POST",
+        url: '/wp-admin/admin-ajax.php',
+        dataType: 'html',
+        data: {
+            action: 'filter_projects',
+            events: operator,
+            template: template,
+            slug: slug,
+            page: page,
+        },
+        success: function (response) {
+            if (template === 'one-column') {
+                $('#one-column').html(response);
+            } else {
+                $('#three-columns').html(response);
+            }
+        },
+        complete: function (data) {
+            // Hide image container
+            $("#loader1").hide();
+            $("#inside-loader").hide();
+        }
+    })
 
 });
 
+$("#future-events").click(function () {
 
-$('#future-events, #past-events').click(function () {
+    $("#future-events").css("font-weight", "bold");
+    $("#future-events").removeClass("text-muted");
+    $("#past-events").css("font-weight", "normal");
+    $("#past-events").addClass("text-muted");
 
-        let futureEvents = $("#future-events");
-        futureEvents.css("font-weight", "bold")
-        let pastEvents = $("#past-events");
+    let slug = $("#slug").attr('data-slug');
+    var template = getTemplate();
 
-        var operator = '';
-        if (!typeof active) {
-            var operator = $(active).attr('value');
-        } else {
-            var operator = $(this).attr('value');
-        }
-
-        if ($(this).attr('id') === futureEvents.attr('id')) {
-            futureEvents.removeClass('text-muted');
-            futureEvents.css('font-weight', 'bold');
-            pastEvents.addClass('text-muted');
-            pastEvents.css('font-weight', '');
-        } else {
-            pastEvents.removeClass('text-muted');
-            pastEvents.css('font-weight', 'bold');
-            futureEvents.addClass('text-muted');
-            futureEvents.css('font-weight', '');
-        }
-
-        var template = '';
-
-        var attr = $("#horizontal").attr('checked');
-        // For some browsers, `attr` is undefined; for others,
-        // `attr` is false.  Check for both.
-        if (typeof attr !== typeof undefined && attr !== false) {
-            template = 'three-columns';
-        } else {
-            template = 'one-column';
-        }
-
-        $.ajax({
-            beforeSend: function () {
-                $("#loader1").show();
-                $("#inside-loader").show();
-            },
-            async: true,
-            type: "POST",
-            url: '/wp-admin/admin-ajax.php',
-            dataType: 'html',
-            data: {
-                action: 'filter_projects',
-                events: operator,
-                template: template
-            },
-            success: function (response) {
-                if (template === 'one-column') {
-                    $('#one-column').html(response);
-                } else {
-                    $('#three-columns').html(response);
-                }
-            },
-            complete: function (data) {
-                // Hide image container
-                $("#loader1").hide();
-                $("#inside-loader").hide();
-            }
-        })
+    let operator = '';
+    if (!typeof active) {
+        operator = $(active).attr('value');
+    } else {
+        operator = $(this).attr('value');
     }
-)
+
+    $.ajax({
+        beforeSend: function () {
+            $("#loader1").show();
+            $("#inside-loader").show();
+        },
+        async: true,
+        type: "POST",
+        url: '/wp-admin/admin-ajax.php',
+        dataType: 'html',
+        data: {
+            action: 'filter_projects',
+            events: operator,
+            template: template,
+            slug: slug,
+        },
+        success: function (response) {
+            if (template === 'one-column') {
+                $('#one-column').html(response);
+            } else {
+                $('#three-columns').html(response);
+            }
+        },
+        complete: function (data) {
+            // Hide image container
+            $("#loader1").hide();
+            $("#inside-loader").hide();
+        }
+    })
+
+});
+
+$("#past-events").click(function () {
+
+    $("#past-events").css("font-weight", "bold");
+    $("#past-events").removeClass("text-muted");
+    $("#future-events").css("font-weight", "normal");
+    $("#future-events").addClass("text-muted");
+
+    let slug = $("#slug").attr('data-slug');
+
+    var template = getTemplate();
+
+    let operator = '';
+    if (!typeof active) {
+        operator = $(active).attr('value');
+    } else {
+        operator = $(this).attr('value');
+    }
+
+
+    $.ajax({
+        beforeSend: function () {
+            $("#loader1").show();
+            $("#inside-loader").show();
+        },
+        async: true,
+        type: "POST",
+        url: '/wp-admin/admin-ajax.php',
+        dataType: 'html',
+        data: {
+            action: 'filter_projects',
+            events: operator,
+            template: template,
+            slug: slug,
+        },
+        success: function (response) {
+            if (template === 'one-column') {
+                $('#one-column').html(response);
+            } else {
+                console.log(response);
+                $('#three-columns').html(response);
+            }
+        },
+        complete: function (data) {
+            // Hide image container
+            $("#loader1").hide();
+            $("#inside-loader").hide();
+        }
+    })
+
+});
 
