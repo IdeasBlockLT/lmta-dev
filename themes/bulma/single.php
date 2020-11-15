@@ -42,18 +42,17 @@
                 
                     <!-- If it is an image, show it -->
                     <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
-                        <?php get_template_part('parts/image-only') ?>
+                        <?php get_template_part('parts/image-only', null, array(   'url'   => $resource_url)  ) ?>
                     <!--If it is a video, show it    -->
                     <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
                         <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
                     <?php endif; ?>
         
                 <?php else:?>
-                    <?php get_template_part('parts/image-only') ?>
+                    <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
                 <?php endif; ?>
             <?php else: ?>
-                <?php get_template_part('parts/image-only') ?>
-                <?php echo Woocommerce_Pay_Per_Post_Helper::get_no_access_content(); ?>
+                <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
             <?php endif; ?> 
             
             
@@ -61,17 +60,23 @@
         </div>
 
         <script> console.log("woocommerce access: <?php echo Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
-        
+        <?php if(!Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
+                <?php echo Woocommerce_Pay_Per_Post_Helper::get_no_access_content(); ?>
+        <?php endif; ?> 
         
         
 
         <div class="col-md-4 col-4 themed-grid-col border-left">
             <div class="pb-4">
+                
                 <small><?php the_field('date'); ?></small>
+                
                 <h4>
                     <strong><?= the_title(); ?></strong>
                 </h4>
+                
                 <br>
+                
                 <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
                     <br>
                     <h5>
@@ -79,18 +84,6 @@
                     </h5>
                     <br>
                     <br>
-                    
-                <?php elseif ( (isset($resource_extension))  && in_array($resource_extension,$array_video) ): ?>
-                    <br>
-                    <br>
-                     <?php if ( (isset($price))  && ((int)$price[0] > 0) ): ?>
-                        <br>
-                        <h5>
-                            <strong>Price: <? echo $price[0]; ?> eur.</strong>
-                        </h5>
-                        <button type="button" class="btn btn-buy">Mokėti</button>
-                    <?php endif; ?>
-                    
                 <?php endif; ?> 
                   
                 
