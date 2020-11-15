@@ -26,7 +26,6 @@
 
     $array_images = array('jpg','gif','png');
     $array_video  = array('mp4');
-
 ?>
 
 <?php get_template_part('parts/head') ?>
@@ -35,51 +34,35 @@
 <div class="container w-90 mx-auto">
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
         <div class="col-md-7 col-7 themed-grid-col mr-3">
-
-            <!-- TODO: ADD CONDITIONS FOR IF THE USER HAS PAID FOR THIS VIDEO OR WTF? -->
-
-            <?php if( isset($resource_url) ) : ?>
-
-                <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
-
-            <?php endif; ?>
-
-
-            <!-- If we have image extension, we have only image on the resource -->
-            <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
-
-                <script>
-                    //alert("ok, don't pay for the video");
-                </script>
-
-            <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
-
-                <script>
-                    //alert("pay for the video");
-                </script>
-
-            <?php else:?>
-
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" id="player" 
-                            src="<?php echo($cover_url) ?>"
-                            allowfullscreen  scrolling='no' >
-                    </iframe>
-                </div>
-
-            <?php endif; ?>
-
-
-
+            
+            
+            <!-- WOOCOMMERCE PAY FOR POST, IF USER HAS PAID OR HAS ACCESS -->
+            <?php if(Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
+                <?php if( isset($resource_url) ) : ?>
+                
+                    <!-- If it is an image, show it -->
+                    <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
+                        <?php get_template_part('parts/image-only') ?>
+                    <!--If it is a video, show it    -->
+                    <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
+                        <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
+                    <?php endif; ?>
+        
+                <?php else:?>
+                    <?php get_template_part('parts/image-only') ?>
+                <?php endif; ?>
+            <?php else: ?>
+                <?php get_template_part('parts/image-only') ?>
+                <?php echo Woocommerce_Pay_Per_Post_Helper::get_no_access_content(); ?>
+            <?php endif; ?> 
+            
+            
+            
         </div>
 
-
         <script> console.log("woocommerce access: <?php echo Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
-        <?php if(Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
-            This is the content that a user should see if they paid for the post
-        <?php else: ?>
-            <?php echo Woocommerce_Pay_Per_Post_Helper::get_no_access_content(); ?>
-        <?php endif; ?> 
+        
+        
         
 
         <div class="col-md-4 col-4 themed-grid-col border-left">
