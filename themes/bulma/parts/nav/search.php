@@ -12,7 +12,7 @@ $a = new resourcespaceNew();
                    name="searchTerm"
                    id="searchTerm"
                    class="searchTerm backgroundColor-<?= !empty($args['input-color']) ? 'blue color-white' : ' ' . 'color-black__holder' ?>"
-                   placeholder="<?= ($args['placeholder']) ?> "
+                   placeholder="<?php echo pll_e('Paieška')?>"
                    size="4"
             >
             <button type="submit"
