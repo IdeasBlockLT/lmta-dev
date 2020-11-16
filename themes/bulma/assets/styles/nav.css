@@ -120,3 +120,12 @@
     }
 }
 
+.navbar-nav .active-blue>.nav-link{
+    color: #5797fb!important;
+}
+.active-blue{
+    color: #5797fb!important;
+}
+.active-white>a{
+    color: white!important;
+}
