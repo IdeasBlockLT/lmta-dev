@@ -43,9 +43,34 @@ input[value='1']{
 }
 
 .custom-image-vertical{
-    width: 450px;
-    height: 300px;
-    object-fit: cover;
+    width: 400px;
+    height: 200px;
+    object-fit: fill;
+}
+@media (min-width: 1440px) {
+    .custom-size {
+        width: 90%;
+        margin: 0 auto;
+        height: 100%;
+    }
+    .custom-image-vertical{
+        width: 450px;
+        height: 200px;
+        object-fit: fill;
+    }
+}
+@media (min-width: 1680px) {
+    .custom-size {
+        width: 90%;
+        margin: 0 auto;
+        height: 100%;
+    }
+    .custom-image-vertical{
+        /*width: auto;*/
+        width: 500px;
+        height: 250px;
+        object-fit: fill;
+    }
 }
 #calendar-posts{
     border: 2px solid green;
@@ -72,14 +97,14 @@ input[value='1']{
 .custom-borders__one_column{
     border: none;
     /*border-top: 1px solid rgba(0,0,0,.125);*/
-    border-bottom: 1px solid rgba(0,0,0,.125);
+    /*border-bottom: 1px solid rgba(0,0,0,.125);*/
 }
 .border-remove{
     border: none;
 }
 
 .custom__card-body{
-    padding: 1.25rem 1.25rem 0rem 1.25rem!important;
+    padding: 0rem 1.25rem 0rem 1.25rem!important;
 }
 
 #future-events, #past-events{
