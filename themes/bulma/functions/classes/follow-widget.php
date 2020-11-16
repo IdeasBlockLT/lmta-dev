@@ -26,18 +26,25 @@ class follow_widget extends WP_Widget
 
     public function widget($args, $instance)
     {
+        if (is_page_template('template-mediateka.php')){
+            $fontColor = 'black hover-white';
+        }else{
+            $fontColor = 'hover-blue';
+        }
 
         echo $args['before_widget'];
 
         echo '<div class="textwidget">';
         ?>
+
+
         <h3><?= $instance['title'] ?></h3>
         <div>
-            <a class="custom-a pr-2 hover-blue" href="<?= $instance['facebook'] ?>" target="_blank">Facebook</a>
+            <a class="custom-a pr-2 <?php echo $fontColor; ?>" href="<?= $instance['facebook'] ?>" target="_blank">Facebook</a>
             <span> | </span>
-            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['instagram'] ?>" target="_blank">Instagram</a>
+            <a class="custom-a ml-2 pl-2 pr-2 <?php echo $fontColor; ?>" href="<?= $instance['instagram'] ?>" target="_blank">Instagram</a>
             <span> | </span>
-            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['youtube'] ?>" target="_blank">Youtube</a>
+            <a class="custom-a ml-2 pl-2 pr-2 <?php echo $fontColor; ?>" href="<?= $instance['youtube'] ?>" target="_blank">Youtube</a>
         </div>
 
         <?php

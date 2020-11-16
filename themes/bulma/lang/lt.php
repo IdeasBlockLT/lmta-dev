@@ -6,6 +6,7 @@
 pll_register_string(strtolower('soon_events'), 'Artimiausi renginiai');
 pll_register_string(strtolower('read_more'), 'Skaityti daugiau');
 pll_register_string(strtolower('keywords'), 'Raktazodziai');
+pll_register_string(strtolower('keywords'), 'Paieška');
 
 
 /**

@@ -1,6 +1,14 @@
 <?php
 $footer_menu = get_menu_items('footer');
 
+if (is_page_template('template-mediateka.php')){
+    $fontColor = 'black hover-white';
+    $active = 'active-white';
+}else{
+    $fontColor = 'hover-blue';
+    $active = 'active-blue';
+}
+
 ?>
 <!--<div class="container w-90 mx-auto">-->
     <div class="row mx-auto pb-3 pt-4" id="menus-footer">
@@ -8,8 +16,9 @@ $footer_menu = get_menu_items('footer');
             <ul class="custom-display-footer pl-0">
                 <li class="custom-li li-label"><h3>Menu</h3></li>
                 <?php foreach ($footer_menu as $item): ?>
-                    <li class="custom-li">
-                        <a class="custom-a hover-blue" href="<?= $item->url; ?>"><?= ucfirst($item->title); ?></a>
+                    <li class="custom-li <?php if ($item->active): ?><?php echo $active; ?><?php endif; ?>">
+                        <a class="custom-a <?php echo $fontColor; ?>"
+                           href="<?= $item->url ?>"><?= ucfirst($item->title) ?></a>
                     </li>
                 <?php endforeach; ?>
             </ul>

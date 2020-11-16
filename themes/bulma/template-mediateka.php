@@ -17,13 +17,12 @@ $args = array(
     'background-color' => 'blue',
     'font-color' => 'white',
     'input-color' => 'blue',
-    'placeholder' => 'Įveskite ieškomą raktžodį' //Para traducir
 ]) ?>
 <?php get_template_part('parts/banner', 'banner', ['size' => 'size1',
     'background-color' => 'blue',
     'font-color' => 'white',
-    'input-color' => 'blue',
-    'placeholder' => 'Įveskite ieškomą raktžodį']) //Para traducir]); ?>
+    'input-color' => 'blue'
+])  ?>
 
 <div class="container w-90 mx-auto">
     <div class="container w-90 mx-auto">
