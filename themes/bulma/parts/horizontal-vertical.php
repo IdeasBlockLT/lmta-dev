@@ -1,7 +1,11 @@
 <?php
-
+    if (isset($args['one-line'])){
+        $col = $args['one-line'];
+    }else{
+        $col = 'col-md-6';
+    }
 ?>
-<div class="col-md-6 mx-auto">
+<div class="<?php echo $col; ?> mx-auto">
     <div class="mb-4 custom-size" style="text-align: right">
         <strong><label class="mr-4" for="Vaizdavimas"
                        style="display: inline">Vaizdavimas</label>

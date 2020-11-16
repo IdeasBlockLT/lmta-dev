@@ -59,6 +59,8 @@ $slug = $the_page->post_name;
 
 </div>
 
+<script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/toggle-calendar.js'; ?>" type="module"></script>
 
 <?php get_footer(); ?>
+
 

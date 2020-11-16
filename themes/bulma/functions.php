@@ -48,7 +48,7 @@ function arphabet_widgets_init()
     ));
 }
 
-//Excerpt text to be max x characters
+//Excerpt text to be max x words
 function custom_excerpt_length()
 {
     return 30;
@@ -111,6 +111,7 @@ function filter_projects() {
     $today = date("Y-m-d H:i");
 //    $paged = ( get_query_var('paged') ) ? get_query_var( 'paged' ) : 1;
     $paged = $_POST['page'] ? $_POST['page'] : 1;
+    $compare = $_POST['events'] ? $_POST['events'] : '<';
 
     $_SESSION['template'] = $_POST['template'];
     #Choosing the template
@@ -134,7 +135,7 @@ function filter_projects() {
             'key' => 'streamDate',
             'meta-value' => 'streamDate',
             'value' => $today,
-            'compare' => $_POST['events'],//>= <=
+            'compare' => $compare,//>=, <=, <
             'type' => 'DATE',
         ]
     ];

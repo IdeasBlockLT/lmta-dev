@@ -3,11 +3,18 @@
 <?php
 $queryArgs = $args['args'];
 $wp_query = new WP_Query($queryArgs);
-//dd($wp_query);
+
 $maxPosts = $queryArgs['posts_per_page'];
 $maxPostsFullRow = $maxPosts - 5;
 $postCount = $wp_query->found_posts;
 
+global $template;
+
+if ( basename( $template ) === 'template-mediateka.php'  ) {
+    $hoverColor = 'hover-white';
+}else{
+    $hoverColor = 'hover-blue';
+}
 ?>
 <?php if ($wp_query->have_posts()): ?>
     <?php $x = 0; ?>
@@ -25,7 +32,7 @@ $postCount = $wp_query->found_posts;
                         <?php endif; ?>
                     </small>
                     <h5>
-                        <a class="hover-blue"
+                        <a class="<?php echo $hoverColor; ?>"
                            href="<?= get_permalink() ?>"><?= the_title(); ?>
                         </a>
                     </h5>
