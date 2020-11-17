@@ -169,3 +169,17 @@ return $text;
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'improved_trim_excerpt');
 
+
+function register_fields()
+{
+    register_setting('general', 'my_first_field', 'esc_attr');
+    add_settings_field('my_first_field', '<label for="my_first_field">'.__('My Field' , 'my_first_field' ).'</label>' , 'print_custom_field', 'general');
+}
+
+function print_custom_field()
+{
+    $value = get_option( 'my_first_field', '' );
+    echo '<input type="text" id="my_first_field" name="my_first_field" value="' . $value . '" />';
+}
+
+add_filter('admin_init', 'register_fields');
