@@ -149,3 +149,23 @@ add_action('wp_ajax_filter_projects', 'filter_projects');
 add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');
 
 
+function improved_trim_excerpt($text) { // Fakes an excerpt if needed
+  global $post;
+  if ( '' == $text ) {
+    $text = get_the_content('');
+    $text = apply_filters('the_content', $text);
+    $text = str_replace('\]\]\>', ']]&gt;', $text);
+    $text = strip_tags($text, '<p>');
+    $excerpt_length = 55;
+    $words = explode(' ', $text, $excerpt_length + 1);
+    if (count($words)> $excerpt_length) {
+      array_pop($words);
+      array_push($words, '[...]');
+      $text = implode(' ', $words);
+    }
+  }
+return $text;
+}
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'improved_trim_excerpt');
+
