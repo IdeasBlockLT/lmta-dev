@@ -14,7 +14,7 @@ if (is_page_template('template-mediateka.php')){
     <div class="row mx-auto pb-3 pt-4" id="menus-footer">
         <div id="first" class="col border-md-right mr-3 border-bottom border-md-bottom-0 pb-4 pb-md-0">
             <ul class="custom-display-footer pl-0">
-                <li class="custom-li li-label"><h3>Menu</h3></li>
+                <li class="custom-li li-label"><h3>Meniu</h3></li>
                 <?php foreach ($footer_menu as $item): ?>
                     <li class="custom-li <?php if ($item->active): ?><?php echo $active; ?><?php endif; ?>">
                         <a class="custom-a <?php echo $fontColor; ?>"
