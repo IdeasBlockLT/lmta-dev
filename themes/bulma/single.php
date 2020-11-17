@@ -40,7 +40,7 @@
 
             <?php if( isset($resource_url) ) : ?>
 
-                <?php get_template_part('parts/video-only', null, array(   'url'   => $cover_url)  ) ?>
+                <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
 
             <?php endif; ?>
 
