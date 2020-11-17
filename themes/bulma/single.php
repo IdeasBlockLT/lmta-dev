@@ -111,7 +111,7 @@
     </div>
     <div class="row mt-5 pt-3">
         <div class="col border-right">
-            <h3 class="font-weight-bold">Kurejai / atlikejai</h3>
+            <h3 class="font-weight-bold">Kūrėjai / atlikėjai</h3>
             <div>
                 <?php if (get_field('atlikejai')): ?>
                     <?php the_field('atlikejai') ?>
