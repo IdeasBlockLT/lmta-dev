@@ -31,7 +31,7 @@
 
 <?php get_template_part('parts/head') ?>
 <?php get_template_part('parts/header') ?>
-<?php get_template_part('parts/banner') ?>
+<?php get_template_part('parts/banner', 'banner', ['size' => 'size2']); ?>
 <div class="container w-90 mx-auto">
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
         <div class="col-md-7 col-7 themed-grid-col mr-3">

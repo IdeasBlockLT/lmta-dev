@@ -32,7 +32,7 @@ $slug = $the_page->post_name;
     'font-color' => 'white',
     'input-color' => 'blue',
 ]) ?>
-<?php get_template_part('parts/banner', 'banner', ['size' => 'size1',
+<?php get_template_part('parts/banner', 'banner', ['size' => 'size2',
     'background-color' => 'blue',
     'font-color' => 'white',
     'input-color' => 'blue'
