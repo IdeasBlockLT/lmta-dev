@@ -6,7 +6,7 @@ if (!isset($args['background-color'])) {
     $text_color = "black";
 } else {
     $background_color = esc_html($args['background-color']);
-    $text_color = "lightgray";
+    $text_color = "whitesmoke";
 }
 
 ?>
