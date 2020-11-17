@@ -40,34 +40,31 @@
 
             <?php if( isset($resource_url) ) : ?>
 
-                <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
+                
+                <!-- If we have image extension, we have only image on the resource -->
+                <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
+
+                    <?php get_template_part('parts/video-only', null, array(   'url'   => $cover_url)  ) ?>
+
+                <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
+
+                    <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
+
+                <?php else:?>
+
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" id="player" 
+                                src="<?php echo($cover_url) ?>"
+                                allowfullscreen  scrolling='no' >
+                        </iframe>
+                    </div>
+
+                <?php endif; ?>
 
             <?php endif; ?>
 
 
-            <!-- If we have image extension, we have only image on the resource -->
-            <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
-
-                <script>
-                    //alert("ok, don't pay for the video");
-                </script>
-
-            <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
-
-                <script>
-                    //alert("pay for the video");
-                </script>
-
-            <?php else:?>
-
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" id="player" 
-                            src="<?php echo($cover_url) ?>"
-                            allowfullscreen  scrolling='no' >
-                    </iframe>
-                </div>
-
-            <?php endif; ?>
+            
 
 
 
