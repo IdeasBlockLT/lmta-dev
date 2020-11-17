@@ -48,7 +48,7 @@ $args = [
                     document.cookie = "first_permalink=<?php //the_permalink();?>";
                     document.cookie = "first_date=<?php //the_field('streamDate');?>";
                 </script>
-                <?php echo(get_option("youtube_link_field","youtube"));?>
+                <?php echo(get_option("general","youtube"));?>
                 lalal
                 <div class="date"><small class="first-date d-block mt-4 "><?php //the_field('streamDate'); ?></small></div>
                 <a class="first-post-link" style="text-decoration: none;color: black; "
