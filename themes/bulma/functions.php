@@ -156,7 +156,7 @@ function improved_trim_excerpt($text) { // Fakes an excerpt if needed
     $text = apply_filters('the_content', $text);
     $text = str_replace('\]\]\>', ']]&gt;', $text);
     $text = strip_tags($text, '<p>');
-    $excerpt_length = 55;
+    $excerpt_length = 30;
     $words = explode(' ', $text, $excerpt_length + 1);
     if (count($words)> $excerpt_length) {
       array_pop($words);
