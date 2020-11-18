@@ -1,7 +1,9 @@
 <?php /* Template Name: Home */
 
 //Query taking the first 3, ordered by soonest streamDate
-$today = date("Y-m-d H:i");
+// minus 3 hours to make it 5 (bcs of offset) to not move into past events straight away, but after 5hours from streamDate
+// $today = date("Y-m-d H:i");
+$today = date("Y-m-d H:i", strtotime('-3 hours'));
 $args = [
     'orderby' => 'streamDate',
     'posts_per_page' => 3,

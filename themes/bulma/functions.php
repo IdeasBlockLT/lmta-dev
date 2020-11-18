@@ -113,6 +113,8 @@ function filter_projects() {
     $paged = $_POST['page'] ? $_POST['page'] : 1;
     $compare = $_POST['events'] ? $_POST['events'] : '<';
 
+	$order = $_POST['order'] ? $_POST['order'] : "DESC";
+	
     $_SESSION['template'] = $_POST['template'];
     #Choosing the template
     if($_POST['template'] == 'one-column'){
@@ -125,7 +127,7 @@ function filter_projects() {
 
     $args = [
         'orderby' => 'streamDate',
-        'order' => 'DESC',
+        'order' => $order,
         'meta_key' => 'streamDate',
         'post_status' => 'publish',
         'posts_per_page' => $postPerPage,

@@ -86,11 +86,13 @@ jQuery(document).on('click', '.page-numbers', function (e) {
     var template = getTemplate();
 
     let operator = '';
-
+	var order = '';
     if ($('#future-events').hasClass('text-muted')) {
         operator = $('#past-events').attr('value');
+		order = "ASC";
     } else {
         operator = $('#future-events').attr('value');
+		order = "DESC";
     }
 
     $.ajax({
@@ -105,6 +107,7 @@ jQuery(document).on('click', '.page-numbers', function (e) {
         data: {
             action: 'filter_projects',
             events: operator,
+			order: order,
             template: template,
             slug: slug,
             page: page,
