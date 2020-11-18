@@ -84,6 +84,7 @@ jQuery(document).on('click', '.page-numbers', function (e) {
 
     let slug = $("#slug").attr('data-slug');
     var template = getTemplate();
+    var order = 'DESC';
 
     let operator = '';
 
@@ -108,6 +109,7 @@ jQuery(document).on('click', '.page-numbers', function (e) {
             template: template,
             slug: slug,
             page: page,
+            order: order,
         },
         success: function (response) {
             if (template === 'one-column') {
