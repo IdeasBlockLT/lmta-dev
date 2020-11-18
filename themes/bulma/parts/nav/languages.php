@@ -9,6 +9,16 @@ foreach ($languages as $lang) {
         $activeLang = $lang;
     }
 }
+
+if (is_page_template('template-mediateka.php')){
+    $fontColor = 'black hover-white-extended';
+    $active = 'active-white';
+    $color = 'white';
+}else{
+    $fontColor = 'hover-blue-extended';
+    $active = 'active-blue';
+    $color = 'blue';
+}
 ?>
 <div class="navbar-collapse collapse w-100 order-2 order-md-2 dual-collapse2 border-top border-dark border-md-top-0 mb-3 mb-md-0 mobile-hide">
     <ul class="navbar-nav ml-auto">
@@ -16,14 +26,14 @@ foreach ($languages as $lang) {
             <?php if ($current_lang_title !== $item->title): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= $item->url ?>">
-                        <i class="fas fa-long-arrow-alt-right pr-md-3"></i>
-                        <strong><?= ucfirst($item->title) ?></strong>
+                        <i class="fas fa-long-arrow-alt-right mr-md-3 <?php echo $fontColor; ?>"></i>
+                        <strong class="extended-<?php echo $color; ?>"><?= ucfirst($item->title) ?></strong>
                     </a>
                 </li>
             <?php else: ?>
             <?php endif; ?>
         <?php endforeach; ?>
-        <li class="nav-item active">
+        <li class="nav-item <?php echo $active; ?>">
             <a class="nav-link" href="<?= $activeLang->url ?>">
                 <strong><?= ucfirst($activeLang->title) ?></strong>
             </a>

@@ -5,12 +5,47 @@
 .hover-blue__white:hover a{
     color: white!important;
 }
+.hover-blue{
+    transition-duration: 0.25s;
+    transition-property: color;
+}
 .hover-blue:hover{
     color: #5797fb!important;
+}
+.hover-black{
+    transition-duration: 0.25s;
+    transition-property: color;
 }
 .hover-black:hover{
     color: black!important;
 }
+.hover-white{
+    transition-duration: 0.25s;
+    transition-property: color;
+}
 .hover-white:hover{
     color: white!important;
 }
+
+.hover-white-extended, .extended{
+    transition-duration: 0.25s;
+    transition-property: color;
+}
+.hover-white-extended, .hover-blue-extended{
+    transition-duration: 0.25s;
+    transition-property: color;
+}
+.hover-white-extended:hover + .extended-white, .extended-white:hover {
+    color: white!important;
+}
+.hover-blue-extended:hover + .extended-blue, .extended-blue:hover{
+    color: #5797fb!important;
+}
+.hover-white-extended:hover, .hover-blue-extended:hover{
+    font-weight: 700!important;
+}
+.fa-long-arrow-alt-right{}
+.fa-long-arrow-alt-right:hover{
+    text-shadow: 0px 1px, 1px 0px, 1px 0px;
+}
+
