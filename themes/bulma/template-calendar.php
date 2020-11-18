@@ -15,7 +15,7 @@ $args = [
         // 'meta-value' => 'streamDate',
         'value' => $today,
         'compare' => '>=',
-        'type' => 'DATE',
+        'type' => 'DATETIME',
     ]
 ];
 

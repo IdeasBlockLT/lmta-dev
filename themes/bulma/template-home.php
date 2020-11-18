@@ -1,11 +1,6 @@
 <?php /* Template Name: Home */
 
-//Query taking the first 4, ordered by newest created
-// $args = array(
-//     'orderby' => 'title',
-//     'order' => 'DESC',
-//     'posts_per_page' => '4'
-// );
+//Query taking the first 3, ordered by soonest streamDate
 $today = date("Y-m-d H:i");
 $args = [
     'orderby' => 'streamDate',
@@ -16,7 +11,7 @@ $args = [
         'key' => 'streamDate',
         'value' => $today,
         'compare' => '>=',
-        'type' => 'DATE',
+        'type' => 'DATETIME',
     ],
     'order' => 'ASC',
 ];
