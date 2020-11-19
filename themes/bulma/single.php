@@ -54,11 +54,16 @@
             <?php else: ?>
                 <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
             <?php endif; ?> 
-            
-            
+        
             
         </div>
 
+
+        <script> console.log("woocommerce access: <?php echo Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
+        <?php if(!Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
+                <?php echo Woocommerce_Pay_Per_Post_Helper::get_no_access_content(); ?>
+        <?php endif; ?> 
+        
 
         <div class="col-md-4 col-4 themed-grid-col border-left">
             <div class="pb-4">
