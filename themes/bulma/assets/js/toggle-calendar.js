@@ -92,7 +92,7 @@ jQuery(document).on('click', '.page-numbers', function (e) {
 		order = "ASC";
     } else {
         operator = $('#future-events').attr('value');
-		order = "ASC";
+		order = "DESC";
     }
 
     $.ajax({
