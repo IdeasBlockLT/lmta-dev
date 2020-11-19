@@ -14,47 +14,52 @@ class  LmtaRequest
 }
 
 /*
- * This function has a major flaw, which is that it is called after the metadata is saved in the status transition period.
- * This is fixed by calling do_action before using metadata
+ *  A function to perform actions any time any post changes status.
  */
 function on_all_status_transitions( $new_status, $old_status, $post )       
 {
-	if ( $new_status != $old_status ) {
-		// A function to perform actions any time any post changes status.
-		// dd("O L D   S T A T U S");
-		$do = "nothing";
-
-		if ($new_status === 'publish')
-		{
+   if ( $new_status != $old_status ) {
+    	
+	    if ($new_status === 'publish')
+	    {
 			// This function has to be called so that the metadata is readied
 			do_action( 'save_post', $post->ID,  $post, null );
 
-			// create resource in resourcespace
-			$resource = new ResourceSpaceController();
-			$ID   			= $post->ID;
-			$post_metadata 	= get_post_meta($ID);
-			$title_field 	= $post_metadata["mediateka_title"][0];
-			$date 			= $post_metadata["streamDate"] [0];
+	    	// create resource in resourcespace
+		    $resource = new ResourceSpaceController();
+		    $ID   			= $post->ID;
+		    $post_metadata 	= get_post_meta($ID);
+		    $title_field 	= $post_metadata["mediateka_title"][0];
+		    $date 			= $post_metadata["date"] [0];
 
-			$url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
+		    $url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
 
-			// TODO: HERE CHECK FIRST IF RESOURCE ALREADY EXISTS WITH THIS NAME AND EDIT THAT ONE: !!!!!!!!!!!!!!!!!!!!!!!! 
-			// OR NOT? WHAT IF COVER IMAGE IS UPDATED, THAT WOULD OVERRIDE THE VIDEO IN RESOURCESPACE??????
-			// ONLY IF THIS IS A REAL POST, NOT A TRANSLATION (A REVISION)
-			// TODO: WHEN VISITING SINGLE, IF POST IS TRANSLATION, USER THE ID OF THE PARENT POST
-			if($post->post_type === 'post')
+			// HERE CHECK FIRST IF RESOURCE ALREADY EXISTS WITH THIS 
+			// TODO:(if yes, find resourcein resourcespace, get its id and update metadata fields)
+			// This covers the case when this post is a translation. 
+			// USER WILL HAVE TO SAVE TO DRAFT FIRST, CONDITION BY DESIGN. 
+			$args = array(
+			   'meta_query' => array(
+				   array(
+					   'key' => 'mediateka_title',
+					   'value' => $title_field,
+					   'compare' => '=',
+				   )
+			   )
+			);
+			$query_posts = get_posts($args);
+			if( ($post->post_type === 'post') && (count($query_posts)<=1) )
 			{
-				//$new_id    = $resource->createResourceV90($url, $title_field, $date, $price);
-				$new_id    = $resource->createResourceV90($url, $title_field, $date, null);
+				$new_id    = $resource->createResourceV90($url, $title_field, $date, $price);
 			}
-			//dd($post_metadata);
-			//dd($new_id." : ".$url." : ".$title_field." : ".$date." : ".$ID." : ".$post_metadata); 
-		}
-	}
-	if ( $new_status != 'publish' ) {
-		// A function to perform action when new post published.
-		$do = "nothing";
-	}
+		    // dd($new_id." : ".$url); 
+	    }
+  }
+  if ( $new_status != 'publish' ) {
+    	// A function to perform action when new post published.
+    	$do = "nothing";
+  }
 }
-add_action(  'transition_post_status',  'on_all_status_transitions', 100, 3 );	
-// remove_action( 'transition_post_status',  'on_all_status_transitions', 100 );
+
+add_action(  'transition_post_status',  'on_all_status_transitions', 10, 3 );	
+// remove_action( 'transition_post_status',  'on_all_status_transitions', int $priority = 10 )

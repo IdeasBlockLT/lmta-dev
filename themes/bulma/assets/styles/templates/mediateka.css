@@ -1,8 +1,11 @@
 .white {
     color: white!important;
 }
-.active .white{
+.black{
     color: black!important;
+}
+.active .white{
+    /*color: black!important;*/
 }
 .calendar-input{
     margin-left: 80%;

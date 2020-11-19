@@ -1,3 +1,6 @@
+html{
+    -webkit-font-smoothing: subpixel-antialiased;
+}
 .w-90 {
     max-width: 100%;
     width: 90%;
@@ -36,6 +39,9 @@ header {
 }
 a{
     color: black;
+}
+hr{
+    background-color: #f3f3f3;
 }
 
 

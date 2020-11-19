@@ -26,36 +26,36 @@ class follow_widget extends WP_Widget
 
     public function widget($args, $instance)
     {
+        if (is_page_template('template-mediateka.php')){
+            $fontColor = 'black hover-white';
+        }else{
+            $fontColor = 'hover-blue';
+        }
 
         echo $args['before_widget'];
 
         echo '<div class="textwidget">';
         ?>
-        <h3><?= $instance['title'] ?></h3>
+
+
+        <h3><?php echo pll_e('Sekite mus')?></h3>
         <div>
-            <a class="custom-a pr-2 hover-blue" href="<?= $instance['facebook'] ?>" target="_blank">Facebook</a>
+            <a class="custom-a pr-2 <?php echo $fontColor; ?>" href="<?= $instance['facebook'] ?>" target="_blank">Facebook</a>
             <span> | </span>
-            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['instagram'] ?>" target="_blank">Instagram</a>
+            <a class="custom-a ml-2 pl-2 pr-2 <?php echo $fontColor; ?>" href="<?= $instance['instagram'] ?>" target="_blank">Instagram</a>
             <span> | </span>
-            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['youtube'] ?>" target="_blank">Youtube</a>
+            <a class="custom-a ml-2 pl-2 pr-2 <?php echo $fontColor; ?>" href="<?= $instance['youtube'] ?>" target="_blank">Youtube</a>
         </div>
 
         <?php
 
-//        echo esc_html__($instance['text'], 'text_domain');
         echo '</div>';
         echo $args['after_widget'];
-
     }
-
 
     // Widget Backend
     public function form($instance)
     {
-        if (!isset($instance['title'])) {
-            $instance['title'] = 'title';
-        }
-
         if (!isset($instance['facebook'])) {
             $instance['facebook'] = 'facebook';
         }
@@ -68,13 +68,10 @@ class follow_widget extends WP_Widget
             $instance['youtube'] = 'youtube';
         }
 
-        $title = 'Set up your follow links';
+        $title = 'Set up the follow us links.';
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>"
-                   name="<?php echo $this->get_field_name('title'); ?>" type="text"
-                   value="<?php echo $instance['title']; ?>" placeholder="Follow"/>
+            <h4><?php echo $title; ?></h4>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('facebook'); ?>"><?php _e('Facebook:'); ?></label>

@@ -82,7 +82,6 @@ class Woocommerce_Pay_Per_Post_Helper extends Woocommerce_Pay_Per_Post
     {
         $restrict = new Woocommerce_Pay_Per_Post_Restrict_Content();
         return $restrict->show_paywall( get_the_content() );
-        // return get_the_content();
     }
     
     /**

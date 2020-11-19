@@ -1,7 +1,7 @@
 <?php /* Template Name: About */ ?>
 <?php get_template_part('parts/head') ?>
 <?php get_template_part('parts/header') ?>
-<?php get_template_part('parts/banner', 'banner', ['size' => 'size1']); ?>
+<?php get_template_part('parts/banner', 'banner', ['size' => 'size2']); ?>
 <div class="container w-90 mx-auto">
 <!--    --><?php //echo do_shortcode("[resourcespace id=1001]"); ?>
 <!--    --><?php //echo do_shortcode("[resourcespace id=1035 size_id=thm]"); ?>

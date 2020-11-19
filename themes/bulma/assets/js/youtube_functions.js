@@ -1,4 +1,3 @@
-
 /**
  * Need to wait until Youtube Player is ready!
  */
@@ -30,12 +29,12 @@ window.YT.ready(function() {
     var videoData = player.getVideoData();
 
     // TODO: here we need to catch the title from the youtube link with API
-    var videoTitle = videoData['title'];
-    title.innerHTML = "Live TV!- "+ videoTitle;
-    link.href   = "https://www.youtube.com/watch?v="+videoData['video_id'];
-    button.href = "https://www.youtube.com/watch?v="+videoData['video_id'];
-    excerpt.innerHTML = ""; 
-    date.innerHTML    = "";
+//     var videoTitle = videoData['title'];
+//     title.innerHTML = "Live TV!- "+ videoTitle;
+//     link.href   = "https://www.youtube.com/watch?v="+videoData['video_id'];
+//     button.href = "https://www.youtube.com/watch?v="+videoData['video_id'];
+//     excerpt.innerHTML = ""; 
+//     date.innerHTML    = "";
 
   }
 

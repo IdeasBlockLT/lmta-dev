@@ -160,7 +160,6 @@ class Woocommerce_Pay_Per_Post_Restrict_Content
                 // Delay protection is same protection as standard, just difference in when to display pay wall, we already checked to see if they purchased product we return true.
                 Woocommerce_Pay_Per_Post_Helper::logger( 'Protection Type is Standard or Delayed' );
                 return $this->check_if_purchased();
-                // return true;
             case 'page-view':
                 Woocommerce_Pay_Per_Post_Helper::logger( 'Protection Type is Page View Protection' );
                 return $this->has_access_page_view_protection__premium_only();
@@ -376,7 +375,6 @@ class Woocommerce_Pay_Per_Post_Restrict_Content
         );
         $parent_id = wp_get_post_parent_id( $product_ids[0] );
         $excerpt = apply_filters( 'wc_pay_per_post_modify_excerpt', wp_trim_words( $unfiltered_content ) );
-        // $excerpt = $unfiltered_content;
         $paywall_content = ( empty($override_paywall_content) ? $default_paywall_content : $override_paywall_content );
         $return_content = str_replace( '{{product_id}}', implode( ',', (array) $product_ids ), $paywall_content );
         $return_content = str_replace( '{{parent_id}}', $parent_id, $return_content );

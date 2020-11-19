@@ -84,17 +84,14 @@ jQuery(document).on('click', '.page-numbers', function (e) {
 
     let slug = $("#slug").attr('data-slug');
     var template = getTemplate();
+    var order = 'DESC';
 
     let operator = '';
-	var order = '';
+
     if ($('#future-events').hasClass('text-muted')) {
         operator = $('#past-events').attr('value');
-		order = "ASC";
-		console.log("past");
     } else {
         operator = $('#future-events').attr('value');
-		order = "DESC";
-		console.log("future");
     }
 
     $.ajax({
@@ -109,10 +106,10 @@ jQuery(document).on('click', '.page-numbers', function (e) {
         data: {
             action: 'filter_projects',
             events: operator,
-			order: order,
             template: template,
             slug: slug,
             page: page,
+            order: order,
         },
         success: function (response) {
             if (template === 'one-column') {
@@ -130,101 +127,6 @@ jQuery(document).on('click', '.page-numbers', function (e) {
 
 });
 
-$("#future-events").click(function () {
-
-    $("#future-events").css("font-weight", "bold");
-    $("#future-events").removeClass("text-muted");
-    $("#past-events").css("font-weight", "normal");
-    $("#past-events").addClass("text-muted");
-
-    let slug = $("#slug").attr('data-slug');
-    var template = getTemplate();
-
-    let operator = '';
-    if (!typeof active) {
-        operator = $(active).attr('value');
-    } else {
-        operator = $(this).attr('value');
-    }
-
-    $.ajax({
-        beforeSend: function () {
-            $("#loader1").show();
-            $("#inside-loader").show();
-        },
-        async: true,
-        type: "POST",
-        url: '/wp-admin/admin-ajax.php',
-        dataType: 'html',
-        data: {
-            action: 'filter_projects',
-            events: operator,
-            template: template,
-            slug: slug,
-        },
-        success: function (response) {
-            if (template === 'one-column') {
-                $('#one-column').html(response);
-            } else {
-                $('#three-columns').html(response);
-            }
-        },
-        complete: function (data) {
-            // Hide image container
-            $("#loader1").hide();
-            $("#inside-loader").hide();
-        }
-    })
-
-});
-
-$("#past-events").click(function () {
-
-    $("#past-events").css("font-weight", "bold");
-    $("#past-events").removeClass("text-muted");
-    $("#future-events").css("font-weight", "normal");
-    $("#future-events").addClass("text-muted");
-
-    let slug = $("#slug").attr('data-slug');
-
-    var template = getTemplate();
-
-    let operator = '';
-    if (!typeof active) {
-        operator = $(active).attr('value');
-    } else {
-        operator = $(this).attr('value');
-    }
 
 
-    $.ajax({
-        beforeSend: function () {
-            $("#loader1").show();
-            $("#inside-loader").show();
-        },
-        async: true,
-        type: "POST",
-        url: '/wp-admin/admin-ajax.php',
-        dataType: 'html',
-        data: {
-            action: 'filter_projects',
-            events: operator,
-            template: template,
-            slug: slug,
-        },
-        success: function (response) {
-            if (template === 'one-column') {
-                $('#one-column').html(response);
-            } else {
-                $('#three-columns').html(response);
-            }
-        },
-        complete: function (data) {
-            // Hide image container
-            $("#loader1").hide();
-            $("#inside-loader").hide();
-        }
-    })
-
-});
 
