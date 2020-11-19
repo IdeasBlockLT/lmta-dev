@@ -10,6 +10,36 @@
     url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
 }
 
+.image-container{
+    height: 225px;
+    width: 405px;
+}
+.image-container-100{
+    height: auto;
+    width: 100%;
+}
+
+.card-body{
+	flex:none;
+}
+
+.center-image{
+	display:block;
+	margin:auto;
+}
+
+.hr-container{
+    height: 100%;
+    position: relative;
+}
+
+.hr-align{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+
 input[value='1']{
     font-family: "FontAwesome", 'sans-serif';
     content: "\f004";

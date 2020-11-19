@@ -22,9 +22,13 @@ if ( basename( $template ) === 'template-mediateka.php'  ) {
         <?php $x++; ?>
         <div class="col-md-6 col-lg-4 border-right pr-4 pl-4 qa">
             <div class="card border-0 mb-4 custom-size">
-                <img class="bd-placeholder-img card-img-top custom-image-horizontal"
-                     src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
-                     alt="">
+				<div class='image-container-100'>
+						<div class='image-container-100' style="display:block; overflow:hidden; margin:auto;">
+							<img class="center-image bd-placeholder-img card-img-top custom-image-horizontal"
+								 src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
+								 alt="">
+					</div>
+				</div>
                 <div class="mt-3 mt-md-4 pt-md-2 hr-control">
                     <small>
                         <?php if (get_field('streamDate')): ?>
@@ -45,7 +49,10 @@ if ( basename( $template ) === 'template-mediateka.php'  ) {
                     </button>
                 </div>
                 <?php if ($x < $maxPostsFullRow): ?>
-                    <hr>
+					<div class="hr-container">
+						<hr class="hr-align">	
+					</div>
+                    
                 <?php else: ?>
                 <?php endif; ?>
             </div>

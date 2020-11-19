@@ -44,9 +44,18 @@ $slug = $the_page->post_name;
 </style>
 
 <div class="container w-90 mx-auto">
-    <div class="container w-90 mx-auto">
+<!--     <div class="container w-90 mx-auto"> -->
         <div id="two-columns_busimi-iviki" class="row">
-
+			
+			<div class="col-md-6 mx-auto">
+				<div class="mb-4 custom-size">
+					<h4 class="d-inline">
+						<span ></span>
+						<span ></span>
+					</h4>
+				</div>
+			</div>
+			
             <?php get_template_part('parts/horizontal-vertical', null, array("one-line" => 'col')) ?>
 
             <!-- Image loader -->
@@ -76,7 +85,7 @@ $slug = $the_page->post_name;
 //        //<!--1 item column-->
 //        get_template_part('parts/3-item-row', null, array("args" => $args, "searchTerm" => $searchTerm));
 //        ?>
-    </div>
+<!--     </div> -->
     <?php
     get_template_part('parts/mediateka-keywords');
     ?>

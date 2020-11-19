@@ -23,10 +23,17 @@ if ( basename( $template ) === 'template-mediateka.php'  ) {
         <?php endif; ?>
         <div class="col-12">
             <div class="card flex-md-row box-shadow h-md-250 custom-borders__one_column">
-                <img class="flex-auto d-none d-md-block custom-image-vertical"
-                     src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
-                     alt="Card image cap">
-                <div class="col card-body custom__card-body d-flex flex-column align-items-start border-md-left ml-md-4">
+<!--                 <img class="flex-auto d-none d-md-block custom-image-vertical" -->
+					<div class='image-container'>
+						<div class='image-container' style="display:block; overflow:hidden; margin:auto;">
+							<img class="center-image bd-placeholder-img card-img-top custom-image-horizontal"
+							
+							 src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
+							 alt="Card image cap">
+						</div>
+					</div>
+                <div class="col card-body custom__card-body d-flex flex-column align-items-start border-md-left ml-md-4"
+					 style="width:70%;">
                     <small>
                         <?php if (get_field('streamDate')): ?>
                             <?php the_field('streamDate') ?>
