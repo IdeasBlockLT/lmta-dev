@@ -143,7 +143,6 @@ function filter_projects() {
     ];
 
     $slug = $_POST['slug'];
-
     echo get_template_part($template, null, array("args"=> $args, 'slug'=> $slug));
     exit();
 }

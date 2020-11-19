@@ -86,15 +86,12 @@ jQuery(document).on('click', '.page-numbers', function (e) {
     var template = getTemplate();
 
     let operator = '';
-	var order = '';
     if ($('#future-events').hasClass('text-muted')) {
         operator = $('#past-events').attr('value');
-		order = "ASC";
     } else {
         operator = $('#future-events').attr('value');
-		order = "DESC";
     }
-
+	console.log("ajax");
     $.ajax({
         beforeSend: function () {
             $("#loader1").show();
@@ -107,7 +104,6 @@ jQuery(document).on('click', '.page-numbers', function (e) {
         data: {
             action: 'filter_projects',
             events: operator,
-			order: order,
             template: template,
             slug: slug,
             page: page,
@@ -137,6 +133,7 @@ $("#future-events").click(function () {
 
     let slug = $("#slug").attr('data-slug');
     var template = getTemplate();
+	
 
     let operator = '';
     if (!typeof active) {
@@ -157,6 +154,7 @@ $("#future-events").click(function () {
         data: {
             action: 'filter_projects',
             events: operator,
+			order: 'ASC',
             template: template,
             slug: slug,
         },
@@ -207,6 +205,7 @@ $("#past-events").click(function () {
         data: {
             action: 'filter_projects',
             events: operator,
+			order: 'DESC',
             template: template,
             slug: slug,
         },
@@ -214,7 +213,6 @@ $("#past-events").click(function () {
             if (template === 'one-column') {
                 $('#one-column').html(response);
             } else {
-                console.log(response);
                 $('#three-columns').html(response);
             }
         },
