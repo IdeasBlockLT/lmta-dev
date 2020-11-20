@@ -138,7 +138,7 @@ function filter_projects() {
             'meta-value' => 'streamDate',
             'value' => $today,
             'compare' => $compare,//>=, <=, <
-            'type' => 'DATE',
+            'type' => 'DATETIME',
         ]
     ];
 
