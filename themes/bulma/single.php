@@ -49,8 +49,8 @@
                             <img class="center-image bd-placeholder-img card-img-top custom-image-horizontal"
                                  src="<?php echo($cover_url); ?>"
                                  alt="">
+                        </div>
                     </div>
-                </div>
 
                 <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
 
@@ -67,7 +67,14 @@
 
                 <?php endif; ?>
             <?php else:?>
-                <?php get_template_part('parts/video-only', null, array(   'url'   => $cover_url)  ) ?>
+                <?php //get_template_part('parts/video-only', null, array(   'url'   => $cover_url)  ) ?>
+                <div class='image-container-100'>
+                        <div class='image-container-100' style="display:block; overflow:hidden; margin:auto;">
+                            <img class="center-image bd-placeholder-img card-img-top custom-image-horizontal"
+                                 src="<?php echo($cover_url); ?>"
+                                 alt="">
+                        </div>
+                </div>
             <?php endif; ?>
 
         </div>
