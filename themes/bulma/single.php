@@ -116,7 +116,7 @@
     </div>
     <div class="row mt-5 pt-3">
         <div class="col border-right">
-            <h3 class="font-weight-bold">Kūrėjai / atlikėjai</h3>
+            <h3 class="font-weight-bold"><?php pll_e('Kūrėjai / atlikėjai'); ?></h3>
             <div>
                 <?php if (get_field('atlikejai')): ?>
                     <?php the_field('atlikejai') ?>
@@ -124,7 +124,7 @@
             </div>
         </div>
         <div class="col">
-            <h3 class="font-weight-bold">Programa</h3>
+            <h3 class="font-weight-bold"><?php pll_e('Programa'); ?></h3>
             <?php if (get_field('programa')): ?>
                 <?php the_field('programa') ?>
             <?php endif; ?>
