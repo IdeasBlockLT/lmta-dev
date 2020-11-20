@@ -41,8 +41,8 @@ $args = [
                 ?>
                 <script>
                     document.cookie = "first_title=<?php //the_title();?>";
-                    document.cookie = "first_image=<?php //the_post_thumbnail_url();?>";
-                    document.cookie = "first_permalink=<?php //the_permalink();?>";
+                    document.cookie = "first_image=<?php the_post_thumbnail_url();?>";
+                    document.cookie = "first_permalink=<?php the_permalink();?>";
                     document.cookie = "first_date=<?php //the_field('streamDate');?>";
                 </script>
                 
