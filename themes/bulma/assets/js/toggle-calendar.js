@@ -159,6 +159,7 @@ $("#future-events").click(function () {
         data: {
             action: 'filter_projects',
             events: operator,
+            order: 'ASC',
             template: template,
             slug: slug,
         },
@@ -209,6 +210,7 @@ $("#past-events").click(function () {
         data: {
             action: 'filter_projects',
             events: operator,
+            order:'DESC',
             template: template,
             slug: slug,
         },
