@@ -5,7 +5,7 @@ $queryArgs = $args['args'];
 $wp_query = new WP_Query($queryArgs);
 
 $maxPosts = $queryArgs['posts_per_page'];
-$maxPostsFullRow = $maxPosts - 5;
+$maxPostsFullRow = $maxPosts - 2;
 $postCount = $wp_query->found_posts;
 
 global $template;
