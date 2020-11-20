@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mattp
 Requires at least: 3.8
 Requires PHP: 5.6
 Tested up to: 5.5
-Stable tag: 2.6.7
+Stable tag: 2.6.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,11 @@ Yes, I do the absolute best I can to support the free version of the plugin.  If
 
 
 == Changelog ==
+
+= 2.6.8 =
+* UPDATE - Confirmed working with WC 4.7x
+* BUGFIX - Fixed bug with inline shortcode and elementor displaying whole page content in editor
+* BUGFIX - Fixed PHP Warning when saving post protected by pay for post
 
 = 2.6.7 =
 * BUG FIX - Fixed javascript error due to missing DataTables.
@@ -527,5 +532,5 @@ Yes, I do the absolute best I can to support the free version of the plugin.  If
 
 == Upgrade Notice ==
 
-= 2.6.7 =
-* BUG FIX - Fixed javascript error due to missing DataTables.
+= 2.6.8 =
+* UPDATE - Confirmed working with WC 4.7x

@@ -10,9 +10,9 @@
  * Plugin Name:             Pay For Post with WooCommerce
  * Plugin URI:              pramadillo.com/plugins/woocommerce-pay-per-post
  * Description:             Allows for the sale of a specific post/page in WordPress through WooCommerce.
- * Version:                 2.6.7
+ * Version:                 2.6.8
  * WC requires at least:    2.6
- * WC tested up to:         4.6.1
+ * WC tested up to:         4.7.1
  * Author:                  Pramadillo
  * Author URI:              pramadillo.com
  * License:                 GPL-2.0+
@@ -23,7 +23,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-define( 'WC_PPP_VERSION', '2.6.7' );
+define( 'WC_PPP_VERSION', '2.6.8' );
 define( 'WC_PPP_SLUG', 'wc_pay_per_post' );
 define( 'WC_PPP_NAME', 'Pay For Post with WooCommerce' );
 define( 'WC_PPP_TEMPLATE_PATH', 'woocommerce-pay-per-post/' );

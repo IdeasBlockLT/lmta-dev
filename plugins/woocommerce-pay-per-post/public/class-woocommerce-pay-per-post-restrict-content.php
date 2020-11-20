@@ -373,7 +373,13 @@ class Woocommerce_Pay_Per_Post_Restrict_Content
             10,
             1
         );
-        $parent_id = wp_get_post_parent_id( $product_ids[0] );
+        
+        if ( isset( $product_ids[0] ) ) {
+            $parent_id = wp_get_post_parent_id( $product_ids[0] );
+        } else {
+            $parent_id = null;
+        }
+        
         $excerpt = apply_filters( 'wc_pay_per_post_modify_excerpt', wp_trim_words( $unfiltered_content ) );
         $paywall_content = ( empty($override_paywall_content) ? $default_paywall_content : $override_paywall_content );
         $return_content = str_replace( '{{product_id}}', implode( ',', (array) $product_ids ), $paywall_content );
@@ -419,16 +425,16 @@ class Woocommerce_Pay_Per_Post_Restrict_Content
         <script>
           var countDownDate = new Date('<?php 
         echo  $this->user_post_info['expiration_date']->toRfc850String() ;
-        ?>').getTime();
-          var x = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
+        ?>').getTime()
+          var x = setInterval(function () {
+            var now = new Date().getTime()
+            var distance = countDownDate - now
 
             if (distance < 0) {
-              clearInterval(x);
-              location.reload(true);
+              clearInterval(x)
+              location.reload(true)
             }
-          }, 1000);
+          }, 1000)
         </script>
 		<?php 
     }

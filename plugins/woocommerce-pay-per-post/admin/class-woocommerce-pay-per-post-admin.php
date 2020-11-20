@@ -56,14 +56,6 @@ class Woocommerce_Pay_Per_Post_Admin
         );
         add_submenu_page(
             WC_PPP_SLUG,
-            'Pay For Post with WooCommerce Protected Content',
-            'Protected Content',
-            'manage_options',
-            WC_PPP_SLUG . '-protected-content',
-            array( $this, 'create_protected_content_page' )
-        );
-        add_submenu_page(
-            WC_PPP_SLUG,
             'Pay For Post with WooCommerce Documentation',
             'Documentation',
             'manage_options',
