@@ -40,9 +40,9 @@ class follow_widget extends WP_Widget
 
         <h3><?php echo pll_e('Sekite mus')?></h3>
         <div>
-            <a class="custom-a pr-2 <?php echo $fontColor; ?>" href="<?= $instance['facebook'] ?>" target="_blank">Facebook</a>
+            <a class="custom-a pr-2 <?php echo $fontColor; ?>" href="<?= $instance['facebook'] ?>" target="_blank">Facebook &nbsp;</a>
             <span> | </span>
-            <a class="custom-a ml-2 pl-2 pr-2 <?php echo $fontColor; ?>" href="<?= $instance['instagram'] ?>" target="_blank">Instagram</a>
+            <a class="custom-a ml-2 pl-2 pr-2 <?php echo $fontColor; ?>" href="<?= $instance['instagram'] ?>" target="_blank">Instagram &nbsp;</a>
             <span> | </span>
             <a class="custom-a ml-2 pl-2 pr-2 <?php echo $fontColor; ?>" href="<?= $instance['youtube'] ?>" target="_blank">Youtube</a>
         </div>
