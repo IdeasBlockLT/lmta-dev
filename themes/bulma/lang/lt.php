@@ -11,6 +11,8 @@ pll_register_string(strtolower('keywords'), 'Sekite mus');
 pll_register_string(strtolower('keywords'), 'Meniu');
 
 pll_register_string(strtolower('keywords'), 'Būsimi renginiai');
+pll_register_string(strtolower('keywords'), 'Įvikę renginiai');
+pll_register_string(strtolower('keywords'), 'Vaizdavimas');
 
 /**
  * Declaring Constants to use later in template like this
