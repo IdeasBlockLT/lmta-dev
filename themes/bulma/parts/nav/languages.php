@@ -26,7 +26,7 @@ if (is_page_template('template-mediateka.php')){
             <?php if ($current_lang_title !== $item->title): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= $item->url ?>">
-                        <i class="fas fa-long-arrow-alt-right mr-md-3 <?php echo $fontColor; ?>"></i>
+                        <i class="fas fa-long-arrow-alt-riight mr-md-3 <?php echo $fontColor; ?>"></i>
                         <strong class="extended-<?php echo $color; ?>"><?= ucfirst($item->title) ?> &nbsp; | </strong>
                     </a>
                 </li>
