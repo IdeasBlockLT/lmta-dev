@@ -30,7 +30,7 @@ $args = [
 //             $query->posts = $reverse;
         ?>
 
-        <?php //if ($query->have_posts()) : $query->the_post(); ?>
+        <?php if ($query->have_posts()) : $query->the_post(); ?>
         <!--Will show the first from the query.-->
         <div class="row mb-0 mb-md-5">
             <div class="col-12 col-md-7 themed-grid-col mr-4 first-post-div">
@@ -58,7 +58,8 @@ $args = [
                 </button> -->
             </div>
 
-        <?php //endif; ?>
+        <?php endif; ?>
+        <!-- maybe do post post  -->
             <!--The rest of the videos-->
             <!--Need custom size of columns for wider columns-->
             <div class="col-12 col-md-4 pl-4 themed-grid-col border-xl-left mt-4 mt-md-0 border-sm-top-invert">
