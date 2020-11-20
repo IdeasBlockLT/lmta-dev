@@ -48,7 +48,7 @@ if ( basename( $template ) === 'template-mediateka.php'  ) {
                             <?php echo(pll_e('Skaityti daugiau')); ?>
                         </a>
                     </button>
-                    <div>
+                    </div>
                 </div>
                 <?php if ($x < $maxPostsFullRow): ?>
 					<div class="hr-container">
