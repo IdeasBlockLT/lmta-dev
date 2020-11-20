@@ -1,5 +1,5 @@
 let futureEvents = $("#future-events");
-let pastEvents = $("#past-events");
+let pastEvents   = $("#past-events");
 
 function getActive() {
     var active = '';
@@ -35,7 +35,7 @@ $("#vertical").click(function () {
 
 function horizontal()
 {
-    oneColumn.css("display", "none");
+    oneColumn.css ("display", "none");
     oneColumn.find('>div').css("display", "none");
 
     $("#horizontal").find('i').css('cssText', 'color: black;');

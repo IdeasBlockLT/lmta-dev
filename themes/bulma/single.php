@@ -26,7 +26,6 @@
 
     $array_images = array('jpg','gif','png');
     $array_video  = array('mp4');
-
 ?>
 
 <?php get_template_part('parts/head') ?>
@@ -64,11 +63,6 @@
                 <?php get_template_part('parts/video-only', null, array(   'url'   => $cover_url)  ) ?>
             <?php endif; ?>
 
-
-            
-
-
-
         </div>
         <div class="col-md-4 col-4 themed-grid-col border-left">
             <div class="pb-4">
@@ -97,7 +91,6 @@
                     <?php endif; ?>
                     
                 <?php endif; ?> 
-                  
                 
             </div>
         </div>

@@ -37,7 +37,6 @@ add_action('after_setup_theme', 'lmta_theme_support');
 
 function arphabet_widgets_init()
 {
-
     register_sidebar(array(
         'name' => 'Home right sidebar',
         'id' => 'home_right_1',
@@ -108,7 +107,8 @@ function is_paginated() {
  */
 function filter_projects() {
 
-    $today = date("Y-m-d H:i");
+    // $today = date("Y-m-d H:i");
+    $today = date("Y-m-d H:i", strtotime('-3 hours'));
 //    $paged = ( get_query_var('paged') ) ? get_query_var( 'paged' ) : 1;
     $paged = $_POST['page'] ? $_POST['page'] : 1;
     $compare = $_POST['events'] ? $_POST['events'] : '<';
