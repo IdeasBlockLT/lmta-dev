@@ -44,6 +44,11 @@
     bottom: 20px;
 }
 
+.button-container{
+    position:relative;
+    height:100%;
+}
+
 
 input[value='1']{
     font-family: "FontAwesome", 'sans-serif';
