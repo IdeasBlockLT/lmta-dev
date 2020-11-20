@@ -57,7 +57,7 @@ $args = [
                     </a>
                 </button> -->
             </div>
-        <?php rewind_posts();?>
+        <?php $query->rewind_posts();?>
         <?php endif; ?>
         <!-- maybe do post post  -->
             <!--The rest of the videos-->
