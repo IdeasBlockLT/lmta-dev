@@ -60,7 +60,8 @@
                     </div>
 
                 <?php endif; ?>
-
+            <?php else:?>
+                <?php get_template_part('parts/video-only', null, array(   'url'   => $cover_url)  ) ?>
             <?php endif; ?>
 
 
