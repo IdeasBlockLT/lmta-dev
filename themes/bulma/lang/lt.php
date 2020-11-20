@@ -10,6 +10,7 @@ pll_register_string(strtolower('keywords'), 'Paieška');
 pll_register_string(strtolower('keywords'), 'Sekite mus');
 pll_register_string(strtolower('keywords'), 'Meniu');
 
+pll_register_string(strtolower('keywords'), 'Būsimi renginiai');
 
 /**
  * Declaring Constants to use later in template like this
