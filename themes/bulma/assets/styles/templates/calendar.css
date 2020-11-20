@@ -39,6 +39,11 @@
     width: 100%;
 }
 
+.button-align{
+    position: absolute;
+    bottom: 20px;
+}
+
 
 input[value='1']{
     font-family: "FontAwesome", 'sans-serif';
