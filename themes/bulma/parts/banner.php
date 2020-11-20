@@ -26,7 +26,7 @@ else{
             <p class="d-inline-block align-center custom-banner <?= esc_html($args['size']) ?>"   style="background-color: #5797fb00">
                 <a href="<?php echo home_url(); ?>">
                     <img id="banner-logo" style="width: 6%" class="mx-auto d-inline-block align-self-center mr-3 img-thumbnail border-0 w-50 color-<?= $background_color ?>"
-                         src="<?php bloginfo('stylesheet_directory') ?>/assets/images/<?php $logo;?>" alt="" style="background-color: #5797fb00">
+                         src="<?php bloginfo('stylesheet_directory') ?>/assets/images/<?php echo($logo);?>" alt="" style="background-color: #5797fb00">
                 </a>
                 <strong style="color:<?php echo($text_color); ?>;" class="custom-size-banner"><?php bloginfo('name') ?> <small id="tv" class="text-uppercase" style="color:<?php echo($text_color); ?>; display: table-caption"><?php bloginfo('description') ?></small></strong>
             </p>
