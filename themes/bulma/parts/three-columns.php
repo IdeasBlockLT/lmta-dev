@@ -41,12 +41,14 @@ if ( basename( $template ) === 'template-mediateka.php'  ) {
                         </a>
                     </h5>
                     <p class="card-text"><?= the_excerpt(); ?></p>
+                    <div style="position:relative; height: 100%">
                     <button class="button-align mt-auto btn btn-light custom-more hover-blue__white mb-3">
                         <a href="<?php echo get_permalink() ?>"
                            class="text-uppercase">
                             <?php echo(pll_e('Skaityti daugiau')); ?>
                         </a>
                     </button>
+                    <div>
                 </div>
                 <?php if ($x < $maxPostsFullRow): ?>
 					<div class="hr-container">
