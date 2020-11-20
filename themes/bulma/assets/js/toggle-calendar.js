@@ -90,11 +90,9 @@ jQuery(document).on('click', '.page-numbers', function (e) {
     if ($('#future-events').hasClass('text-muted')) {
         operator = $('#past-events').attr('value');
 		order = "ASC";
-		console.log("past");
     } else {
         operator = $('#future-events').attr('value');
 		order = "DESC";
-		console.log("future");
     }
 
     $.ajax({
