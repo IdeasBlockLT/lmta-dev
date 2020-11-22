@@ -35,6 +35,9 @@
     transition-duration: 0.25s;
     transition-property: color;
 }
+#separator:hover{
+    color: rgba(0,0,0,.5)!important;
+}
 .hover-white-extended:hover + .extended-white, .extended-white:hover {
     color: white!important;
 }
@@ -48,4 +51,5 @@
 .fa-long-arrow-alt-right:hover{
     text-shadow: 0px 1px, 1px 0px, 1px 0px;
 }
+
 
