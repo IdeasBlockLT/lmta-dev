@@ -80,7 +80,7 @@
         </div>
         <div class="col-md-4 col-4 themed-grid-col border-left">
             <div class="pb-4">
-                <small><?php the_field('date'); ?></small>
+                <small><?php the_field('streamDate'); ?></small>
                 <h4>
                     <strong><?= the_title(); ?></strong>
                 </h4>
