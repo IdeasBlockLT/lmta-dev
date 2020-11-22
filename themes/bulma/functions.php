@@ -1,8 +1,6 @@
 <?php
 //Global functions
 include('includes.php');
-include('functions/resourcespace/endpoints.php');
-include('functions/resourcespace/test.php');
 
 //base
 include('functions/base/menus.php');
@@ -55,12 +53,10 @@ function custom_excerpt_length()
 
 add_filter('excerpt_length', 'custom_excerpt_length');
 
-//On empty showing ... after excerpt
-function custom_excerpt_more()
-{
-    return ;
+function new_excerpt_more( $more ) {
+    return '...';
 }
-add_filter('excerpt_more', 'custom_excerpt_more');
+add_filter('excerpt_more', 'new_excerpt_more');
 
 //add_action('save_post', 'create_resource');
 
@@ -114,7 +110,7 @@ function filter_projects() {
     $compare = $_POST['events'] ? $_POST['events'] : '<';
 
 	$order = $_POST['order'] ? $_POST['order'] : "DESC";
-	
+
     $_SESSION['template'] = $_POST['template'];
     #Choosing the template
     if($_POST['template'] == 'one-column'){
