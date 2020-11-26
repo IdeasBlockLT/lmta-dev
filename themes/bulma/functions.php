@@ -29,9 +29,11 @@ function lmta_theme_support()
     add_image_size('news-large', 790, 380);
     add_image_size('news-popular', 300, 150);
     add_action('wp_enqueue_scripts', 'custom_js');
+
 }
 
 add_action('after_setup_theme', 'lmta_theme_support');
+add_filter('jpeg_quality', function($arg){return 100;});
 
 function arphabet_widgets_init()
 {
