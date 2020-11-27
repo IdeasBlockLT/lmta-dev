@@ -10,6 +10,10 @@
     url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
 }
 
+.card{
+	height:100%;
+}
+
 .image-container{
     height: 225px;
     width: 405px;
@@ -29,24 +33,31 @@
 }
 
 .hr-container{
-    height: 100%;
-    position: relative;
+    height: auto;
+    position: absolute;
+	width:100%;
+	bottom:0px;
 }
 
 .hr-align{
-    position: absolute;
-    bottom: 10px;
+/*     position: absolute; */
+/*     bottom: 10px; */
     width: 100%;
 }
 
 .button-align{
     /*position: absolute;*/
     bottom: 20px;
+	width: 40%;
+	margin-bottom: 30px!important;
 }
 
 .button-container{
     position:relative;
     height:100%;
+	display: flex;
+  	justify-content: flex-end;
+  	flex-direction: column;
 }
 
 
