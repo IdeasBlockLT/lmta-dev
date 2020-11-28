@@ -86,7 +86,7 @@
                     <strong><?= the_title(); ?></strong>
                 </h4>
                 
-                <br>
+                <!-- <br> -->
                 
                 <?php //if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
                     <!-- <br>
