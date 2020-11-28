@@ -62,7 +62,8 @@ class Woocommerce_Pay_Per_Post_Public
             if ( $show_paywall == false ) {
                 return $restrict->show_content( $unfiltered_content );
             }
-            return $restrict->show_paywall( $unfiltered_content );
+            // return $restrict->show_paywall( $unfiltered_content );
+            return $restrict->show_content( $unfiltered_content );
         }
     
     }
