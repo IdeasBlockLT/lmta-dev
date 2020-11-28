@@ -71,7 +71,10 @@
             
         </div>
 
-        
+        <script> console.log("woocommerce access: <?php echo Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
+        <?php if(!Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
+                <?php echo Woocommerce_Pay_Per_Post_Helper::get_no_access_content(); ?>
+        <?php endif; ?> 
         
 
         <div class="col-md-4 col-4 themed-grid-col border-left">
@@ -84,18 +87,11 @@
                 </h4>
                 
                 <br>
-
-                <script> console.log("woocommerce access: <?php echo Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
-                <?php if(!Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
-                        <?php echo Woocommerce_Pay_Per_Post_Helper::get_no_access_content(); ?>
-                <?php endif; ?> 
-                
                 
                 <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
                     <br>
                     <h5>
                         <!-- <strong>This event does not have video yet.</strong> -->
-
                     </h5>
                     <br>
                     <br>
