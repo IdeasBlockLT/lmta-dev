@@ -5,7 +5,7 @@ $queryArgs = $args['args'];
 $wp_query = new WP_Query($queryArgs);
 
 $maxPosts = $queryArgs['posts_per_page'];
-$maxPostsFullRow = $maxPosts - 5;
+$maxPostsFullRow = $maxPosts - 2;
 $postCount = $wp_query->found_posts;
 
 global $template;
@@ -41,7 +41,10 @@ if ( basename( $template ) === 'template-mediateka.php'  ) {
                         </a>
                     </h5>
                     <p class="card-text"><?= the_excerpt(); ?></p>
-                    <button class="mt-auto btn btn-light custom-more hover-blue__white mb-3">
+                    
+                </div>
+                <div class="button-container">
+                    <button class="button-align mt-auto btn btn-light custom-more hover-blue__white mb-3">
                         <a href="<?php echo get_permalink() ?>"
                            class="text-uppercase">
                             <?php echo(pll_e('Skaityti daugiau')); ?>

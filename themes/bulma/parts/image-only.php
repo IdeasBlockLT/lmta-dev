@@ -1,9 +1,10 @@
 <?php
 	$url = $args['url'];
 ?>
-<div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" id="player" 
-            src="<?php echo($url) ?>"
-            allowfullscreen  scrolling='no' >
-    </iframe>
+<div class='image-container-100'>
+        <div class='image-container-100' style="display:block; overflow:hidden; margin:auto;">
+            <img class="center-image bd-placeholder-img card-img-top custom-image-horizontal"
+                 src="<?php echo($url); ?>"
+                 alt="">
+        </div>
 </div>

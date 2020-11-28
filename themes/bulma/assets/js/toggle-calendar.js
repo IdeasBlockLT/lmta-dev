@@ -1,5 +1,5 @@
 let futureEvents = $("#future-events");
-let pastEvents = $("#past-events");
+let pastEvents   = $("#past-events");
 
 function getActive() {
     var active = '';
@@ -35,7 +35,7 @@ $("#vertical").click(function () {
 
 function horizontal()
 {
-    oneColumn.css("display", "none");
+    oneColumn.css ("display", "none");
     oneColumn.find('>div').css("display", "none");
 
     $("#horizontal").find('i').css('cssText', 'color: black;');
@@ -90,11 +90,9 @@ jQuery(document).on('click', '.page-numbers', function (e) {
     if ($('#future-events').hasClass('text-muted')) {
         operator = $('#past-events').attr('value');
 		order = "ASC";
-		console.log("past");
     } else {
         operator = $('#future-events').attr('value');
 		order = "DESC";
-		console.log("future");
     }
 
     $.ajax({
@@ -159,6 +157,7 @@ $("#future-events").click(function () {
         data: {
             action: 'filter_projects',
             events: operator,
+            order: 'ASC',
             template: template,
             slug: slug,
         },
@@ -209,6 +208,7 @@ $("#past-events").click(function () {
         data: {
             action: 'filter_projects',
             events: operator,
+            order:'DESC',
             template: template,
             slug: slug,
         },

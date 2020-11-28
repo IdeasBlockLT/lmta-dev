@@ -39,25 +39,37 @@
             <!-- WOOCOMMERCE PAY FOR POST, IF USER HAS PAID OR HAS ACCESS -->
             <?php if(Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
                 <?php if( isset($resource_url) ) : ?>
-                
-                    <!-- If it is an image, show it -->
+
+                    <!-- Image, use cover -->
                     <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
+
                         <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
-                    <!--If it is a video, show it    -->
+
+                    <!-- Video, use resource from RS -->
                     <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
+
                         <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
+
+                    <!-- Nothing in RS, use cover image -->
+                    <?php else:?>
+
+                        <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
+                    
                     <?php endif; ?>
-        
+
+                <!-- Nothing in RS, use cover image -->
                 <?php else:?>
+
                     <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
+                
                 <?php endif; ?>
-            <?php else: ?>
+
+            <!-- User has no access, show only cover -->
+            <?php else:?>
                 <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
-            <?php endif; ?> 
-        
+            <?php endif?>    
             
         </div>
-
 
         <script> console.log("woocommerce access: <?php echo Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
         <?php if(!Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
@@ -84,7 +96,6 @@
                     <br>
                     <br>
                 <?php endif; ?> 
-                  
                 
             </div>
         </div>
@@ -96,7 +107,7 @@
     </div>
     <div class="row mt-5 pt-3">
         <div class="col border-right">
-            <h3 class="font-weight-bold">Kūrėjai / atlikėjai</h3>
+            <h3 class="font-weight-bold"><?php pll_e('Kūrėjai / atlikėjai'); ?></h3>
             <div>
                 <?php if (get_field('atlikejai')): ?>
                     <?php the_field('atlikejai') ?>
@@ -104,7 +115,7 @@
             </div>
         </div>
         <div class="col">
-            <h3 class="font-weight-bold">Programa</h3>
+            <h3 class="font-weight-bold"><?php pll_e('Programa'); ?></h3>
             <?php if (get_field('programa')): ?>
                 <?php the_field('programa') ?>
             <?php endif; ?>

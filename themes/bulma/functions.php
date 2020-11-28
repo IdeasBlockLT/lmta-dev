@@ -1,8 +1,6 @@
 <?php
 //Global functions
 include('includes.php');
-include('functions/resourcespace/endpoints.php');
-include('functions/resourcespace/test.php');
 
 //base
 include('functions/base/menus.php');
@@ -31,13 +29,14 @@ function lmta_theme_support()
     add_image_size('news-large', 790, 380);
     add_image_size('news-popular', 300, 150);
     add_action('wp_enqueue_scripts', 'custom_js');
+
 }
 
 add_action('after_setup_theme', 'lmta_theme_support');
+add_filter('jpeg_quality', function($arg){return 100;});
 
 function arphabet_widgets_init()
 {
-
     register_sidebar(array(
         'name' => 'Home right sidebar',
         'id' => 'home_right_1',
@@ -56,12 +55,10 @@ function custom_excerpt_length()
 
 add_filter('excerpt_length', 'custom_excerpt_length');
 
-//On empty showing ... after excerpt
-function custom_excerpt_more()
-{
-    return ;
+function new_excerpt_more( $more ) {
+    return '...';
 }
-add_filter('excerpt_more', 'custom_excerpt_more');
+add_filter('excerpt_more', 'new_excerpt_more');
 
 //add_action('save_post', 'create_resource');
 
@@ -108,13 +105,14 @@ function is_paginated() {
  */
 function filter_projects() {
 
-    $today = date("Y-m-d H:i");
+    // $today = date("Y-m-d H:i");
+    $today = date("Y-m-d H:i", strtotime('-3 hours'));
 //    $paged = ( get_query_var('paged') ) ? get_query_var( 'paged' ) : 1;
     $paged = $_POST['page'] ? $_POST['page'] : 1;
     $compare = $_POST['events'] ? $_POST['events'] : '<';
 
 	$order = $_POST['order'] ? $_POST['order'] : "DESC";
-	
+
     $_SESSION['template'] = $_POST['template'];
     #Choosing the template
     if($_POST['template'] == 'one-column'){
@@ -138,7 +136,7 @@ function filter_projects() {
             'meta-value' => 'streamDate',
             'value' => $today,
             'compare' => $compare,//>=, <=, <
-            'type' => 'DATE',
+            'type' => 'DATETIME',
         ]
     ];
 
