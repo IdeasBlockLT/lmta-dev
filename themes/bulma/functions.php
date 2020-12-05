@@ -124,24 +124,26 @@ function filter_projects() {
     }
 
     $args = [
-        'orderby' => 'streamDate',
-        'order' => $order,
-        'meta_key' => 'streamDate',
-        'post_status' => 'publish',
+        'orderby'        => 'streamDate',
+        'order'          => $order,
+        'meta_key'       => 'streamDate',
+        'post_status'    => 'publish',
         'posts_per_page' => $postPerPage,
-        'paged' => $paged,
-        'page' => $paged,
-        'meta_query' => array(
+        'paged'          => $paged,
+        'page'           => $paged,
+        'meta_query'     => array(
             'relation' => $relation,
             array(
-                'key' => 'streamDate',
+                'key'        => 'streamDate',
                 'meta-value' => 'streamDate',
-                'value' => $today,
-                'compare' => '<',
-                'type' => 'DATETIME',
+                'value'      => $today,
+                'compare'    => '<',
+                'type'       => 'DATETIME',
             ),
             array(
-                'add_to_mediateka'=>false,
+                'key'   => 'add_to_mediateka',
+				'value' => true,
+				'type'  => 'BOOLEAN',
             ),
         ),
     ];

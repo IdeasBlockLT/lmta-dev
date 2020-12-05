@@ -5,24 +5,26 @@ $searchTerm = isset($_POST["searchTerm"]) ? $_POST["searchTerm"] : "";
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $today = date("Y-m-d H:i");
 $args = [
-    'orderby' => 'streamDate',
-    'order' => 'DESC',
-    'post_type'=>'post',
-    'post_status' => 'publish',
-    'meta_key' => 'streamDate',
+    'orderby'		 =>'streamDate',
+    'order'			 => 'DESC',
+	'post_type'		 =>'post',
+	'post_status'    =>'publish',
+	'meta_key'       => 'streamDate',
     'posts_per_page' => 9,
-    'paged' => $paged,
-    's' => $searchTerm,
-    'meta_query' => array(
+    'paged'          => $paged,
+	's'=>$searchTerm,
+    'meta_query'     => array(
         'relation' => 'AND',
         array(
-            'key' => 'streamDate',
-            'value' => $today,
+            'key'     => 'streamDate',
+            'value'   => $today,
             'compare' => '<',
-            'type' => 'DATETIME',
+            'type'    => 'DATETIME',
         ),
         array(
-            'add_to_mediateka'=>false,
+            'key'   => 'add_to_mediateka',
+			'value' => true,
+			'type'  => 'BOOLEAN',
         ),
     ),
 ];
