@@ -110,6 +110,7 @@ jQuery(document).on('click', '.page-numbers', function (e) {
             slug: slug,
             page: page,
             order: order,
+            relation: 'AND',
         },
         success: function (response) {
             if (template === 'one-column') {

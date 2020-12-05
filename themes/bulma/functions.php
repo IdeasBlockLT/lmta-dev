@@ -108,10 +108,10 @@ function filter_projects() {
     // $today = date("Y-m-d H:i");
     $today = date("Y-m-d H:i", strtotime('-3 hours'));
 //    $paged = ( get_query_var('paged') ) ? get_query_var( 'paged' ) : 1;
-    $paged = $_POST['page'] ? $_POST['page'] : 1;
-    $compare = $_POST['events'] ? $_POST['events'] : '<';
-
-	$order = $_POST['order'] ? $_POST['order'] : "DESC";
+    $paged    = $_POST['page']     ? $_POST['page']     : 1;
+    $compare  = $_POST['events']   ? $_POST['events']   : '<';
+    $relation = $_POST['relation'] ? $_POST['relation'] : 'OR';
+	$order    = $_POST['order']    ? $_POST['order']    : "DESC";
 
     $_SESSION['template'] = $_POST['template'];
     #Choosing the template
@@ -131,13 +131,19 @@ function filter_projects() {
         'posts_per_page' => $postPerPage,
         'paged' => $paged,
         'page' => $paged,
-        'meta_query' => [
-            'key' => 'streamDate',
-            'meta-value' => 'streamDate',
-            'value' => $today,
-            'compare' => $compare,//>=, <=, <
-            'type' => 'DATETIME',
-        ]
+        'meta_query' => array(
+            'relation' => $relation,
+            array(
+                'key' => 'streamDate',
+                'meta-value' => 'streamDate'
+                'value' => $today,
+                'compare' => '<',
+                'type' => 'DATETIME',
+            ),
+            array(
+                'add_to_mediateka'=>false,
+            ),
+        ),
     ];
 
     $slug = $_POST['slug'];
