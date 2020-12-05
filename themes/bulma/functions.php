@@ -135,7 +135,7 @@ function filter_projects() {
             'relation' => $relation,
             array(
                 'key' => 'streamDate',
-                'meta-value' => 'streamDate'
+                'meta-value' => 'streamDate',
                 'value' => $today,
                 'compare' => '<',
                 'type' => 'DATETIME',
