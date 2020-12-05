@@ -13,13 +13,18 @@ $args = [
     'posts_per_page' => 9,
     'paged' => $paged,
     's' => $searchTerm,
-    'meta_query' => [
-        'key' => 'streamDate',
-        // 'meta-value' => 'streamDate',
-        'value' => $today,
-        'compare' => '<',
-        'type' => 'DATE',
-    ]
+    'meta_query' => array(
+        'relation' => 'AND',
+        array(
+            'key' => 'streamDate',
+            'value' => $today,
+            'compare' => '<',
+            'type' => 'DATETIME',
+        ),
+        array(
+            'add_to_mediateka'=>false,
+        ),
+    ),
 ];
 
 $the_page = sanitize_post($GLOBALS['wp_the_query']->get_queried_object());
