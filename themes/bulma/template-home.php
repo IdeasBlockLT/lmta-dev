@@ -4,17 +4,37 @@
 // minus 3 hours to make it 5 (bcs of offset) to not move into past events straight away, but after 5hours from streamDate
 // $today = date("Y-m-d H:i");
 $today = date("Y-m-d H:i", strtotime('-3 hours'));
+// $args = [
+//     'orderby' => 'streamDate',
+//     'posts_per_page' => 3,
+//     'post_status' => 'publish',
+// 	'meta_key'=>'streamDate',
+//     'meta_query' => [
+//         'key' => 'streamDate',
+//         'value' => $today,
+//         'compare' => '>=',
+//         'type' => 'DATETIME',
+//     ],
+//     'order' => 'ASC',
+// ];
+
 $args = [
     'orderby' => 'streamDate',
     'posts_per_page' => 3,
     'post_status' => 'publish',
-	'meta_key'=>'streamDate',
-    'meta_query' => [
-        'key' => 'streamDate',
-        'value' => $today,
-        'compare' => '>=',
-        'type' => 'DATETIME',
-    ],
+    'meta_key'=>'streamDate',
+    'meta_query' => array(
+        'relation' => 'AND',
+        array(
+            'key' => 'streamDate',
+            'value' => $today,
+            'compare' => '>=',
+            'type' => 'DATETIME',
+        ),
+        array(
+            'add_to_mediateka'=>false,
+        ),
+    ),
     'order' => 'ASC',
 ];
 
