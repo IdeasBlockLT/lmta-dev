@@ -86,17 +86,6 @@
                     <strong><?= the_title(); ?></strong>
                 </h4>
                 
-                <!-- <br> -->
-                
-                <?php //if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
-                    <!-- <br>
-                    <h5>
-                        <strong>This event does not have video yet.</strong>
-                    </h5>
-                    <br>
-                    <br> -->
-                <?php //endif; ?> 
-                
             </div>
         </div>
     </div>
