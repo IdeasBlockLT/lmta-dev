@@ -48,7 +48,8 @@
                     <!-- Video, use resource from RS -->
                     <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
 
-                        <?php get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
+                        <?php //get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
+                        <?php get_template_part('parts/custom-player', null, array(   'url'   => $resource_url)  ) ?>
 
                     <!-- Nothing in RS, use cover image -->
                     <?php else:?>
