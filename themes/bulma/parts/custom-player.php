@@ -14,7 +14,7 @@
         </svg>
       </div>
 
-      <video controls class="video" id="video" preload="metadata" poster="poster.jpg">
+      <video controls class="video" id="video" preload="metadata">
         <source src="<?php echo $resource_url; ?>" ></source>
       </video>
 
