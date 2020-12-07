@@ -33,6 +33,7 @@ if (videoWorks) {
 // otherwise, the video is paused
 function togglePlay() {
   if (video.paused || video.ended) {
+	console.log(video.src);  
     video.play();
   } else {
     video.pause();
@@ -267,7 +268,7 @@ video.addEventListener('mouseenter', showControls);
 video.addEventListener('mouseleave', hideControls);
 videoControls.addEventListener('mouseenter', showControls);
 videoControls.addEventListener('mouseleave', hideControls);
-seek.addEventListener('mousemove', updateSeekTooltip);
+// seek.addEventListener('mousemove', updateSeekTooltip);
 seek.addEventListener('input', skipAhead);
 volume.addEventListener('input', updateVolume);
 volumeButton.addEventListener('click', toggleMute);

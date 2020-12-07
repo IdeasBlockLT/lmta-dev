@@ -65,8 +65,9 @@
                 
                 <?php endif; ?>
 
-            <!-- User has no access, show only cover -->
+            
             <?php else:?>
+				<!-- User has no access, show only cover -->
                 <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
             <?php endif?>    
             
