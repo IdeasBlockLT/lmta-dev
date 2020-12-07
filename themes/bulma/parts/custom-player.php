@@ -3,11 +3,9 @@
   $resource_url = $args['url'];
 ?>
 
-<link rel="manifest" href="manifest.json" crossorigin="use-credentials">
-
 <div id='custom-player'>
-  <div class="container">
-    <div class="video-container" id="video-container">
+  <div class="embed-responsive embed-responsive-16by9 custom-container">
+    <div id="video-container">
       <div class="playback-animation" id="playback-animation">
         <svg class="playback-icons">
           <use class="hidden" href="#play-icon"></use>
@@ -15,7 +13,10 @@
         </svg>
       </div>
 
-      <video crossOrigin="https://stage.tv.ideas-block.com" controls class="video" id="video" preload="metadata">
+      <video crossOrigin="https://stage.tv.ideas-block.com" 
+			 controls class="video embed-responsive-item" 
+			 id="video" 
+			 preload="metadata">
         <source src="<?php echo $resource_url; ?>" type="video/mp4"></source>
       </video>
 
