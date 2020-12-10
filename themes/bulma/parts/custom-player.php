@@ -3,10 +3,9 @@
   $resource_url = $args['url'];
 ?>
 
-
 <div id='custom-player'>
-  <div class="container">
-    <div class="video-container" id="video-container">
+  <div class="embed-responsive embed-responsive-16by9 custom-container">
+    <div id="video-container">
       <div class="playback-animation" id="playback-animation">
         <svg class="playback-icons">
           <use class="hidden" href="#play-icon"></use>
@@ -14,8 +13,12 @@
         </svg>
       </div>
 
-      <video controls class="video" id="video" preload="metadata">
-        <source src="<?php echo $resource_url; ?>" ></source>
+      <video crossOrigin="https://stage.tv.ideas-block.com" 
+			 oncontextmenu="return false;"
+			 controls class="video embed-responsive-item" 
+			 id="video" 
+			 preload="metadata">
+        <source src="<?php echo $resource_url; ?>" type="video/mp4"></source>
       </video>
 
       <div class="video-controls hidden" id="video-controls">
@@ -27,7 +30,7 @@
 
         <div class="bottom-controls">
           <div class="left-controls">
-            <button data-title="Play (k)" id="play">
+            <button class="custom-button" data-title="Play (k)" id="play">
               <svg class="playback-icons">
                 <use href="#play-icon"></use>
                 <use class="hidden" href="#pause"></use>
@@ -35,7 +38,7 @@
             </button>
 
             <div class="volume-controls">
-              <button data-title="Mute (m)" class="volume-button" id="volume-button">
+              <button data-title="Mute (m)" class="custom-button volume-button" id="volume-button">
                 <svg>
                   <use class="hidden" href="#volume-mute"></use>
                   <use class="hidden" href="#volume-low"></use>
@@ -55,12 +58,12 @@
           </div>
 
           <div class="right-controls">
-            <button data-title="PIP (p)" class="pip-button" id="pip-button">
+            <button data-title="PIP (p)" class="custom-button pip-button" id="pip-button">
               <svg>
                 <use href="#pip"></use>
               </svg>
             </button>
-            <button data-title="Full screen (f)" class="fullscreen-button" id="fullscreen-button">
+            <button data-title="Full screen (f)" class="custom-button fullscreen-button" id="fullscreen-button">
               <svg>
                 <use href="#fullscreen"></use>
                 <use href="#fullscreen-exit" class="hidden"></use>
@@ -109,5 +112,12 @@
   </svg>
 
   <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/custom-player.js'; ?>" type="module"></script>
+
+  <script>
+	  //let video = document.getElementById("video")
+	  //video.src = "";
+	  //video.load();
+
+  </script>
 
 </div>
