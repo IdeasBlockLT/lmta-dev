@@ -109,7 +109,7 @@ function filter_projects() {
     $today = date("Y-m-d H:i", strtotime('-3 hours'));
 //    $paged = ( get_query_var('paged') ) ? get_query_var( 'paged' ) : 1;
     $paged    = $_POST['page']     ? $_POST['page']     : 1;
-    $compare  = $_POST['events']   ? $_POST['events']   : '<';
+    $compare  = $_POST['events']   ? $_POST['events']   : '>=';
     $relation = $_POST['relation'] ? $_POST['relation'] : 'OR';
 	$order    = $_POST['order']    ? $_POST['order']    : "DESC";
 
@@ -137,7 +137,7 @@ function filter_projects() {
                 'key'        => 'streamDate',
                 'meta-value' => 'streamDate',
                 'value'      => $today,
-                'compare'    => '<',
+                'compare'    => $compare,
                 'type'       => 'DATETIME',
             ),
             array(

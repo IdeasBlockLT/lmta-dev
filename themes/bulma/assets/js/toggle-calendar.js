@@ -89,10 +89,10 @@ jQuery(document).on('click', '.page-numbers', function (e) {
 	var order = '';
     if ($('#future-events').hasClass('text-muted')) {
         operator = $('#past-events').attr('value');
-		order = "ASC";
+		order = "DESC";
     } else {
         operator = $('#future-events').attr('value');
-		order = "DESC";
+		order = "ASC";
     }
 
     $.ajax({
