@@ -79,7 +79,7 @@ $args = [
                         <h5 class="hover-blue"><?php the_title() ?></h5></a>
                         <p><?= the_excerpt(); ?></p>
                         <button class="mt-auto btn btn-light custom-more hover-blue__white">
-                            <a href="<?php the_permalink(); ?>" class="">
+                            <a href="<?php the_permalink(); ?>" class="button">
                                 <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
                             </a>
                         </button>
