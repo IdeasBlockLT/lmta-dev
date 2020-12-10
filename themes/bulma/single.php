@@ -33,7 +33,7 @@
 <?php get_template_part('parts/banner', 'banner', ['size' => 'size2']); ?>
 <div class="container w-90 mx-auto">
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
-        <div class="col-md-7 col-7 themed-grid-col mr-3">
+        <div class="single-video-col col-md-7 col-7 themed-grid-col mr-3">
             
             
             <!-- WOOCOMMERCE PAY FOR POST, IF USER HAS PAID OR HAS ACCESS -->
@@ -80,7 +80,7 @@
         
 
         <div class="col-md-4 col-4 themed-grid-col border-left">
-            <div class="pb-4">
+            <div class="single-title-col pb-4">
                 
                 <small><?php the_field('date'); ?></small>
                 
@@ -91,6 +91,15 @@
             </div>
         </div>
     </div>
+	
+	<!-- 	FOR MOBILE -->
+	<div class="single-title-below">
+		<small><?php the_field('date'); ?></small>
+		<h4>
+			<strong><?= the_title(); ?></strong>
+		</h4>
+	</div>
+	
     <div class="row mb-5 pb-5 mt-5 pt-3 border-bottom">
         <div class="columncontent__single p-2">
             <?php the_content(); ?>

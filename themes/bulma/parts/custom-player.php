@@ -14,6 +14,7 @@
       </div>
 
       <video crossOrigin="https://stage.tv.ideas-block.com" 
+			 oncontextmenu="return false;"
 			 controls class="video embed-responsive-item" 
 			 id="video" 
 			 preload="metadata">
@@ -29,7 +30,7 @@
 
         <div class="bottom-controls">
           <div class="left-controls">
-            <button data-title="Play (k)" id="play">
+            <button class="custom-button" data-title="Play (k)" id="play">
               <svg class="playback-icons">
                 <use href="#play-icon"></use>
                 <use class="hidden" href="#pause"></use>
@@ -37,7 +38,7 @@
             </button>
 
             <div class="volume-controls">
-              <button data-title="Mute (m)" class="volume-button" id="volume-button">
+              <button data-title="Mute (m)" class="custom-button volume-button" id="volume-button">
                 <svg>
                   <use class="hidden" href="#volume-mute"></use>
                   <use class="hidden" href="#volume-low"></use>
@@ -57,12 +58,12 @@
           </div>
 
           <div class="right-controls">
-            <button data-title="PIP (p)" class="pip-button" id="pip-button">
+            <button data-title="PIP (p)" class="custom-button pip-button" id="pip-button">
               <svg>
                 <use href="#pip"></use>
               </svg>
             </button>
-            <button data-title="Full screen (f)" class="fullscreen-button" id="fullscreen-button">
+            <button data-title="Full screen (f)" class="custom-button fullscreen-button" id="fullscreen-button">
               <svg>
                 <use href="#fullscreen"></use>
                 <use href="#fullscreen-exit" class="hidden"></use>
