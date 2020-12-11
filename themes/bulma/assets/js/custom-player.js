@@ -71,7 +71,7 @@ function initializeVideo() {
   progressBar.setAttribute('max', videoDuration);
   const time = formatTime(videoDuration);
   duration.innerText = `${time.minutes}:${time.seconds}`;
-  duration.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`)
+  duration.setAttribute('datetime', `${time.hours}h ${time.minutes}m ${time.seconds}s`)
 }
 
 // updateTimeElapsed indicates how far through the video
