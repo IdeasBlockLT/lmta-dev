@@ -56,8 +56,9 @@ function updatePlayButton() {
 // minutes and seconds
 function formatTime(timeInSeconds) {
   const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
-  console.log('result: '+ result);
+
   return {
+    hours:   result.substr(0, 2),
     minutes: result.substr(3, 2),
     seconds: result.substr(6, 2),
   };
@@ -70,11 +71,16 @@ function initializeVideo() {
   seek.setAttribute('max', videoDuration);
   progressBar.setAttribute('max', videoDuration);
   const time = formatTime(videoDuration);
-  console.log('duration');
-  console.log(videoDuration);
-  // console.log(typeof {time.hours});
-  duration.innerText = `${time.hours}:${time.minutes}:${time.seconds}`;
-  duration.setAttribute('datetime', `${time.hours}h ${time.minutes}m ${time.seconds}s`)
+  if(time.hours =! '00')
+  {
+    duration.innerText = `${time.hours}:${time.minutes}:${time.seconds}`;
+    duration.setAttribute('datetime', `${time.hours}h ${time.minutes}m ${time.seconds}s`)
+  }
+  else{
+    duration.innerText = `${time.minutes}:${time.seconds}`;
+    duration.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`)
+  }
+  
 }
 
 // updateTimeElapsed indicates how far through the video
