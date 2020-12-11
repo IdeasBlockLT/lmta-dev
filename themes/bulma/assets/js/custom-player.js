@@ -285,7 +285,7 @@ video.addEventListener('mouseenter', showControls);
 video.addEventListener('mouseleave', hideControls);
 videoControls.addEventListener('mouseenter', showControls);
 videoControls.addEventListener('mouseleave', hideControls);
-// seek.addEventListener('mousemove', updateSeekTooltip);
+seek.addEventListener('mousemove', updateSeekTooltip);
 seek.addEventListener('input', skipAhead);
 volume.addEventListener('input', updateVolume);
 volumeButton.addEventListener('click', toggleMute);
