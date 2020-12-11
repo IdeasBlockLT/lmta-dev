@@ -72,7 +72,7 @@ function initializeVideo() {
   const time = formatTime(videoDuration);
   console.log('duration');
   console.log(time);
-  console.log(typeof ${time.hours});
+  console.log(typeof {time.hours});
   duration.innerText = `${time.hours}:${time.minutes}:${time.seconds}`;
   duration.setAttribute('datetime', `${time.hours}h ${time.minutes}m ${time.seconds}s`)
 }
