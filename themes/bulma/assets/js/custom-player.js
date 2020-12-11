@@ -71,7 +71,7 @@ function initializeVideo() {
   seek.setAttribute('max', videoDuration);
   progressBar.setAttribute('max', videoDuration);
   const time = formatTime(videoDuration);
-  if(time.hours =! '00')
+  if(time.hours != '00')
   {
     duration.innerText = `${time.hours}:${time.minutes}:${time.seconds}`;
     duration.setAttribute('datetime', `${time.hours}h ${time.minutes}m ${time.seconds}s`)
