@@ -87,8 +87,16 @@ function initializeVideo() {
 // the current playback is by updating the timeElapsed element
 function updateTimeElapsed() {
   const time = formatTime(Math.round(video.currentTime));
-  timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
-  timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`)
+  
+  if(time.hours != '00')
+  {
+    timeElapsed.innerText = `${time.hours}:${time.minutes}:${time.seconds}`;
+    timeElapsed.setAttribute('datetime', `${time.hours}h ${time.minutes}m ${time.seconds}s`)
+  }
+  else{
+    timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
+    timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`)
+  }
 }
 
 // updateProgress indicates how far through the video
