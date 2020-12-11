@@ -112,6 +112,7 @@ jQuery(document).on('click', '.page-numbers', function (e) {
             template: template,
             slug: slug,
             page: page,
+            mediateka:'not_mediateka',
         },
         success: function (response) {
             if (template === 'one-column') {
@@ -162,6 +163,7 @@ $("#future-events").click(function () {
             relation: 'OR',
             template: template,
             slug: slug,
+            mediateka:'not_mediateka',
         },
         success: function (response) {
             if (template === 'one-column') {
@@ -214,6 +216,7 @@ $("#past-events").click(function () {
             relation: 'OR',
             template: template,
             slug: slug,
+            mediateka:'not_mediateka',
         },
         success: function (response) {
             if (template === 'one-column') {

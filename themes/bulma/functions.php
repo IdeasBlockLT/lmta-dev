@@ -112,6 +112,7 @@ function filter_projects() {
     $compare  = $_POST['events']   ? $_POST['events']   : '>=';
     $relation = $_POST['relation'] ? $_POST['relation'] : 'OR';
 	$order    = $_POST['order']    ? $_POST['order']    : "DESC";
+    $mediateka= $_POST['mediateka']? $_POST['mediateka']: "add_to_mediateka";
 
     $_SESSION['template'] = $_POST['template'];
     #Choosing the template
@@ -141,7 +142,7 @@ function filter_projects() {
                 'type'       => 'DATETIME',
             ),
             array(
-                'key'   => 'add_to_mediateka',
+                'key'   => $mediateka,
 				'value' => true,
 				'type'  => 'BOOLEAN',
             ),
