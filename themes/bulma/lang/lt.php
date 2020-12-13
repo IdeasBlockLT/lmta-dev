@@ -9,6 +9,7 @@ pll_register_string(strtolower('keywords'), 'Raktazodziai');
 pll_register_string(strtolower('keywords'), 'Paieška');
 pll_register_string(strtolower('keywords'), 'Sekite mus');
 pll_register_string(strtolower('keywords'), 'Meniu');
+pll_register_string(strtolower('keywords'), 'Kontaktai');
 
 pll_register_string(strtolower('keywords'), 'Būsimi renginiai');
 pll_register_string(strtolower('keywords'), 'Įvikę renginiai');
