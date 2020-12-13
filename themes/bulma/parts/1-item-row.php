@@ -12,7 +12,7 @@
                      style="background-color: #5797fb00">
                     <a href="<?php echo get_the_permalink() ?>">
                         <img class="flex-auto d-none d-md-block custom-image-vertical border-right"
-                             src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
+                             src="<?php echo get_the_post_thumbnail_url(null, 'post-thumbnail'); ?>"
                              alt="Card image cap">
                     </a>
                     <div class="card-body custom__card-body d-flex flex-column align-items-start border-md-left ml-md-4">

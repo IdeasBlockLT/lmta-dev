@@ -13,7 +13,7 @@
                 <div class="card border-0 mb-4 custom-size" style="background-color: #5797fb00">
                     <a href="<?php echo get_the_permalink() ?>">
                     <img class="bd-placeholder-img card-img-top custom-image-horizontal"
-                         src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
+                         src="<?php echo get_the_post_thumbnail_url(null, 'post-thumbnail'); ?>"
                          alt="">
                     </a>
                     <div class="mt-3 mt-md-4 pt-md-2 hr-control full-card">

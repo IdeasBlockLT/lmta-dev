@@ -30,7 +30,7 @@ if ( basename( $template ) === 'template-mediateka.php'  ) {
 						<div class='image-container-100' style="display:block; overflow:hidden; margin:auto;">
                             <a href="<?php echo get_the_permalink() ?>">
 							<img class="center-image bd-placeholder-img card-img-top custom-image-horizontal"
-								 src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
+								 src="<?php echo get_the_post_thumbnail_url(null, 'post-thumbnail'); ?>"
 								 alt="">
                             </a>
 					</div>
