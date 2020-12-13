@@ -55,6 +55,11 @@ function custom_excerpt_length()
 
 add_filter('excerpt_length', 'custom_excerpt_length');
 
+// Filter for woocommerce translation:
+add_filter( 'woocommerce_get_myaccount_page_permalink', function($url){
+	return get_permalink(pll_get_post(get_option( 'woocommerce_myaccount_page_id' )));
+});
+
 function new_excerpt_more( $more ) {
     return '...';
 }

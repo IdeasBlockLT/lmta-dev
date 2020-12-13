@@ -26,6 +26,7 @@ if (is_page_template('template-mediateka.php')){
         <div id="contact-footer" class="col mr-3 border-bottom border-md-bottom-0 pb-4 pb-md-0 pt-4 pt-md-0">
             <?php if (is_active_sidebar('contact')): ?>
                 <?php dynamic_sidebar('contact') ?>
+                <?php //dynamic_sidebar('footer') ?>
             <?php endif ?>
         </div>
         <div id="follow-footer" class="col mr-3 pl-md-4 border-bottom border-md-bottom-0 border-md-left pb-4 pb-md-0 pt-4 pt-md-0">

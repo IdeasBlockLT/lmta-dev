@@ -3,7 +3,8 @@
     <div class="row mx-auto pt-3">
         <div class="col custom-footer">
             <span style="padding-right: 5px!important;">
-            <?php echo ('&copy '.date("Y").' Visos teisės saugomos. Lietuvos muzikos ir teatro akademija'); ?>
+            <?php echo (" ".'&copy '.date("Y")); ?>
+            <?php echo (pll_e('Teises')); ?>
             </span>
             <?php if (is_active_sidebar('footer')): ?>
                 <?php dynamic_sidebar('footer'); ?>

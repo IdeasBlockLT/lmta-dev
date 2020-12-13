@@ -16,6 +16,7 @@ pll_register_string(strtolower('keywords'), 'Vaizdavimas');
 pll_register_string(strtolower('keywords'), 'Kūrėjai / atlikėjai');
 pll_register_string(strtolower('keywords'), 'Programa');
 pll_register_string(strtolower('keywords'), 'Prospektas');
+pll_register_string(strtolower('keywords'), 'Teises');
 
 
 /**
