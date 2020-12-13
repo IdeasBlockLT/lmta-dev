@@ -215,3 +215,29 @@ function print_custom_field()
 }
 
 add_filter('admin_init', 'register_fields');
+
+
+// add deletion for woocommerce user
+// // Delete Account Functionality 
+require_once(ABSPATH.'wp-admin/includes/user.php');
+add_action( 'woocommerce_after_my_account', 'woo_delete_account_button' ); 
+function woo_delete_account_button() { 
+	$delete_url = add_query_arg( 'wc-api', 'wc-delete-account', home_url( '/' ) ); 
+	$delete_url = wp_nonce_url( $delete_url, 'wc_delete_user' ); 
+	?> 
+	<?php if (! current_user_can( 'manage_options' )):?>
+			<a href="<?php echo $delete_url; ?>" class="button">Delete Account</a> 
+	<?php endif; ?>
+	<?php 
+} 
+add_action( 'woocommerce_api_' . strtolower( 'wc-delete-account' ), 'woo_handle_account_delete' ); 
+
+function woo_handle_account_delete() { 
+	if ( ! current_user_can( 'manage_options' ) ) {
+		$security_check_result = check_admin_referer( 'wc_delete_user' ); 
+		if ( $security_check_result ) { 
+			wp_delete_user( get_current_user_id() ); 
+			wp_redirect( home_url() ); die(); 
+		} 
+	} 
+}
