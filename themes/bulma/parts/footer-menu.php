@@ -1,13 +1,14 @@
 <?php
 $footerMenu = get_menu_items('footer');
-
-if (is_page_template('template-mediateka.php')){
-    $fontColor = 'black hover-white';
-    $active = 'active-white';
-}else{
-    $fontColor = 'hover-blue';
-    $active = 'active-blue';
-}
+$fontColor = 'hover-blue';
+$active = 'active-blue';
+//if (is_page_template('template-mediateka.php')){
+//    $fontColor = 'black hover-white';
+//    $active = 'active-white';
+//}else{
+//    $fontColor = 'hover-blue';
+//    $active = 'active-blue';
+//}
 
 ?>
 <!--<div class="container w-90 mx-auto">-->
