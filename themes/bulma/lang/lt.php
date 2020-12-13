@@ -19,6 +19,9 @@ pll_register_string(strtolower('keywords'), 'Programa');
 pll_register_string(strtolower('keywords'), 'Prospektas');
 pll_register_string(strtolower('keywords'), 'Teises');
 
+pll_register_string('cookie_text', 'Cookies message');
+pll_register_string('cookie_accept_label', 'Cookies accept label');
+
 
 /**
  * Declaring Constants to use later in template like this
