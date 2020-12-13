@@ -11,3 +11,6 @@
     color: white;
     background-color: #5e40e3;
 }
+a:focus{
+    box-shadow: none!important;
+}
