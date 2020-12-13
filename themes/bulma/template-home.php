@@ -2,13 +2,12 @@
 
 //Query taking the first 3, ordered by soonest streamDate
 // minus 3 hours to make it 5 (bcs of offset) to not move into past events straight away, but after 5hours from streamDate
-// $today = date("Y-m-d H:i");
 $today = date("Y-m-d H:i", strtotime('-3 hours'));
 $args = [
     'orderby' => 'streamDate',
     'posts_per_page' => 3,
     'post_status' => 'publish',
-	'meta_key'=>'streamDate',
+    'meta_key' => 'streamDate',
     'meta_query' => [
         'key' => 'streamDate',
         'value' => $today,
@@ -26,8 +25,6 @@ $args = [
     <div class="container w-90 mx-auto text-justify__home p-2">
         <?php
             $query = new WP_Query($args);
-//             $reverse = array_reverse($query ->posts);
-//             $query->posts = $reverse;
         ?>
 
         <?php if ($query->have_posts()) : $query->the_post(); ?>
@@ -43,17 +40,6 @@ $args = [
                     document.cookie = "first_permalink=<?php the_permalink();?>";
                     document.cookie = "first_date=<?php //the_field('streamDate');?>";
                 </script>
-                
-                <div class="date"><small class="first-date d-block mt-4 "><?php //the_field('streamDate'); ?></small></div>
-                <a class="first-post-link" style="text-decoration: none;color: black; "
-                   href="<?php //the_permalink(); ?>">
-                   <h3 class="hover-blue first-post"><?php //the_title();?></h3></a>
-                <div class="first-post-excerpt"><p ><?php //the_excerpt();?></p></div>
-<!--                 <button class="mt-auto btn btn-light custom-more hover-blue__white">
-                    <a href="<?php //the_permalink(); ?>" class="first-btn-a">
-                        <?php //echo strtoupper(pll_e('Skaityti daugiau')); ?>
-                    </a>
-                </button> -->
             </div>
         <?php $query->rewind_posts();?>
         <?php endif; ?>
@@ -77,13 +63,12 @@ $args = [
                         <a style="text-decoration: none;color: black; "
                             href="<?php the_permalink(); ?>">
                         <h5 class="hover-blue"><?php the_title() ?></h5></a>
-                        <p><?= the_excerpt(); ?></p>
-                        <button class="mt-auto btn btn-light custom-more hover-blue__white">
-                            <a href="<?php the_permalink(); ?>" class="button">
+                            <p><?= the_excerpt(); ?></p>
+                            <a href="<?php the_permalink(); ?>"
+                               class="button mt-auto btn btn-light custom-more hover-blue__white">
                                 <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
                             </a>
-                        </button>
-                    </div>
+                        </div>
                 <?php endwhile; ?>
             </div>
         </div>

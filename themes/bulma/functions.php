@@ -5,8 +5,8 @@ include('includes.php');
 //base
 include('functions/base/menus.php');
 include('functions/base/widgets.php');
-include('functions/classes/footer-widget.php');
 include('functions/classes/follow-widget.php');
+include('functions/classes/contact-widget.php');
 
 //resourcespace
 include('functions/resourcespace/ResourceSpaceController.php');

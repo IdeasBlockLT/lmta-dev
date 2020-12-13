@@ -18,11 +18,9 @@
                         </a>
                     </h5>
                     <p class="card-text"><?= the_excerpt(); ?></p>
-                    <button class="mt-auto btn btn-light custom-more hover-blue__white">
-                        <a href="<?php echo get_the_permalink() ?>" class="">
+                        <a href="<?php echo get_the_permalink() ?>" class="mt-auto btn btn-light custom-more hover-blue__white">
                             <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
                         </a>
-                    </button>
                 </div>
             </div>
         </div>

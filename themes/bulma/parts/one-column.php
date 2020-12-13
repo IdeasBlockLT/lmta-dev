@@ -45,12 +45,10 @@ if ( basename( $template ) === 'template-mediateka.php'  ) {
                         </a>
                     </h5>
                     <p class="card-text"><?= the_excerpt(); ?></p>
-                    <button class="mt-auto btn btn-light custom-more hover-blue__white">
                         <a href="<?php echo get_the_permalink() ?>"
-                           class="">
+                           class="mt-auto btn btn-light custom-more hover-blue__white">
                             <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
                         </a>
-                    </button>
                 </div>
             </div>
         </div>
