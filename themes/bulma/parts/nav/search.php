@@ -1,8 +1,3 @@
-<?php
-$a = new resourcespaceNew();
-//dd($a->search('pyragas'));
-?>
-
 <div class="mx-auto order-3 order-md-1 text-center wrap">
     <div class="search custom-grid">
         <!-- <form action="wp-json/api/search" method="post"> -->

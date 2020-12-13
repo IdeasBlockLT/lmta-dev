@@ -10,15 +10,19 @@ foreach ($languages as $lang) {
     }
 }
 
-if (is_page_template('template-mediateka.php')){
-    $fontColor = 'black hover-white-extended';
-    $active = 'active-white';
-    $color = 'white';
-}else{
-    $fontColor = 'hover-blue-extended';
-    $active = 'active-blue';
-    $color = 'blue';
-}
+$fontColor = 'hover-blue-extended';
+$active = 'active-blue';
+$color = 'blue';
+
+//if (is_page_template('template-mediateka.php')){
+//    $fontColor = 'black hover-white-extended';
+//    $active = 'active-white';
+//    $color = 'white';
+//}else{
+//    $fontColor = 'hover-blue-extended';
+//    $active = 'active-blue';
+//    $color = 'blue';
+//}
 ?>
 <div class="navbar-collapse collapse w-100 order-2 order-md-2 dual-collapse2 border-top border-dark border-md-top-0 mb-3 mb-md-0 mobile-hide">
     <ul class="navbar-nav ml-auto">

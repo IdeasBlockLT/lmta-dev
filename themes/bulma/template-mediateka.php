@@ -34,19 +34,21 @@ $slug = $the_page->post_name;
 
 ?>
 <?php get_template_part('parts/head') ?>
-<?php get_template_part('parts/header', 'custom-nav', [
-    'background-color' => 'blue',
-    'font-color' => 'white',
-    'input-color' => 'blue',
-]) ?>
-<?php get_template_part('parts/banner', 'banner', ['size' => 'size2',
-    'background-color' => 'blue',
-    'font-color' => 'white',
-    'input-color' => 'blue'
-]) ?>
+<?php get_template_part('parts/header') ?>
+<?php get_template_part('parts/banner', 'banner', ['size' => 'size2']); ?>
+<?php //get_template_part('parts/header', 'custom-nav', [
+//    'background-color' => 'blue',
+//    'font-color' => 'white',
+//    'input-color' => 'blue',
+//]) ?>
+<?php //get_template_part('parts/banner', 'banner', ['size' => 'size2',
+//    'background-color' => 'blue',
+//    'font-color' => 'white',
+//    'input-color' => 'blue'
+//]) ?>
 <style>
     .card {
-        background-color: #5797fb !important;
+        /*background-color: #5797fb !important;*/
     }
 </style>
 
@@ -85,9 +87,6 @@ $slug = $the_page->post_name;
     </div>
 
     <span id="slug" data-slug="<?php echo $slug; ?>"></span>
-    <?php
-    get_template_part('parts/mediateka-keywords');
-    ?>
 </div>
 
 
