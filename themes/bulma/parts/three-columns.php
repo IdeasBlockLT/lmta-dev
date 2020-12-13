@@ -28,9 +28,11 @@ if ( basename( $template ) === 'template-mediateka.php'  ) {
             <div class="card border-0 mb-4 custom-size">
 				<div class='image-container-100'>
 						<div class='image-container-100' style="display:block; overflow:hidden; margin:auto;">
+                            <a href="<?php echo get_the_permalink() ?>">
 							<img class="center-image bd-placeholder-img card-img-top custom-image-horizontal"
 								 src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
 								 alt="">
+                            </a>
 					</div>
 				</div>
                 <div class="mt-3 mt-md-4 pt-md-2 hr-control">

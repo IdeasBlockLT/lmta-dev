@@ -25,12 +25,14 @@ if ( basename( $template ) === 'template-mediateka.php'  ) {
             <div class="card flex-md-row box-shadow h-md-250 custom-borders__one_column">
 <!--                 <img class="flex-auto d-none d-md-block custom-image-vertical" -->
 					<div class='image-container'>
-						<div class='image-container' style="display:block; overflow:hidden; margin:auto;">
-							<img class="center-image bd-placeholder-img card-img-top custom-image-horizontal"
-							
-							 src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
-							 alt="Card image cap">
-						</div>
+                        <div class='image-container'
+                             style="display:block; overflow:hidden; margin:auto;">
+                            <a href="<?php echo get_the_permalink() ?>">
+                                <img class="center-image bd-placeholder-img card-img-top custom-image-horizontal"
+                                     src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
+                                     alt="Card image cap">
+                            </a>
+                        </div>
 					</div>
                 <div class="col card-body custom__card-body d-flex flex-column align-items-start border-md-left ml-md-4"
 					 style="width:70%;">
