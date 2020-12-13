@@ -1,18 +1,15 @@
 <?php
 
-class footer_widget extends WP_Widget {
+class contact_widget extends WP_Widget {
 
     function __construct() {
-
         parent::__construct(
-            'LMTA-footer',  // Base ID
-            'LMTA-footer'   // Name
+            'LMTA-contact',  // Base ID
+            'LMTA-contact'   // Name
         );
-
         add_action( 'widgets_init', function() {
-            register_widget( 'footer_widget' );
+            register_widget( 'contact_widget' );
         });
-
     }
 
     public $args = array(
@@ -25,17 +22,15 @@ class footer_widget extends WP_Widget {
     public function widget( $args, $instance ) {
 
         echo $args['before_widget'];
-
-//        if ( ! empty( $instance['title'] ) ) {
-//            echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-//        }
-
         echo '<div class="textwidget">';
+        //Breaking code below as Kontaktai word was not getting inside h3
+        ?>
 
-        echo esc_html__( $instance['text'], 'text_domain' );
+        <h3> <?php pll_e('Kontaktai')?></h3>
+        <p style='white-space: pre-line'><?php pll_e(esc_html__( $instance['text'])) ?></p>
 
+        <?php
         echo '</div>';
-
         echo $args['after_widget'];
 
     }
@@ -63,6 +58,6 @@ class footer_widget extends WP_Widget {
 
 }
 
-$my_widget = new footer_widget();
-//dump($my_widget);
+$my_widget = new contact_widget();
+
 ?>
