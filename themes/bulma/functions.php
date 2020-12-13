@@ -33,7 +33,25 @@ function lmta_theme_support()
 }
 
 add_action('after_setup_theme', 'lmta_theme_support');
-add_filter('jpeg_quality', function($arg){return 100;});
+// add_filter('jpeg_quality', function($arg){return 100;});
+
+// well-known filter to change JPG quality:
+add_filter( 'jpeg_quality', function( $arg ){ return 100; } );
+
+// lesser-known filter to change quality for any image type:
+add_filter( 'wp_editor_set_quality', 'any_image_quality', 10, 2 );
+add_filter( 'jpeg_quality', 'any_image_quality' );
+
+function any_image_quality( $default_quality, $mime_type = NULL ) {
+  // you could do if ( 'image/png' == $mime_type ) here if you want to be specific
+  return 100;
+}
+
+
+
+
+// add_filter('jpeg_quality', function($arg){return 100;});
+add_filter( 'wp_editor_set_quality', function($arg){return 100;} );
 
 function arphabet_widgets_init()
 {
