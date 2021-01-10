@@ -88,11 +88,13 @@ jQuery(document).on('click', '.page-numbers', function (e) {
 
     let operator = '';
 
-    if ($('#future-events').hasClass('text-muted')) {
-        operator = $('#past-events').attr('value');
-    } else {
-        operator = $('#future-events').attr('value');
-    }
+    // if ($('#future-events').hasClass('text-muted')) {
+    //     operator = $('#past-events').attr('value');
+    // } else {
+    //     operator = $('#future-events').attr('value');
+    // }
+
+    operator = '<';
 
     $.ajax({
         beforeSend: function () {
