@@ -82,6 +82,14 @@ jQuery(document).on('click', '.page-numbers', function (e) {
 
     var page = $(this).html();
 
+    if (!jQuery.isNumeric(page)){
+        if ($(this).hasClass('next')){
+            page = Number($('.current').html()) + 1;
+        }else{
+            page = Number($('.current').html()) - 1;;
+        }
+    }
+
     let slug = $("#slug").attr('data-slug');
     var template = getTemplate();
 

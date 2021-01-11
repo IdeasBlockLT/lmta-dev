@@ -82,19 +82,19 @@ jQuery(document).on('click', '.page-numbers', function (e) {
 
     var page = $(this).html();
 
+    if (!jQuery.isNumeric(page)){
+        if ($(this).hasClass('next')){
+            page = Number($('.current').html()) + 1;
+        }else{
+            page = Number($('.current').html()) - 1;;
+        }
+    }
+
     let slug = $("#slug").attr('data-slug');
     var template = getTemplate();
     var order = 'DESC';
 
-    let operator = '';
-
-    // if ($('#future-events').hasClass('text-muted')) {
-    //     operator = $('#past-events').attr('value');
-    // } else {
-    //     operator = $('#future-events').attr('value');
-    // }
-
-    operator = '<';
+    let operator = '<';
 
     $.ajax({
         beforeSend: function () {
