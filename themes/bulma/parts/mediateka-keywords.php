@@ -1,28 +1,23 @@
 <?php
-$categories = get_categories([
+$getCategories = get_categories([
     'hide_empty' => 0,
 ]);
-$getParentCategories = [];
-$parentNames = [];
-foreach ($categories as $item) {
-    if ($item->parent == 0) {
-        array_push($getParentCategories, [$item->term_id]);
-        $name = [$item->term_id => $item->name];
-        $parentNames = $parentNames + $name;
-    }
-}
 
-$results = [];
-foreach ($parentNames as $key => $parentName) {
-    foreach ($categories as $category) {
-        if ($category->term_id !== $key && $category->parent === $key) {
-            array_push($results, [$parentName => $category->name]);
-        }
+//Forming array [fatherCat => childCat]
+$categories = array_map(function ($category){
+    if ($category->parent !== 0){
+        $fatherCategory = get_term($category->parent, 'category');
+        return [$fatherCategory->name => $category->name];
     }
-}
+}, $getCategories);
+
+//Removing empty
+$categories = array_filter($categories, function ($category){
+    return !empty($category);
+});
 
 $processed = array();
-foreach ($results as $subarr) {
+foreach ($categories as $subarr) {
     foreach ($subarr as $id => $value) {
         if (!isset($processed[$id])) {
             $processed[$id] = array();
@@ -30,9 +25,7 @@ foreach ($results as $subarr) {
         $processed[$id][] = $value;
     }
 }
-
 ?>
-<!-- Pagal formata -->
 <div class="row mb-5 mt-5">
     <div class="col-12 mx-auto mt-3">
         <?php foreach ($processed as $key => $item): ?>
@@ -53,4 +46,3 @@ foreach ($results as $subarr) {
         <?php endforeach; ?>
     </div>
 </div>
-

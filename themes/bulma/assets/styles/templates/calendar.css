@@ -10,6 +10,57 @@
     url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
 }
 
+.card{
+	height:100%;
+}
+
+.image-container{
+    height: 225px;
+    width: 405px;
+}
+.image-container-100{
+    height: auto;
+    width: 100%;
+}
+
+.card-body{
+	flex:none;
+}
+
+.center-image{
+	display:block;
+	margin:auto;
+}
+
+.hr-container{
+    height: auto;
+    /*position: absolute;*/
+	width:100%;
+	bottom:0px;
+}
+
+.hr-align{
+/*     position: absolute; */
+/*     bottom: 10px; */
+    width: 100%;
+}
+
+.button-align{
+    /*position: absolute;*/
+    bottom: 20px;
+	width: 40%;
+	margin-bottom: 30px!important;
+}
+
+.button-container{
+    position:relative;
+    /*height:100%;*/
+	display: flex;
+  	justify-content: flex-end;
+  	flex-direction: column;
+}
+
+
 input[value='1']{
     font-family: "FontAwesome", 'sans-serif';
     content: "\f004";
@@ -30,21 +81,47 @@ input[value='1']{
 }
 
 .custom-image-horizontal{
-    height: 225px;
-    width: auto;
+    height: auto;
+    width: 100%;
     object-fit: cover;
 }
 @media (min-width: 1440px) {
     .custom-size {
         width: 90%;
         margin: 0 auto;
+        height: 100%;
     }
 }
 
 .custom-image-vertical{
-    width: 450px;
-    height: 300px;
-    object-fit: cover;
+    width: 400px;
+    height: 200px;
+    object-fit: fill;
+}
+@media (min-width: 1440px) {
+    .custom-size {
+        width: 90%;
+        margin: 0 auto;
+        height: 100%;
+    }
+    .custom-image-vertical{
+        width: 450px;
+        height: 200px;
+        object-fit: fill;
+    }
+}
+@media (min-width: 1680px) {
+    .custom-size {
+        width: 90%;
+        margin: 0 auto;
+        height: 100%;
+    }
+    .custom-image-vertical{
+        /*width: auto;*/
+        width: 500px;
+        height: 250px;
+        object-fit: fill;
+    }
 }
 #calendar-posts{
     border: 2px solid green;
@@ -71,14 +148,14 @@ input[value='1']{
 .custom-borders__one_column{
     border: none;
     /*border-top: 1px solid rgba(0,0,0,.125);*/
-    border-bottom: 1px solid rgba(0,0,0,.125);
+    /*border-bottom: 1px solid rgba(0,0,0,.125);*/
 }
 .border-remove{
     border: none;
 }
 
 .custom__card-body{
-    padding: 1.25rem 1.25rem 0rem 1.25rem!important;
+    padding: 0rem 1.25rem 0rem 1.25rem!important;
 }
 
 #future-events, #past-events{
@@ -166,5 +243,13 @@ div#loader {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+.current{
+    background-color: #5797fb!important;
+    border-radius: 25px;
+    padding: 5px 8px!important;
+    color: white!important;
+    /*box-shadow: 1px 1px rgba(113, 113, 113, 0.7);*/
 }
 

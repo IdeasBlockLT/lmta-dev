@@ -1,3 +1,9 @@
+.footer-default{
+    /*to center the footer even with floating objects before like with woocommerce elements*/
+    display: table; 
+    margin: 0 auto;
+}
+
 .custom-footer{
     display: flex;
     align-items: center;

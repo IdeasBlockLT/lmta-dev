@@ -1,0 +1,3 @@
+Resourcespace metadata field IDs
+title = 8
+caption = 18

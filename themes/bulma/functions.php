@@ -1,25 +1,23 @@
 <?php
 //Global functions
 include('includes.php');
-include('functions/resourcespace/endpoints.php');
-include('functions/resourcespace/test.php');
 
 //base
 include('functions/base/menus.php');
 include('functions/base/widgets.php');
-include('functions/classes/footer-widget.php');
 include('functions/classes/follow-widget.php');
+include('functions/classes/contact-widget.php');
 
 //resourcespace
 include('functions/resourcespace/ResourceSpaceController.php');
 include('functions/resourcespace/resourcespace-api.php');
 
+// TODO this probably can have a better place. Becuase here is called many times, isn't it?
 // LMTA request
-//include('functions/resourcespace/LmtaRequest.php');
+include('functions/resourcespace/LmtaRequest.php');
 
 //lang
 include('lang/lt.php');
-
 
 require_once('includes.php');
 require_once('navwalker/class-wp-bootstrap-navwalker.php');
@@ -31,13 +29,32 @@ function lmta_theme_support()
     add_image_size('news-large', 790, 380);
     add_image_size('news-popular', 300, 150);
     add_action('wp_enqueue_scripts', 'custom_js');
+
 }
 
 add_action('after_setup_theme', 'lmta_theme_support');
+// add_filter('jpeg_quality', function($arg){return 100;});
+
+// well-known filter to change JPG quality:
+add_filter( 'jpeg_quality', function( $arg ){ return 100; } );
+
+// lesser-known filter to change quality for any image type:
+add_filter( 'wp_editor_set_quality', 'any_image_quality', 10, 2 );
+add_filter( 'jpeg_quality', 'any_image_quality' );
+
+function any_image_quality( $default_quality, $mime_type = NULL ) {
+  // you could do if ( 'image/png' == $mime_type ) here if you want to be specific
+  return 100;
+}
+
+
+
+
+// add_filter('jpeg_quality', function($arg){return 100;});
+add_filter( 'wp_editor_set_quality', function($arg){return 100;} );
 
 function arphabet_widgets_init()
 {
-
     register_sidebar(array(
         'name' => 'Home right sidebar',
         'id' => 'home_right_1',
@@ -48,7 +65,7 @@ function arphabet_widgets_init()
     ));
 }
 
-//Excerpt text to be max 30 characters
+//Excerpt text to be max x words
 function custom_excerpt_length()
 {
     return 30;
@@ -56,25 +73,15 @@ function custom_excerpt_length()
 
 add_filter('excerpt_length', 'custom_excerpt_length');
 
-const FIND_MORE = 'Skaityti daugiau';
-//pll_register_string(strtolower(FIND_MORE), FIND_MORE);
+// Filter for woocommerce translation:
+add_filter( 'woocommerce_get_myaccount_page_permalink', function($url){
+	return get_permalink(pll_get_post(get_option( 'woocommerce_myaccount_page_id' )));
+});
 
-//height:150px;
-//display: flex;
-//align-items: flex-end
-//function custom_excerpt_more()
-//{
-//    $current_lang = pll_current_language();
-//    $trans = pll_translate_string(FIND_MORE, $current_lang);
-//    return '<div><br><a href="' . get_the_permalink() . '" class="btn btn-light mt-3 custom-more hover-blue__white"> ' . strtoupper($trans) . ' </a></div>';
-//}
-
-//On empty showing ... after excerpt
-function custom_excerpt_more()
-{
-    return ;
+function new_excerpt_more( $more ) {
+    return '...';
 }
-add_filter('excerpt_more', 'custom_excerpt_more');
+add_filter('excerpt_more', 'new_excerpt_more');
 
 //add_action('save_post', 'create_resource');
 
@@ -87,11 +94,6 @@ add_filter('excerpt_more', 'custom_excerpt_more');
      $newResource->createResource();
 
  }
-
-//add_filter('manage_post_posts_columns', function($columns) {
-//    unset($columns['date']);
-//    return $columns;
-//});
 
 // Register Custom Navigation Walker
 require_once('parts/wp_bootstrap_pagination.php');
@@ -121,67 +123,121 @@ function is_paginated() {
     }
 }
 
+/**
+ * Filter projects for ajax
+ */
 function filter_projects() {
-    $today = date("Y-m-d H:i");
 
-    $ajaxposts = new WP_QUERY([
-        'orderby' => 'streamDate',
-        'order' => 'DESC',
-        'meta_key' => 'streamDate',
-        'posts_per_page' => 9,
-        'meta_query' => [
-            'key' => 'streamDate',
-            'meta-value' => 'streamDate',
-            'value' => $today,
-            'compare' => $_POST['events'],//>= <=
-//            'type' => 'CHAR',
-        ]
-    ]);
+    // $today = date("Y-m-d H:i");
+    $today = date("Y-m-d H:i", strtotime('-3 hours'));
+//    $paged = ( get_query_var('paged') ) ? get_query_var( 'paged' ) : 1;
+    $paged    = $_POST['page']     ? $_POST['page']     : 1;
+    $compare  = $_POST['events']   ? $_POST['events']   : '>=';
+    $relation = $_POST['relation'] ? $_POST['relation'] : 'OR';
+	$order    = $_POST['order']    ? $_POST['order']    : "DESC";
+    $mediateka= $_POST['mediateka']? $_POST['mediateka']: "add_to_mediateka";
 
+    $_SESSION['template'] = $_POST['template'];
     #Choosing the template
     if($_POST['template'] == 'one-column'){
         $template = 'parts/one-column';
+        $postPerPage = 6;
     }else{
         $template = 'parts/three-columns';
+        $postPerPage = 9;
     }
 
-    $response = '';
-    $count = $ajaxposts->found_posts;
+    $args = [
+        'orderby'        => 'streamDate',
+        'order'          => $order,
+        'meta_key'       => 'streamDate',
+        'post_status'    => 'publish',
+        'posts_per_page' => $postPerPage,
+        'paged'          => $paged,
+        'page'           => $paged,
+        'meta_query'     => array(
+            'relation' => $relation,
+            array(
+                'key'        => 'streamDate',
+                'meta-value' => 'streamDate',
+                'value'      => $today,
+                'compare'    => $compare,
+                'type'       => 'DATETIME',
+            ),
+            array(
+                'key'   => $mediateka,
+				'value' => true,
+				'type'  => 'BOOLEAN',
+            ),
+        ),
+    ];
 
-    if ($ajaxposts->have_posts()) {
-        $x = 0;
-        if ($template == 'parts/one-column') {
-            while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
-                $x++;
-                if ($x == $count) {
-                    $response .= get_template_part($template, 'border', ['border-adjust' => 'border-remove']);
-                    break;
-                }
-                if ($x === 1){
-                    $response .= get_template_part($template, 'padding', ['padding-adjust' => 'true']);
-                }else {
-                    $response .= get_template_part($template);
-                }
-            endwhile;
-        } else {
-            while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
-                $x++;
-                if ($x + 2 >= $count) {
-                    $response .= get_template_part($template, 'border', ['border-adjust' => 'border-remove']);
-                }else {
-                    $response .= get_template_part($template);
-                }
-            endwhile;
-        }
-    } else {
-        $response = 'empty';
-    }
-    $count = $ajaxposts->found_posts;
-    $_SESSION['counter'] = $count;
-    echo $response;
-    exit;
+    $slug = $_POST['slug'];
+    echo get_template_part($template, null, array("args"=> $args, 'slug'=> $slug));
+    exit();
 }
 add_action('wp_ajax_filter_projects', 'filter_projects');
 add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');
 
 
+function improved_trim_excerpt($text) { // Fakes an excerpt if needed
+  global $post;
+  if ( '' == $text ) {
+    $text = get_the_content('');
+    $text = apply_filters('the_content', $text);
+    $text = str_replace('\]\]\>', ']]&gt;', $text);
+    $text = strip_tags($text, '<p>');
+    $excerpt_length = 30;
+    $words = explode(' ', $text, $excerpt_length + 1);
+    if (count($words)> $excerpt_length) {
+      array_pop($words);
+      $text = implode(' ', $words);
+      $text = rtrim($text, '.');
+      $text .= '...';
+    }
+  }
+return $text;
+}
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'improved_trim_excerpt');
+
+
+function register_fields()
+{
+    register_setting('general', 'youtube_link_field', 'esc_attr');
+    add_settings_field('youtube_link_field', '<label for="youtube_link_field">'.__('Default Youtube Link' , 'youtube_link_field' ).'</label>' , 'print_custom_field', 'general');
+}
+
+function print_custom_field()
+{
+    $value = get_option( 'youtube_link_field', '' );
+    echo '<input type="text" id="youtube_link_field" name="youtube_link_field" value="' . $value . '" />';
+}
+
+add_filter('admin_init', 'register_fields');
+
+
+// add deletion for woocommerce user
+// // Delete Account Functionality 
+require_once(ABSPATH.'wp-admin/includes/user.php');
+add_action( 'woocommerce_after_my_account', 'woo_delete_account_button' ); 
+function woo_delete_account_button() { 
+	$delete_url = add_query_arg( 'wc-api', 'wc-delete-account', home_url( '/' ) ); 
+	$delete_url = wp_nonce_url( $delete_url, 'wc_delete_user' ); 
+	?> 
+	<?php if (! current_user_can( 'manage_options' )):?>
+			<a href="<?php echo $delete_url; ?>" class="button">Delete Account</a> 
+	<?php endif; ?>
+	<?php 
+} 
+add_action( 'woocommerce_api_' . strtolower( 'wc-delete-account' ), 'woo_handle_account_delete' ); 
+
+function woo_handle_account_delete() { 
+	if ( ! current_user_can( 'manage_options' ) ) {
+		$security_check_result = check_admin_referer( 'wc_delete_user' ); 
+		if ( $security_check_result ) { 
+			wp_delete_user( get_current_user_id() ); 
+			wp_redirect( home_url() ); die(); 
+		} 
+	} 
+}

@@ -7,6 +7,16 @@
     }
 }
 
+@media (max-width: 576px) {
+    .border-sm-top-invert {
+        border-top: 1px solid #e3e7eb !important;
+        padding-top: 15px;
+    }
+    .w-sm-100{
+        width: 100%!important;
+    }
+}
+
 @media (min-width: 768px) {
     .border-md-top {
         border-top: 1px solid #e3e7eb !important;

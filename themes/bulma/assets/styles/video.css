@@ -22,3 +22,26 @@
 }
 
 /*codepen*/
+.wrap1 {
+    width: 1200px;
+    height: 650px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.frame {
+    width: 1200px;
+    height: 1800px;
+    border: 0;
+    -ms-transform: scale(0.99);
+    -moz-transform: scale(0.99);
+    -o-transform: scale(0.99);
+    -webkit-transform: scale(0.99);
+    transform: scale(0.99);
+
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}

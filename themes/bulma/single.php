@@ -2,40 +2,104 @@
     $resource = new ResourceSpaceController();
 
     // Get Id of this post and find out in RS if there is an image 
-    $ID = get_the_ID();
-    // $meta = get_post_meta($ID)["mediateka_title"][0];
-    // $url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
-    // $data = $resource->createResource($url);;
-    // dd($data[0]["file_extension"]);
-    // dd("a ver : ".$data);
+    $ID    = get_the_ID();
+    $meta  = get_post_meta($ID);
 
+    if(isset($meta["mediateka_title"]))
+    {
+        $title         = $meta["mediateka_title"][0];
+        $resource_data = $resource->doSearch($title);
+    }
 
-//    if ($resource->hasVideo())
-//    {
-//        $cover = $resource->takeVideo();
-//    }else{
-//        $cover = $resource->takePreviewImage();
-//    }
+    $date  = isset($meta["date"])  ?  $meta["date"]  : null;
+    $price = isset($meta["price"]) ?  $meta["price"] : null;
+
+    $resource_extension =  isset($resource_data[0]["file_extension"]) ? $resource_data[0]["file_extension"] : null ;
+    $resource_id        =  isset($resource_data[0]["ref"])            ? $resource_data[0]["ref"]            : null ;
+
+    if (isset($resource_id) && isset($resource_extension))
+    {
+        $resource_url = $resource->getResourcePathV90($resource_id, $resource_extension);
+    }
+
+    $cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $ID ), 'single-post-thumbnail' )[0];
+
+    $array_images = array('jpg','gif','png');
+    $array_video  = array('mp4');
 ?>
 
 <?php get_template_part('parts/head') ?>
 <?php get_template_part('parts/header') ?>
-<?php get_template_part('parts/banner') ?>
+<?php get_template_part('parts/banner', 'banner', ['size' => 'size2']); ?>
 <div class="container w-90 mx-auto">
     <div class="row mb-0 mb-md-5 pb-5 border-bottom">
-        <div class="col-md-7 col-7 themed-grid-col mr-3">
-            <?php get_template_part('parts/video') ?>
+        <div class="single-video-col col-md-7 col-7 themed-grid-col mr-3">
+            
+            
+            <!-- WOOCOMMERCE PAY FOR POST, IF USER HAS PAID OR HAS ACCESS -->
+            <?php if(Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
+                <?php if( isset($resource_url) ) : ?>
+
+                    <!-- Image, use cover -->
+                    <?php if ( (isset($resource_extension))  && in_array($resource_extension,$array_images) ): ?>
+
+                        <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
+
+                    <!-- Video, use resource from RS -->
+                    <?php elseif( (isset($resource_extension))  && in_array($resource_extension, $array_video)) : ?>
+
+                        <?php //get_template_part('parts/video-only', null, array(   'url'   => $resource_url)  ) ?>
+                        <?php get_template_part('parts/custom-player', null, array(   'url'   => $resource_url)  ) ?>
+
+                    <!-- Nothing in RS, use cover image -->
+                    <?php else:?>
+
+                        <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
+                    
+                    <?php endif; ?>
+
+                <!-- Nothing in RS, use cover image -->
+                <?php else:?>
+
+                    <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
+                
+                <?php endif; ?>
+
+            
+            <?php else:?>
+				<!-- User has no access, show only cover -->
+                <?php get_template_part('parts/image-only', null, array(   'url'   => $cover_url)  ) ?>
+            <?php endif?>    
+            
         </div>
+
+        <script> console.log("woocommerce access: <?php echo Woocommerce_Pay_Per_Post_Helper::has_access(); ?>" );</script>
+        <?php if(!Woocommerce_Pay_Per_Post_Helper::has_access()): ?>
+                <?php echo Woocommerce_Pay_Per_Post_Helper::get_no_access_content(); ?>
+        <?php endif; ?> 
+        
+
         <div class="col-md-4 col-4 themed-grid-col border-left">
-            <div class="pb-4">
+            <div class="single-title-col pb-4">
+                
                 <small><?php the_field('date'); ?></small>
+                
                 <h4>
                     <strong><?= the_title(); ?></strong>
                 </h4>
-                <button type="button" class="btn btn-buy">Mokėti</button>
+                
             </div>
         </div>
     </div>
+	
+	<!-- 	FOR MOBILE -->
+	<div class="single-title-below">
+		<small><?php the_field('date'); ?></small>
+		<h4>
+			<strong><?= the_title(); ?></strong>
+		</h4>
+	</div>
+	
     <div class="row mb-5 pb-5 mt-5 pt-3 border-bottom">
         <div class="columncontent__single p-2">
             <?php the_content(); ?>
@@ -43,7 +107,7 @@
     </div>
     <div class="row mt-5 pt-3">
         <div class="col border-right">
-            <h3 class="font-weight-bold">Kurejai / atlikejai</h3>
+            <h3 class="font-weight-bold"><?php pll_e('Kūrėjai / atlikėjai'); ?></h3>
             <div>
                 <?php if (get_field('atlikejai')): ?>
                     <?php the_field('atlikejai') ?>
@@ -51,14 +115,14 @@
             </div>
         </div>
         <div class="col">
-            <h3 class="font-weight-bold">Programa</h3>
+            <h3 class="font-weight-bold"><?php pll_e('Programa'); ?></h3>
             <?php if (get_field('programa')): ?>
                 <?php the_field('programa') ?>
             <?php endif; ?>
         </div>
     </div>
-    <?php get_template_part('parts/banner-single') ?>
-    <?php get_template_part('parts/banner-words') ?>
+    <?php //get_template_part('parts/banner-single') ?>
+    <?php //get_template_part('parts/banner-words') ?>
 </div>
 
 

@@ -1,15 +1,19 @@
-<footer class="container w-90 mt-3 p-2 mx-auto pt-4">
-<?php get_template_part('parts/footer-menu') ?>
+<footer class="footer-default container w-90 mt-4 p-2 mx-auto pt-4 border-top">
+    <?php get_template_part('parts/footer-menu') ?>
     <div class="row mx-auto pt-3">
         <div class="col custom-footer">
-            <?php echo '&copy ' . get_the_date('Y');?>
+            <span style="padding-right: 5px!important;">
+            <?php echo (" ".'&copy '.date("Y")); ?>
+            <?php echo (pll_e('Teises')); ?>
+            </span>
             <?php if (is_active_sidebar('footer')): ?>
                 <?php dynamic_sidebar('footer'); ?>
                 <?php bloginfo('name'); ?>
+                <?php echo get_the_date('Y'); ?>
             <?php endif ?>
-<!--            <span class="horizontal-line">text</span>-->
         </div>
     </div>
+    <?php get_template_part('parts/cookie'); ?>
 </footer>
 </div>
 </main>

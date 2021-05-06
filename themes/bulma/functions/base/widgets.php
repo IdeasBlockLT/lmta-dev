@@ -3,16 +3,7 @@
 function initWidgets($id)
 {
     register_sidebar(array(
-        'name' => 'Sidebar',
-        'id' => 'sidebar',
-        'before_widget' => '<div class="side-widget">',
-        'after_widget' => '</div>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>',
-    ));
-
-    register_sidebar(array(
-        'name' => 'contact',
+        'name' => 'Contact',
         'id' => 'contact',
         'before_widget' => '<div id="contact-widget">',
         'after_widget' => '</div>',
@@ -21,7 +12,7 @@ function initWidgets($id)
     ));
 
     register_sidebar(array(
-        'name' => 'follow',
+        'name' => 'Follow',
         'id' => 'follow',
         'before_widget' => '<div class="side-widget">',
         'after_widget' => '</div>',
@@ -31,7 +22,7 @@ function initWidgets($id)
 
 
     register_sidebar(array(
-        'name' => 'footer',
+        'name' => 'Footer',
         'id' => 'footer',
 //        'before_widget' => '<div class="side-widget">',
 //        'after_widget' => '</div>',

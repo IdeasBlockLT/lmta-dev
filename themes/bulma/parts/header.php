@@ -33,7 +33,7 @@ if (!isset($args['placeholder'])) {
 }
 ?>
 
-<body class="color-<?= $backgroundColor ?>">
+<body class="color-<?= $backgroundColor ?>"  <?php echo body_class();?> >
 <main>
 <header>
     <!--Order class in divs-->

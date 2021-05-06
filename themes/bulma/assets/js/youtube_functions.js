@@ -1,10 +1,9 @@
-
 /**
  * Need to wait until Youtube Player is ready!
  */
 var player = null;
 window.YT.ready(function() {
-    console.log("API");
+
     player = new window.YT.Player("player", {
     height: "390",
     width: "640",
@@ -20,33 +19,50 @@ window.YT.ready(function() {
 
     var title          = document.getElementsByClassName("first-post")[0];
     var link           = document.getElementsByClassName("first-post-link")[0];
-    var first_post_div = document.getElementsByClassName("first-post-div")[0];
-    var excerpt        = first_post_div.getElementsByTagName("p")[1];
-    var button         = first_post_div.getElementsByClassName("btn")[0];
+    var excerpt        = document.getElementsByClassName("first-post-excerpt")[0];
+    var button         = document.getElementsByClassName("first-btn-a")[0];
+    var date           = document.getElementsByClassName("first-date")[0];
+
+    // date.style.display = "none";
+    excerpt.style.display = "none";
     
     var videoData = player.getVideoData();
-    console.log(videoData);
+
     // TODO: here we need to catch the title from the youtube link with API
-    var videoTitle = videoData['title'];
-    title.innerHTML = "Live TV!- "+ videoTitle;
-    link.href = "https://www.youtube.com/watch?v="+videoData['video_id'];
-    button.href = "https://www.youtube.com/watch?v="+videoData['video_id'];
-    excerpt.innerHTML = ""; 
+//     var videoTitle = videoData['title'];
+//     title.innerHTML = "Live TV!- "+ videoTitle;
+//     link.href   = "https://www.youtube.com/watch?v="+videoData['video_id'];
+//     button.href = "https://www.youtube.com/watch?v="+videoData['video_id'];
+//     excerpt.innerHTML = ""; 
+//     date.innerHTML    = "";
 
   }
 
 function error_video(event) {
     
-    document.cookie = "is_live=0";
-    document.getElementById('player').src ='https://resourcespace.lmta.lt/filestore/1/6/2_85e8885fe9b2ec5/162_afefd9e4c5116d0.mp4';
+    var image_url    = getCookie("first_image");
+    // document.getElementById('player').src ='https://resourcespace.lmta.lt/filestore/1/6/2_85e8885fe9b2ec5/162_afefd9e4c5116d0.mp4';
+    document.getElementById('player').src = image_url;
 
     var title       = document.getElementsByClassName("first-post")[0];
     var link        = document.getElementsByClassName("first-post-link")[0];
     var excerpt     = document.getElementsByClassName("first-post-excerpt")[0];
+    var button      = document.getElementsByClassName("first-btn-a")[0];
+    var date        = document.getElementsByClassName("first-date")[0];
+
+    // date.style.display = "block";
+    excerpt.style.display = "block";
     
     var title_string = getCookie("first_title");
+    var permalink    = getCookie("first_permalink");
+    var the_excerpt  = getCookie("first_post_excerpt");
+    var the_date     = getCookie("first_date");
 
-    title.innerHTML = title_string;
+    link.href        = permalink;    
+    title.innerHTML  = title_string;
+    button.href      = permalink;
+    excerpt.innerHTML= the_excerpt;
+    date.innerHTML   = the_date;
  
 
 }

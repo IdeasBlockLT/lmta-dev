@@ -64,9 +64,9 @@ class resourcespace
         if( isset($search_params['param2']) ){
             $query_options['param2'] = $search_params['param2'];
         }
-        $query_options['param5']='10';
+        $query_options['param5'] = '10';
         $query_options['param8'] = 'thm';
-        $query_options['param9']='jpg';
+        $query_options['param9'] = 'jpg';
         return $this->execute_query($query_options);
     }
 

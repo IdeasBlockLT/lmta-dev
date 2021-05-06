@@ -1,16 +1,21 @@
 <!--3 item row-->
 <div id="three-columns" class="row">
     <!--3 items row-->
-    <?php $posts = new WP_Query($args); ?>
+    <?php 
+        $args = $args['args'];
+        $posts = new WP_Query($args); 
+    ?>
     <?php if ($posts): ?>
         <?php $x = 0; ?>
         <?php while ($posts->have_posts()): $posts->the_post(); ?>
             <?php $x++; ?>
             <div class="col-md-6 col-lg-4 mx-auto border-right pr-3 pl-3 qa">
                 <div class="card border-0 mb-4 custom-size" style="background-color: #5797fb00">
+                    <a href="<?php echo get_the_permalink() ?>">
                     <img class="bd-placeholder-img card-img-top custom-image-horizontal"
-                         src="<?php echo get_the_post_thumbnail_url(null, 'medium'); ?>"
+                         src="<?php echo get_the_post_thumbnail_url(null, 'post-thumbnail'); ?>"
                          alt="">
+                    </a>
                     <div class="mt-3 mt-md-4 pt-md-2 hr-control full-card">
                         <small><?php the_field('date'); ?></small>
                         <h5>
@@ -19,6 +24,9 @@
                             </a>
                         </h5>
                         <p class="card-text"><?= the_excerpt(); ?></p>
+                        <a href="<?php echo get_the_permalink() ?>" class="mt-auto btn btn-light custom-more hover-blue__white">
+                            <?php echo strtoupper(pll_e('Skaityti daugiau')); ?>
+                        </a>
                     </div>
                     <?php if ($x < 7): ?>
                         <hr>
@@ -28,14 +36,14 @@
                 
             </div>
         <?php endwhile; ?>
-        <?php echo paginate_links($posts); ?>
+        <?php //echo paginate_links($posts); ?>
         <?php
-        if (function_exists('wp_bootstrap_pagination'))
-            wp_bootstrap_pagination($posts);
+        //if (function_exists('wp_bootstrap_pagination'))
+            //wp_bootstrap_pagination($posts);
         ?>
-        <h2>pagination place</h2>
+        <!-- <h2>pagination place</h2> -->
     <?php else: ?>
-        <?php echo 'hello'; ?>
+        <?php //echo 'hello'; ?>
         <!--        --><?php //paginate_links($args); ?>
     <?php endif; ?>
 </div>

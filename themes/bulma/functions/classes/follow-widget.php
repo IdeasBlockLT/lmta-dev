@@ -26,59 +26,54 @@ class follow_widget extends WP_Widget
 
     public function widget($args, $instance)
     {
+        if (is_page_template('template-mediateka.php')){
+            $fontColor = 'black hover-white';
+        }else{
+            $fontColor = 'hover-blue';
+        }
 
         echo $args['before_widget'];
 
-//        if ( ! empty( $instance['title'] ) ) {
-//            echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-//        }
-
         echo '<div class="textwidget">';
         ?>
-        <h3><?= $instance['title'] ?></h3>
+
+
+        <h3><?php echo pll_e('Sekite mus')?></h3>
         <div>
-            <a class="custom-a pr-2 hover-blue" href="<?= $instance['facebook'] ?>">Facebook</a>
+
+            <a class="custom-a pr-2 <?php echo $fontColor; ?>" href="<?= $instance['facebook'] ?>" target="_blank">Facebook&nbsp;</a>
             <span> | </span>
-            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['linkedin'] ?>">Linkedin</a>
+            <a class="custom-a ml-2 pl-2 pr-2 <?php echo $fontColor; ?>" href="<?= $instance['instagram'] ?>" target="_blank">Instagram&nbsp;</a>
+
             <span> | </span>
-            <a class="custom-a ml-2 pl-2 pr-2 hover-blue" href="<?= $instance['youtube'] ?>">Youtube  </a>
+            <a class="custom-a ml-2 pl-2 pr-2 <?php echo $fontColor; ?>" href="<?= $instance['youtube'] ?>" target="_blank">Youtube</a>
         </div>
 
         <?php
 
-//        echo esc_html__($instance['text'], 'text_domain');
         echo '</div>';
         echo $args['after_widget'];
-
     }
-
 
     // Widget Backend
     public function form($instance)
     {
-        if (!isset($instance['title'])) {
-            $instance['title'] = 'title';
-        }
-
         if (!isset($instance['facebook'])) {
             $instance['facebook'] = 'facebook';
         }
 
-        if (!isset($instance['linkedin'])) {
-            $instance['linkedin'] = 'linkedin';
+        if (!isset($instance['instagram'])) {
+            $instance['instagram'] = 'instagram';
         }
 
         if (!isset($instance['youtube'])) {
             $instance['youtube'] = 'youtube';
         }
 
-        $title = 'Set up your follow links';
+        $title = 'Set up the follow us links.';
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>"
-                   name="<?php echo $this->get_field_name('title'); ?>" type="text"
-                   value="<?php echo $instance['title']; ?>" placeholder="Follow"/>
+            <h4><?php echo $title; ?></h4>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('facebook'); ?>"><?php _e('Facebook:'); ?></label>
@@ -87,10 +82,16 @@ class follow_widget extends WP_Widget
                    value="<?php echo $instance['facebook']; ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('linkedin'); ?>"><?php _e('Linkedin:'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('linkedin'); ?>"
-                   name="<?php echo $this->get_field_name('linkedin'); ?>" type="text"
-                   value="<?php echo $instance['linkedin']; ?>"/>
+            <label for="<?php echo $this->get_field_id('instagram'); ?>"><?php _e('Instagram:'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('instagram'); ?>"
+                   name="<?php echo $this->get_field_name('instagram'); ?>" type="text"
+                   value="<?php echo $instance['instagram']; ?>"/>
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('youtube'); ?>"><?php _e('Youtube:'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('youtube'); ?>"
+                   name="<?php echo $this->get_field_name('youtube'); ?>" type="text"
+                   value="<?php echo $instance['youtube']; ?>"/>
         </p>
         <?php
     }
@@ -101,12 +102,12 @@ class follow_widget extends WP_Widget
         $instance = array();
 
         $instance['facebook'] = (!empty($new_instance['facebook'])) ? $new_instance['facebook'] : '';
-        $instance['linkedin'] = (!empty($new_instance['linkedin'])) ? $new_instance['linkedin'] : '';
-        $instance['title'] = (!empty($new_instance['title'])) ? $new_instance['title'] : '';
+        $instance['instagram'] = (!empty($new_instance['instagram'])) ? $new_instance['instagram'] : '';
+        $instance['youtube']    = (!empty($new_instance['youtube'])) ? $new_instance['youtube'] : '';
 
         return $instance;
     }
-
+    
 }
 
 function load_follow_widget()
