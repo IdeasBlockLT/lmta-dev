@@ -32,28 +32,12 @@ $args = [
 $the_page = sanitize_post($GLOBALS['wp_the_query']->get_queried_object());
 $slug = $the_page->post_name;
 
+get_template_part('parts/head');
+get_template_part('parts/header');
+get_template_part('parts/banner', 'banner', ['size' => 'size2']);
 ?>
-<?php get_template_part('parts/head') ?>
-<?php get_template_part('parts/header') ?>
-<?php get_template_part('parts/banner', 'banner', ['size' => 'size2']); ?>
-<?php //get_template_part('parts/header', 'custom-nav', [
-//    'background-color' => 'blue',
-//    'font-color' => 'white',
-//    'input-color' => 'blue',
-//]) ?>
-<?php //get_template_part('parts/banner', 'banner', ['size' => 'size2',
-//    'background-color' => 'blue',
-//    'font-color' => 'white',
-//    'input-color' => 'blue'
-//]) ?>
-<style>
-    .card {
-        /*background-color: #5797fb !important;*/
-    }
-</style>
 
 <div class="container w-90 mx-auto">
-    <!--     <div class="container w-90 mx-auto"> -->
     <div id="two-columns_busimi-iviki" class="row">
 
         <div class="col-md-6 mx-auto">
@@ -64,33 +48,23 @@ $slug = $the_page->post_name;
                 </h4>
             </div>
         </div>
-
         <?php get_template_part('parts/horizontal-vertical', null, array("one-line" => 'col')) ?>
-
         <!-- Image loader -->
         <div id="loader1" class="loader-container" style="display:none;">
             <div id="inside-loader" class="loader one"
                  style="display: none;"></div>
         </div>
-
-
     </div>
-
     <!--3 item column-->
     <div id="three-columns" class="row">
         <?php get_template_part('parts/three-columns', null, array("args" => $args)) ?>
     </div>
-
     <!--1 item column-->
     <div id="one-column" class="row mb-2" style="display: none">
         <?php get_template_part('parts/one-column', null, array("args" => $args)) ?>
     </div>
-
     <span id="slug" data-slug="<?php echo $slug; ?>"></span>
 </div>
 
-
 <?php get_footer(); ?>
-
-<script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/mediateka.js'; ?>"
-        type="module"></script>
+<script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/mediateka.js'; ?>" type="module"></script>
